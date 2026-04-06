@@ -288,11 +288,11 @@ textarea.custom-input { resize: vertical; min-height: 60px; }
         <span class="cat-count" id="count-content">0</span>
       </div>
       <div class="sidebar-divider"></div>
-      <div class="sidebar-heading">Monday visits</div>
-      <div class="cat-item" onclick="filterByCategory('monday', this)" data-cat="monday">
+      <div class="sidebar-heading">Classroom Observation</div>
+      <div class="cat-item" onclick="filterByCategory('observation', this)" data-cat="observation">
         <span class="cat-dot" style="background:#00237A"></span>
-        Monday Visit Tools
-        <span class="cat-count" id="count-monday">0</span>
+        Classroom Observation Tools
+        <span class="cat-count" id="count-observation">0</span>
       </div>
     </div>
   </div>
@@ -351,7 +351,7 @@ const CAT_COLORS = {
   'strategic': '#00237A',
   'supervision': '#FF4D00',
   'content': '#854F0B',
-  'monday': '#00237A'
+  'observation': '#00237A'
 };
 
 const CAT_BG = {
@@ -373,7 +373,7 @@ const CAT_ICONS = {
   'instructional-leadership':'&#128218;','data-driven':'&#128202;','improvement':'&#128736;',
   'coaching':'&#129309;','communication':'&#128172;','meetings':'&#128197;',
   'student-work':'&#128203;','pd':'&#127979;','operations':'&#9881;',
-  'strategic':'&#127919;','supervision':'&#128269;','content':'&#128218;','monday':'&#128197;'
+  'strategic':'&#127919;','supervision':'&#128269;','content':'&#128218;','observation':'&#128197;'
 };
 
 const PROMPTS = [
@@ -994,7 +994,7 @@ Lesson plan summary:
   // ─────────────────────────────────────────────
   // MONDAY VISIT TOOLS
   // ─────────────────────────────────────────────
-  {id:36, category:'monday', title:'Pre-Visit Look-For Generator (Principal — Out of Content Area)',
+  {id:36, category:'observation', title:'Pre-Visit Look-For Generator (Principal — Out of Content Area)',
    purpose:"Generate subject-specific look-fors for each TLF rubric category on the Region South observation form, based on the school's data focus and content area being observed.",
    roles:['principal','director','administrator'],
    aiTools:['chatgpt','claude'],
@@ -1028,7 +1028,7 @@ Specific standard or unit being taught (if known): [STANDARD OR UNIT]`,
    ]
   },
 
-  {id:37, category:'monday', title:'Pre-Visit Look-For Generator (Content Expert)',
+  {id:37, category:'observation', title:'Pre-Visit Look-For Generator (Content Expert)',
    purpose:"Generate deep, discipline-specific look-fors for a content expert observing in their own field, grounded in CA ELA, CA Math, or NGSS standards.",
    roles:['coordinator','administrator'],
    aiTools:['chatgpt','claude'],
@@ -1065,11 +1065,11 @@ Data context: [KEY DATA POINTS THAT DROVE THE CONTENT FOCUS]`,
    ]
   },
 
-  {id:38, category:'monday', title:'Monday Visit School-Level Prep (Principal Supervisor)',
-   purpose:"Prepare the Administrator of Instruction or Director for the Monday visit — generate a school-specific inquiry focus, questions for the principal, and observation priorities aligned to SLF Standard 3C.",
+  {id:38, category:'observation', title:'School Visit Prep (Principal Supervisor)',
+   purpose:"Prepare the Administrator of Instruction or Director for the school site visit — generate a school-specific inquiry focus, questions for the principal, and observation priorities aligned to SLF Standard 3C.",
    roles:['administrator','superintendent'],
    aiTools:['chatgpt','claude'],
-   promptTemplate:`You are an experienced principal supervisor preparing for a Monday morning school visit. Your role is to observe both classroom instruction (using the Region South Informal Classroom Observation Form) AND the principal's instructional leadership (using the LAUSD School Leadership Framework Standard 3C: Assesses the performance of all staff).
+   promptTemplate:`You are an experienced principal supervisor preparing for a school site visit. Your role is to observe both classroom instruction (using the Region South Informal Classroom Observation Form) AND the principal's instructional leadership (using the LAUSD School Leadership Framework Standard 3C: Assesses the performance of all staff).
 
 Based on the school data provided, generate:
 
@@ -1101,7 +1101,7 @@ Principal's current SLF growth area (if known): [SLF ELEMENT AND CURRENT LEVEL]`
    ]
   },
 
-  {id:39, category:'monday', title:'Observation Note Organizer',
+  {id:39, category:'observation', title:'Observation Note Organizer',
    purpose:"Transform raw observation notes from the Region South form into organized evidence aligned to each TLF rubric category, ready for debrief or MyPGS documentation.",
    roles:['principal','director','administrator','coordinator','superintendent'],
    aiTools:['chatgpt','claude'],
@@ -1133,7 +1133,7 @@ Raw observation notes:
    ]
   },
 
-  {id:40, category:'monday', title:'TLF Coaching Feedback Generator',
+  {id:40, category:'observation', title:'TLF Coaching Feedback Generator',
    purpose:"Generate specific, evidence-based coaching feedback for a teacher after an informal observation, tied to named TLF rubric elements and the Region South observation form look-fors.",
    roles:['principal','director','administrator','coordinator'],
    aiTools:['chatgpt','claude'],
@@ -1163,7 +1163,7 @@ Key context about the class (ELL population, lesson objective, student performan
    ]
   },
 
-  {id:41, category:'monday', title:'Post-Visit Debrief Synthesis (Superintendent / Administrator)',
+  {id:41, category:'observation', title:'Post-Visit Debrief Synthesis (Superintendent / Administrator)',
    purpose:"Synthesize observation data from multiple classrooms visited by the full region leadership team into a coherent school-level picture, organized for the formal debrief with the principal.",
    roles:['superintendent','administrator'],
    aiTools:['chatgpt','claude'],
@@ -1201,14 +1201,14 @@ Combined observation evidence from all team members:
    fields:[
      {key:'school', label:'School name', type:'input', ph:'e.g., Manual Arts High School'},
      {key:'principal', label:'Principal name', type:'input', ph:'e.g., Principal Gutierrez'},
-     {key:'date', label:'Date of visit', type:'input', ph:'e.g., Monday, April 7, 2026'},
+     {key:'date', label:'Date of visit', type:'input', ph:'e.g., April 7, 2026'},
      {key:'subject', label:'Content area focus', type:'input', ph:'e.g., ELA, Math, Science, or Mixed'},
      {key:'classrooms', label:'Number of classrooms observed (total across team)', type:'input', ph:'e.g., 9 classrooms'},
      {key:'notes', label:'Combined observation evidence from all team members', type:'textarea', ph:'Paste all observation notes collected by the region leadership team. Organize by room number or teacher name if possible. Include both what teachers were doing and what students were doing.'}
    ]
   },
 
-  {id:42, category:'monday', title:'MyPGS Observation Note Drafter',
+  {id:42, category:'observation', title:'MyPGS Observation Note Drafter',
    purpose:"Draft formal, evidence-based observation notes suitable for entry into MyPGS, aligned to TLF rubric elements and free of evaluative language.",
    roles:['principal','director','administrator'],
    aiTools:['chatgpt','claude'],
@@ -1233,7 +1233,7 @@ Raw observation notes:
 [PASTE YOUR NOTES]`,
    fields:[
      {key:'teacher', label:"Teacher name and assignment", type:'input', ph:"e.g., Ms. Flores — 10th grade ELA"},
-     {key:'date', label:"Date and period of observation", type:'input', ph:"e.g., Monday April 7, 2026, Period 2"},
+     {key:'date', label:"Date and period of observation", type:'input', ph:"e.g., April 7, 2026, Period 2"},
      {key:'objective', label:"Lesson objective (if posted or stated)", type:'input', ph:"e.g., Students will analyze how an author's point of view shapes the content of a text (RI.10.6)"},
      {key:'notes', label:"Your raw observation notes", type:'textarea', ph:"Paste everything you wrote during the observation — bullets, quotes, descriptions, anything. The AI will organize and formalize it."}
    ]
@@ -1291,7 +1291,7 @@ function applyFilters() {
 }
 
 function updateCounts() {
-  const allCats = ['all','instructional-leadership','data-driven','improvement','coaching','communication','meetings','student-work','pd','operations','strategic','supervision','content','monday'];
+  const allCats = ['all','instructional-leadership','data-driven','improvement','coaching','communication','meetings','student-work','pd','operations','strategic','supervision','content','observation'];
   allCats.forEach(cat => {
     const el = document.getElementById('count-' + cat);
     if (!el) return;
