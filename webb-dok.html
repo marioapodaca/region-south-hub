@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Webb's Depth of Knowledge &amp; Cognitive Rigor | Region South Instructional Resource Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Open Sans', sans-serif; font-size: 15px; line-height: 1.65; color: #1a1a2e; background: #f2f4f8; }
+
+/* ── HEADER ── */
+.site-header { background: #00237A; padding: 18px 40px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.header-left { display: flex; align-items: center; gap: 20px; }
+.site-header img { height: 44px; width: auto; }
+.header-title h1 { font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 700; color: #fff; line-height: 1.2; }
+.header-title p { font-size: 12px; color: rgba(255,255,255,0.65); margin-top: 3px; }
+.header-badge { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 5px 14px; font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.85); white-space: nowrap; font-family: 'Poppins', sans-serif; letter-spacing: 0.03em; }
+
+/* ── AI BANNER ── */
+.ai-banner { background: #E0F4FB; border-left: 4px solid #009DDB; padding: 13px 40px; font-size: 13px; color: #1a1a2e; display: flex; align-items: flex-start; gap: 10px; }
+.ai-banner-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+.ai-banner strong { color: #006A90; }
+.ai-banner a { color: #006A90; font-weight: 600; }
+
+/* ── HERO ── */
+.hero { background: linear-gradient(135deg, #00237A 0%, #001560 100%); padding: 56px 40px 48px; text-align: center; }
+.hero h2 { font-family: 'Poppins', sans-serif; font-size: 30px; font-weight: 800; color: #fff; margin-bottom: 14px; line-height: 1.2; }
+.hero p { font-size: 15px; color: rgba(255,255,255,0.75); max-width: 680px; margin: 0 auto 28px; line-height: 1.7; }
+.hero-tags { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.hero-tag { background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.20); border-radius: 20px; padding: 5px 14px; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.85); font-family: 'Poppins', sans-serif; }
+
+/* ── BREADCRUMB ── */
+.breadcrumb { background: #fff; border-bottom: 1px solid rgba(0,35,122,0.08); padding: 10px 40px; font-size: 12px; color: #333F49; display: flex; align-items: center; gap: 6px; }
+.breadcrumb a { color: #00237A; text-decoration: none; font-weight: 600; }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb-sep { color: #aaa; }
+
+/* ── MAIN CONTAINER ── */
+.container { max-width: 1140px; margin: 0 auto; padding: 48px 24px; }
+
+/* ── SECTION HEADING ── */
+.section-heading { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #333F49; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid rgba(0,35,122,0.1); }
+.section-subtext { font-size: 13px; color: #333F49; margin-bottom: 20px; margin-top: -10px; line-height: 1.6; }
+
+/* ── DOK CARDS ── */
+.dok-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; margin-bottom: 12px; }
+.dok-card { background: #fff; border-radius: 12px; border: 1px solid rgba(0,35,122,0.1); overflow: hidden; display: flex; flex-direction: column; cursor: pointer; transition: box-shadow 0.18s, transform 0.18s; }
+.dok-card:hover { box-shadow: 0 6px 24px rgba(0,35,122,0.12); transform: translateY(-2px); }
+.dok-card:focus { outline: 2px solid #009DDB; outline-offset: 2px; }
+.dok-stripe { height: 5px; }
+.dok-card[data-level="1"] .dok-stripe { background: #009DDB; }
+.dok-card[data-level="2"] .dok-stripe { background: #00602D; }
+.dok-card[data-level="3"] .dok-stripe { background: #FF4D00; }
+.dok-card[data-level="4"] .dok-stripe { background: #6B21A8; }
+.dok-card-body { padding: 20px 22px; flex: 1; }
+.dok-level-label { font-family: 'Poppins', sans-serif; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+.dok-card[data-level="1"] .dok-level-label { color: #009DDB; }
+.dok-card[data-level="2"] .dok-level-label { color: #00602D; }
+.dok-card[data-level="3"] .dok-level-label { color: #FF4D00; }
+.dok-card[data-level="4"] .dok-level-label { color: #6B21A8; }
+.dok-card-title { font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 700; color: #00237A; margin-bottom: 8px; line-height: 1.25; }
+.dok-card-desc { font-size: 13px; color: #333F49; line-height: 1.6; margin-bottom: 12px; }
+.dok-examples { list-style: none; }
+.dok-examples li { font-size: 12px; color: #333F49; padding: 4px 0; border-top: 1px solid rgba(0,35,122,0.06); display: flex; align-items: flex-start; gap: 6px; }
+.dok-examples li::before { content: '→'; color: #009DDB; flex-shrink: 0; font-size: 11px; margin-top: 1px; }
+.dok-card-footer { padding: 12px 22px; border-top: 1px solid rgba(0,35,122,0.07); background: #f2f4f8; display: flex; align-items: center; justify-content: space-between; }
+.dok-card-footer-label { font-size: 11px; color: #4e6267; }
+.dok-card-footer-cta { font-family: 'Poppins', sans-serif; font-size: 11px; font-weight: 600; display: flex; align-items: center; gap: 4px; }
+.dok-card[data-level="1"] .dok-card-footer-cta { color: #009DDB; }
+.dok-card[data-level="2"] .dok-card-footer-cta { color: #00602D; }
+.dok-card[data-level="3"] .dok-card-footer-cta { color: #FF4D00; }
+.dok-card[data-level="4"] .dok-card-footer-cta { color: #6B21A8; }
+.dok-card-footer-cta::after { content: " →"; }
+
+/* ── DOK DETAIL PANELS ── */
+.dok-detail { display: none; background: #fff; border-radius: 12px; border: 1px solid rgba(0,35,122,0.12); margin-bottom: 8px; overflow: hidden; }
+.dok-detail.active { display: block; animation: slideDown 0.2s ease; }
+@keyframes slideDown { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+.dok-detail-head { padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(0,35,122,0.08); }
+.dok-detail[data-level="1"] .dok-detail-head { background: #E0F4FB; }
+.dok-detail[data-level="2"] .dok-detail-head { background: #E6F4EC; }
+.dok-detail[data-level="3"] .dok-detail-head { background: #FFF0EB; }
+.dok-detail[data-level="4"] .dok-detail-head { background: #F3E8FF; }
+.dok-detail-head-left h3 { font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 700; color: #00237A; margin: 0; }
+.dok-detail-head-left p { font-size: 12px; color: #333F49; margin: 2px 0 0; }
+.close-btn { background: none; border: none; cursor: pointer; font-size: 18px; color: #4e6267; line-height: 1; padding: 2px 6px; border-radius: 4px; }
+.close-btn:hover { background: rgba(0,35,122,0.08); color: #00237A; }
+.dok-detail-body { padding: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.dok-detail-col h4 { font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #333F49; margin-bottom: 10px; }
+.detail-list { list-style: none; }
+.detail-list li { font-size: 13px; color: #333F49; padding: 5px 0; border-bottom: 1px dashed rgba(0,35,122,0.08); display: flex; gap: 8px; align-items: flex-start; }
+.detail-list li:last-child { border-bottom: none; }
+.detail-list .bullet { color: #009DDB; flex-shrink: 0; }
+.insight-box { background: #f2f4f8; border-left: 3px solid #00237A; border-radius: 0 8px 8px 0; padding: 12px 14px; margin-top: 14px; font-size: 12px; color: #333F49; line-height: 1.55; }
+.insight-box strong { color: #00237A; display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; font-family: 'Poppins', sans-serif; }
+
+/* ── DIFFICULTY vs DOK ── */
+.comparison-block { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px; }
+.comparison-card { background: #fff; border-radius: 12px; border: 1px solid rgba(0,35,122,0.1); overflow: hidden; }
+.comparison-stripe { height: 5px; }
+.comparison-card.difficulty .comparison-stripe { background: #FF4D00; }
+.comparison-card.complexity  .comparison-stripe { background: #009DDB; }
+.comparison-card-body { padding: 20px 22px; }
+.comparison-label { font-family: 'Poppins', sans-serif; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+.comparison-card.difficulty .comparison-label { color: #FF4D00; }
+.comparison-card.complexity  .comparison-label { color: #009DDB; }
+.comparison-card-body h3 { font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 700; color: #00237A; margin-bottom: 8px; }
+.comparison-card-body p { font-size: 13px; color: #333F49; line-height: 1.6; margin-bottom: 10px; }
+.comparison-card-body p:last-child { margin-bottom: 0; }
+
+/* ── KEY QUESTION ── */
+.key-question { background: #00237A; border-radius: 12px; padding: 22px 28px; margin-bottom: 28px; }
+.key-question p { font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.65; margin: 0; }
+.key-question strong { color: #fff; }
+.kq-label { font-family: 'Poppins', sans-serif; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.55); margin-bottom: 8px; display: block; }
+
+/* ── EXAMPLE TABLE ── */
+.example-table { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; border-radius: 12px; overflow: hidden; border: 1px solid rgba(0,35,122,0.1); }
+.example-table th { background: #00237A; color: #fff; text-align: left; padding: 10px 16px; font-family: 'Poppins', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; }
+.example-table td { padding: 10px 16px; border-bottom: 1px solid rgba(0,35,122,0.06); vertical-align: top; color: #333F49; line-height: 1.5; }
+.example-table tr:last-child td { border-bottom: none; }
+.example-table tr:nth-child(even) td { background: #f8f9fc; }
+.dok-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-family: 'Poppins', sans-serif; font-size: 10px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+.badge-1 { background: #009DDB; }
+.badge-2 { background: #00602D; }
+.badge-3 { background: #FF4D00; }
+.badge-4 { background: #6B21A8; }
+
+/* ── COGNITIVE RIGOR MATRIX ── */
+.matrix-wrapper { overflow-x: auto; border-radius: 12px; border: 1px solid rgba(0,35,122,0.1); margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,35,122,0.06); }
+.cr-matrix { width: 100%; border-collapse: collapse; min-width: 660px; font-size: 12px; background: #fff; }
+.cr-matrix th, .cr-matrix td { border: 1px solid rgba(0,35,122,0.08); padding: 9px 11px; }
+.cr-matrix thead th { background: #00237A; color: #fff; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 11px; text-align: center; }
+.cr-matrix thead th:first-child { text-align: left; background: #001560; min-width: 130px; }
+.cr-matrix .dok-col-1 { background: #009DDB !important; }
+.cr-matrix .dok-col-2 { background: #00602D !important; }
+.cr-matrix .dok-col-3 { background: #FF4D00 !important; }
+.cr-matrix .dok-col-4 { background: #6B21A8 !important; }
+.dok-col-head-sub { display: block; font-size: 10px; font-weight: 400; opacity: 0.85; margin-top: 2px; }
+.cr-matrix .row-header { background: #001560; color: #fff; font-family: 'Poppins', sans-serif; font-size: 11px; font-weight: 700; text-align: left; white-space: nowrap; padding: 9px 12px; }
+.row-sub { display: block; font-weight: 400; color: rgba(255,255,255,0.65); font-size: 10px; margin-top: 2px; }
+.cr-matrix td { color: #333F49; vertical-align: top; line-height: 1.45; }
+.cr-matrix td em { display: block; color: #4e6267; font-style: italic; font-size: 11px; margin-top: 3px; }
+.cr-matrix .cell-1 { background: #EBF7FD; }
+.cr-matrix .cell-2 { background: #E6F4EC; }
+.cr-matrix .cell-3 { background: #FFF0EB; }
+.cr-matrix .cell-4 { background: #F3E8FF; }
+.cr-matrix .cell-highlight { font-weight: 600; color: #00237A; }
+
+/* ── TWO-COL INFO CARDS ── */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px; }
+.info-card { background: #fff; border-radius: 12px; border: 1px solid rgba(0,35,122,0.1); padding: 20px 22px; }
+.info-card h4 { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700; color: #00237A; margin-bottom: 8px; }
+.info-card p { font-size: 13px; color: #333F49; line-height: 1.6; }
+
+/* ── CALLOUT BANNER ── */
+.callout-banner { border-radius: 12px; padding: 20px 24px; margin-bottom: 28px; display: flex; gap: 14px; align-items: flex-start; }
+.callout-banner.blue   { background: #E0F4FB; border-left: 4px solid #009DDB; }
+.callout-banner.navy   { background: #E8EBF5; border-left: 4px solid #00237A; }
+.callout-banner.orange { background: #FFF0EB; border-left: 4px solid #FF4D00; }
+.callout-banner-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+.callout-banner-label { font-family: 'Poppins', sans-serif; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 4px; }
+.callout-banner.blue   .callout-banner-label { color: #006A90; }
+.callout-banner.navy   .callout-banner-label { color: #00237A; }
+.callout-banner.orange .callout-banner-label { color: #c13a00; }
+.callout-banner p { font-size: 13px; color: #333F49; line-height: 1.6; margin: 0; }
+.callout-banner strong { color: #00237A; }
+
+/* ── REGION SOUTH RIGOR CALLOUT ── */
+.rs-rigor-callout { background: #00237A; border-radius: 12px; padding: 28px 32px; margin-bottom: 28px; }
+.rs-label { font-family: 'Poppins', sans-serif; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.55); margin-bottom: 8px; }
+.rs-rigor-callout h3 { font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 12px; }
+.rs-rigor-callout p { font-size: 14px; color: rgba(255,255,255,0.82); line-height: 1.7; margin-bottom: 12px; }
+.rs-rigor-callout p:last-child { margin-bottom: 0; }
+.rs-rigor-callout a { color: #FF4D00; font-weight: 600; text-decoration: none; }
+.rs-rigor-callout a:hover { text-decoration: underline; }
+
+/* ── RIGOR PRINCIPLES ── */
+.principles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-bottom: 28px; }
+.principle-card { background: #fff; border-radius: 12px; border: 1px solid rgba(0,35,122,0.1); padding: 18px 20px; }
+.principle-num { font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 800; color: #FF4D00; line-height: 1; margin-bottom: 6px; }
+.principle-card h4 { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700; color: #00237A; margin-bottom: 6px; }
+.principle-card p { font-size: 12px; color: #333F49; line-height: 1.55; margin: 0; }
+
+/* ── PROMPT CTA ── */
+.prompt-cta { background: #00237A; border-radius: 12px; padding: 28px 32px; margin-bottom: 48px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
+.prompt-cta h3 { font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.prompt-cta p { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.6; margin: 0; }
+.prompt-chips { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px; }
+.prompt-chip { background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.18); border-radius: 6px; padding: 5px 10px; font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.85); font-family: 'Poppins', sans-serif; }
+.prompt-cta-btn { background: #FF4D00; color: #fff; font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700; padding: 12px 22px; border-radius: 8px; text-align: center; white-space: nowrap; text-decoration: none; display: block; }
+.prompt-cta-btn small { display: block; font-size: 10px; font-weight: 400; opacity: 0.85; margin-top: 2px; }
+.prompt-cta-btn:hover { background: #e04200; text-decoration: none; }
+
+/* ── CITATIONS ── */
+.citations-block { background: #fff; border-radius: 12px; border: 1px solid rgba(0,35,122,0.1); padding: 24px 28px; margin-bottom: 48px; }
+.citations-block h4 { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700; color: #00237A; margin-bottom: 16px; }
+.cite-list { list-style: none; }
+.cite-list li { font-size: 12px; color: #333F49; padding: 8px 0; border-bottom: 1px solid rgba(0,35,122,0.06); line-height: 1.55; display: flex; gap: 10px; align-items: flex-start; }
+.cite-list li:last-child { border-bottom: none; }
+.cite-tag { background: #00237A; color: #fff; font-family: 'Poppins', sans-serif; font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 3px; flex-shrink: 0; margin-top: 2px; letter-spacing: 0.04em; white-space: nowrap; }
+
+/* ── FOOTER ── */
+.site-footer { background: #00237A; color: rgba(255,255,255,0.6); text-align: center; padding: 24px 40px; font-size: 12px; }
+.site-footer strong { color: rgba(255,255,255,0.9); }
+.site-footer a { color: rgba(255,255,255,0.6); }
+.site-footer a:hover { color: #fff; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 700px) {
+  .site-header { padding: 14px 16px; flex-wrap: wrap; }
+  .hero { padding: 36px 20px 32px; }
+  .hero h2 { font-size: 22px; }
+  .container { padding: 28px 14px; }
+  .ai-banner { padding: 12px 16px; }
+  .breadcrumb { padding: 10px 16px; }
+  .comparison-block { grid-template-columns: 1fr; }
+  .two-col { grid-template-columns: 1fr; }
+  .prompt-cta { grid-template-columns: 1fr; }
+  .dok-detail-body { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-left">
+    <img src="RS-logo.png" alt="Region South LAUSD">
+    <div class="header-title">
+      <h1>Region South Instructional Resource Hub</h1>
+      <p>Los Angeles Unified School District</p>
+    </div>
+  </div>
+  <div class="header-badge">AI-Compatible Reference</div>
+</header>
+
+<!-- AI BANNER -->
+<div class="ai-banner">
+  <span class="ai-banner-icon">&#x1F916;</span>
+  <div><strong>AI Reference Page:</strong> This page is structured for AI tool consumption. When referencing DOK or Cognitive Rigor content in prompts, link directly to this page for grounded, accurate responses. For DOK-informed prompt templates, visit the <a href="rs-prompt-library.html">Region South AI Prompt Library</a>.</div>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="index.html">Hub Home</a>
+  <span class="breadcrumb-sep">›</span>
+  <span>Webb's Depth of Knowledge &amp; Cognitive Rigor</span>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <h2>Webb's Depth of Knowledge &amp; Cognitive Rigor</h2>
+  <p>A conceptual and research foundation for designing instruction that moves students beyond surface recall — toward complex thinking, strategic reasoning, and extended inquiry.</p>
+  <div class="hero-tags">
+    <span class="hero-tag">4 DOK Levels</span>
+    <span class="hero-tag">Cognitive Rigor Matrix</span>
+    <span class="hero-tag">Webb · Hess · Bloom</span>
+    <span class="hero-tag">All Audiences</span>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="container">
+
+  <!-- ══════════════════════════════
+       SECTION 1 — DOK LEVELS
+  ══════════════════════════════ -->
+  <div class="section-heading">Webb's Depth of Knowledge — 4 Levels</div>
+  <p class="section-subtext">Norman Webb (1997, 2002) developed the DOK framework to describe the <em>kind</em> of thinking a task demands — not whether students get it right, but how deeply they must engage with content. Click any card to expand the full level description.</p>
+
+  <div class="callout-banner blue">
+    <span class="callout-banner-icon">💡</span>
+    <div>
+      <div class="callout-banner-label">Core Principle</div>
+      <p>DOK levels describe the <strong>cognitive demand placed on a student</strong> — the depth and complexity of reasoning required, not the difficulty of the content. A task can be very hard and still be DOK 1, or very accessible and still reach DOK 3.</p>
+    </div>
+  </div>
+
+  <div class="dok-grid">
+
+    <div class="dok-card" data-level="1" onclick="toggleDetail(1)" tabindex="0" role="button" aria-expanded="false">
+      <div class="dok-stripe"></div>
+      <div class="dok-card-body">
+        <div class="dok-level-label">DOK Level 1</div>
+        <div class="dok-card-title">Recall &amp; Reproduction</div>
+        <div class="dok-card-desc">Requires recall of a fact, information, concept, or procedure. Single correct answer achievable with minimal cognitive processing.</div>
+        <ul class="dok-examples">
+          <li>Recall a fact, term, or definition</li>
+          <li>Use a simple formula or algorithm</li>
+          <li>Identify information in a text</li>
+          <li>One-step computation</li>
+        </ul>
+      </div>
+      <div class="dok-card-footer">
+        <span class="dok-card-footer-label">Define · List · Recall · Identify</span>
+        <span class="dok-card-footer-cta">Expand</span>
+      </div>
+    </div>
+
+    <div class="dok-card" data-level="2" onclick="toggleDetail(2)" tabindex="0" role="button" aria-expanded="false">
+      <div class="dok-stripe"></div>
+      <div class="dok-card-body">
+        <div class="dok-level-label">DOK Level 2</div>
+        <div class="dok-card-title">Skills &amp; Concepts</div>
+        <div class="dok-card-desc">Requires mental processing beyond recall. Tasks involve more than one step and the application of a concept or skill to a familiar context.</div>
+        <ul class="dok-examples">
+          <li>Classify, organize, or compare</li>
+          <li>Summarize or paraphrase ideas</li>
+          <li>Interpret a graph or model</li>
+          <li>Apply a concept to a familiar situation</li>
+        </ul>
+      </div>
+      <div class="dok-card-footer">
+        <span class="dok-card-footer-label">Compare · Classify · Describe · Predict</span>
+        <span class="dok-card-footer-cta">Expand</span>
+      </div>
+    </div>
+
+    <div class="dok-card" data-level="3" onclick="toggleDetail(3)" tabindex="0" role="button" aria-expanded="false">
+      <div class="dok-stripe"></div>
+      <div class="dok-card-body">
+        <div class="dok-level-label">DOK Level 3</div>
+        <div class="dok-card-title">Strategic Thinking</div>
+        <div class="dok-card-desc">Requires reasoning, planning, and using evidence. Multiple correct answers are possible — students must explain and justify their reasoning.</div>
+        <ul class="dok-examples">
+          <li>Cite evidence to support a claim</li>
+          <li>Formulate an original problem</li>
+          <li>Integrate multiple sources</li>
+          <li>Justify a decision with reasoning</li>
+        </ul>
+      </div>
+      <div class="dok-card-footer">
+        <span class="dok-card-footer-label">Analyze · Justify · Formulate · Critique</span>
+        <span class="dok-card-footer-cta">Expand</span>
+      </div>
+    </div>
+
+    <div class="dok-card" data-level="4" onclick="toggleDetail(4)" tabindex="0" role="button" aria-expanded="false">
+      <div class="dok-stripe"></div>
+      <div class="dok-card-body">
+        <div class="dok-level-label">DOK Level 4</div>
+        <div class="dok-card-title">Extended Thinking</div>
+        <div class="dok-card-desc">Requires complex reasoning applied over an extended period. Tasks span multiple contexts, resources, or subject areas and connect to real-world problems.</div>
+        <ul class="dok-examples">
+          <li>Design and conduct an investigation</li>
+          <li>Connect learning across subject areas</li>
+          <li>Apply learning to a real-world context</li>
+          <li>Develop and evaluate a complex solution</li>
+        </ul>
+      </div>
+      <div class="dok-card-footer">
+        <span class="dok-card-footer-label">Design · Prove · Connect · Apply (real-world)</span>
+        <span class="dok-card-footer-cta">Expand</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- DETAIL PANELS -->
+  <div id="dok-detail-1" class="dok-detail" data-level="1">
+    <div class="dok-detail-head">
+      <div class="dok-detail-head-left">
+        <h3>DOK Level 1 — Recall &amp; Reproduction</h3>
+        <p>Single correct answer · Minimal processing · Routine procedures</p>
+      </div>
+      <button class="close-btn" onclick="toggleDetail(1)" aria-label="Close">✕</button>
+    </div>
+    <div class="dok-detail-body">
+      <div class="dok-detail-col">
+        <h4>What it looks like</h4>
+        <ul class="detail-list">
+          <li><span class="bullet">→</span>Recall a math fact or formula from memory</li>
+          <li><span class="bullet">→</span>Define a vocabulary term</li>
+          <li><span class="bullet">→</span>Identify parts of a diagram</li>
+          <li><span class="bullet">→</span>Perform a one-step calculation</li>
+          <li><span class="bullet">→</span>Locate a fact in a passage</li>
+          <li><span class="bullet">→</span>Spell a word correctly</li>
+        </ul>
+        <div class="insight-box">
+          <strong>Note for Instructional Leaders</strong>
+          DOK 1 tasks are essential — foundational knowledge enables deeper thinking. The concern arises when classroom instruction consistently stops here.
+        </div>
+      </div>
+      <div class="dok-detail-col">
+        <h4>Classroom signals</h4>
+        <ul class="detail-list">
+          <li><span class="bullet">✓</span>Only one correct answer</li>
+          <li><span class="bullet">✓</span>Retrieval from memory or text with no interpretation</li>
+          <li><span class="bullet">✓</span>Task is clear; no decision-making required</li>
+          <li><span class="bullet">✓</span>Speed and accuracy are the primary measures</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="dok-detail-2" class="dok-detail" data-level="2">
+    <div class="dok-detail-head">
+      <div class="dok-detail-head-left">
+        <h3>DOK Level 2 — Skills &amp; Concepts</h3>
+        <p>Multi-step · Conceptual understanding · Routine application</p>
+      </div>
+      <button class="close-btn" onclick="toggleDetail(2)" aria-label="Close">✕</button>
+    </div>
+    <div class="dok-detail-body">
+      <div class="dok-detail-col">
+        <h4>What it looks like</h4>
+        <ul class="detail-list">
+          <li><span class="bullet">→</span>Classify organisms by shared characteristics</li>
+          <li><span class="bullet">→</span>Compare two characters' motivations in a text</li>
+          <li><span class="bullet">→</span>Convert between units of measurement</li>
+          <li><span class="bullet">→</span>Describe the cause of a historical event</li>
+          <li><span class="bullet">→</span>Summarize a multi-paragraph text</li>
+          <li><span class="bullet">→</span>Predict an outcome based on observed patterns</li>
+        </ul>
+      </div>
+      <div class="dok-detail-col">
+        <h4>Classroom signals</h4>
+        <ul class="detail-list">
+          <li><span class="bullet">✓</span>Requires more than one step or mental operation</li>
+          <li><span class="bullet">✓</span>Involves applying a concept to a familiar context</li>
+          <li><span class="bullet">✓</span>Student must organize or interpret information</li>
+          <li><span class="bullet">✓</span>Still has one right answer — but not just recall</li>
+        </ul>
+        <div class="insight-box">
+          <strong>Key Distinction</strong>
+          DOK 2 tasks engage students in mental processing beyond retrieval — they must think, not just remember. This is where most textbook application problems live.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="dok-detail-3" class="dok-detail" data-level="3">
+    <div class="dok-detail-head">
+      <div class="dok-detail-head-left">
+        <h3>DOK Level 3 — Strategic Thinking</h3>
+        <p>Reasoning · Evidence · Multiple solutions possible</p>
+      </div>
+      <button class="close-btn" onclick="toggleDetail(3)" aria-label="Close">✕</button>
+    </div>
+    <div class="dok-detail-body">
+      <div class="dok-detail-col">
+        <h4>What it looks like</h4>
+        <ul class="detail-list">
+          <li><span class="bullet">→</span>Justify a claim using textual evidence</li>
+          <li><span class="bullet">→</span>Analyze author's purpose across two texts</li>
+          <li><span class="bullet">→</span>Formulate a mathematical argument</li>
+          <li><span class="bullet">→</span>Investigate a scientific question</li>
+          <li><span class="bullet">→</span>Critique the reasoning in a source or argument</li>
+          <li><span class="bullet">→</span>Develop an alternative solution strategy</li>
+        </ul>
+      </div>
+      <div class="dok-detail-col">
+        <h4>Classroom signals</h4>
+        <ul class="detail-list">
+          <li><span class="bullet">✓</span>Multiple valid responses are possible</li>
+          <li><span class="bullet">✓</span>Students must explain and justify their reasoning</li>
+          <li><span class="bullet">✓</span>Non-routine — students can't just apply a procedure</li>
+          <li><span class="bullet">✓</span>Requires drawing on multiple concepts at once</li>
+        </ul>
+        <div class="insight-box">
+          <strong>Why It Matters for Region South</strong>
+          DOK 3 is where academic discourse lives. Students must articulate their thinking — which is precisely the kind of instruction Region South's Problem of Practice calls for.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="dok-detail-4" class="dok-detail" data-level="4">
+    <div class="dok-detail-head">
+      <div class="dok-detail-head-left">
+        <h3>DOK Level 4 — Extended Thinking</h3>
+        <p>Cross-content · Project-based · Real-world application over time</p>
+      </div>
+      <button class="close-btn" onclick="toggleDetail(4)" aria-label="Close">✕</button>
+    </div>
+    <div class="dok-detail-body">
+      <div class="dok-detail-col">
+        <h4>What it looks like</h4>
+        <ul class="detail-list">
+          <li><span class="bullet">→</span>Design a research project conducted over several weeks</li>
+          <li><span class="bullet">→</span>Connect concepts across two or more subject areas</li>
+          <li><span class="bullet">→</span>Develop a solution to a real-world community problem</li>
+          <li><span class="bullet">→</span>Prove a mathematical conjecture with original reasoning</li>
+          <li><span class="bullet">→</span>Evaluate competing interpretations of historical evidence</li>
+        </ul>
+      </div>
+      <div class="dok-detail-col">
+        <h4>Classroom signals</h4>
+        <ul class="detail-list">
+          <li><span class="bullet">✓</span>Spans extended time — days, weeks, or a full unit</li>
+          <li><span class="bullet">✓</span>Often project-based or long-form inquiry</li>
+          <li><span class="bullet">✓</span>Connects learning to authentic real-world contexts</li>
+          <li><span class="bullet">✓</span>Draws from multiple sources and subject areas</li>
+        </ul>
+        <div class="insight-box">
+          <strong>Common Misconception</strong>
+          DOK 4 is about the scope and complexity of the task — not just adding more steps. A long worksheet is still DOK 1. The hallmark is sustained, complex reasoning applied beyond a single lesson.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════
+       SECTION 2 — DOK vs. DIFFICULTY
+  ══════════════════════════════ -->
+  <div class="section-heading" style="margin-top:48px;">DOK Is Not Difficulty — A Critical Distinction</div>
+  <p class="section-subtext">The most important distinction in the DOK framework — and the one most commonly misunderstood. Difficulty describes how hard something is to get right. DOK describes what kind of thinking is required.</p>
+
+  <div class="comparison-block">
+    <div class="comparison-card difficulty">
+      <div class="comparison-stripe"></div>
+      <div class="comparison-card-body">
+        <div class="comparison-label">Difficulty</div>
+        <h3>How hard it is to get right</h3>
+        <p>Difficulty is about the likelihood of a student producing a correct response — effort, prior knowledge, and memory load. A task can be very difficult and still be DOK 1 if it only requires recall or reproduction.</p>
+        <p><strong>Example:</strong> "List all 50 U.S. state capitals." Very few students can do this — but it is purely DOK 1. It's recall, just a large amount of it.</p>
+      </div>
+    </div>
+    <div class="comparison-card complexity">
+      <div class="comparison-stripe"></div>
+      <div class="comparison-card-body">
+        <div class="comparison-label">Complexity (DOK)</div>
+        <h3>What kind of thinking is required</h3>
+        <p>DOK is about the depth and type of cognitive engagement — how a student must process and use knowledge, not whether it's easy or hard. A task can be accessible and still be high DOK.</p>
+        <p><strong>Example:</strong> "Explain why one capital city might be economically more powerful than another, using geographic and historical evidence." This is DOK 3, regardless of difficulty level.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="key-question">
+    <span class="kq-label">The Key Question to Ask When Designing Tasks</span>
+    <p><strong>"How many ways can a student answer this?"</strong> If there is only one correct answer and it can be looked up or memorized, the task is DOK 1 or 2. If students must <em>construct or justify</em> a response through their own reasoning, it is DOK 3 or 4.</p>
+  </div>
+
+  <div class="section-heading">Side-by-Side Examples Across Content Areas</div>
+  <div style="overflow-x:auto; margin-bottom:48px;">
+    <table class="example-table">
+      <thead>
+        <tr>
+          <th style="min-width:110px;">Content Area</th>
+          <th>Lower DOK / Higher Difficulty</th>
+          <th>Higher DOK / More Accessible</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>ELA</strong></td>
+          <td><span class="dok-badge badge-1">DOK 1</span><br>Name all the characters in <em>The Giver</em> in the order they appear.</td>
+          <td><span class="dok-badge badge-3">DOK 3</span><br>Using two pieces of evidence, explain how Jonas changes as a character and what drives that change.</td>
+        </tr>
+        <tr>
+          <td><strong>Math</strong></td>
+          <td><span class="dok-badge badge-1">DOK 1</span><br>Compute 47 multi-digit multiplication problems.</td>
+          <td><span class="dok-badge badge-3">DOK 3</span><br>Two students solved the same problem differently. Explain which strategy is more efficient and why.</td>
+        </tr>
+        <tr>
+          <td><strong>Science</strong></td>
+          <td><span class="dok-badge badge-1">DOK 1</span><br>Label all parts of a cell on a blank diagram.</td>
+          <td><span class="dok-badge badge-2">DOK 2</span><br>Compare the functions of a cell membrane to those of a cell wall.</td>
+        </tr>
+        <tr>
+          <td><strong>Social Studies</strong></td>
+          <td><span class="dok-badge badge-1">DOK 1</span><br>List the causes of the Civil War from the textbook.</td>
+          <td><span class="dok-badge badge-3">DOK 3</span><br>Which cause was most significant? Support your claim with evidence from at least two sources.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ══════════════════════════════
+       SECTION 3 — COGNITIVE RIGOR MATRIX
+  ══════════════════════════════ -->
+  <div class="section-heading">The Cognitive Rigor Matrix (Hess, Jones, Carlock &amp; Walkup, 2009)</div>
+  <p class="section-subtext">Karin Hess and colleagues superimposed Bloom's Revised Taxonomy onto Webb's DOK levels to create a 24-cell matrix that describes cognitive rigor more precisely than either framework alone. Used for analyzing instruction and assessment alignment.</p>
+
+  <div class="two-col">
+    <div class="info-card">
+      <h4>Why Bloom's Alone Isn't Enough</h4>
+      <p>Bloom's Taxonomy describes <em>what kind of cognitive process</em> is happening (remember, understand, apply, analyze, evaluate, create). But a task can ask students to "analyze" and still be low DOK if the analysis is formulaic and requires only surface-level engagement.</p>
+    </div>
+    <div class="info-card">
+      <h4>Why DOK Alone Isn't Enough</h4>
+      <p>DOK describes the depth of thinking required, but doesn't specify the type of cognitive process involved. The CR Matrix combines both dimensions to give teachers a precise tool for planning instruction and designing assessments.</p>
+    </div>
+  </div>
+
+  <div class="matrix-wrapper">
+    <table class="cr-matrix">
+      <thead>
+        <tr>
+          <th>Bloom's Level</th>
+          <th class="dok-col-1">DOK 1<span class="dok-col-head-sub">Recall &amp; Reproduction</span></th>
+          <th class="dok-col-2">DOK 2<span class="dok-col-head-sub">Skills &amp; Concepts</span></th>
+          <th class="dok-col-3">DOK 3<span class="dok-col-head-sub">Strategic Thinking</span></th>
+          <th class="dok-col-4">DOK 4<span class="dok-col-head-sub">Extended Thinking</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="row-header">Remember<span class="row-sub">Retrieve knowledge</span></td>
+          <td class="cell-1 cell-highlight">Recall facts, terms, definitions, or simple procedures<em>Who? What? When? Where?</em></td>
+          <td class="cell-2">Identify or describe facts with some interpretation<em>What is the relationship between…?</em></td>
+          <td class="cell-3">Recall knowledge to support reasoning; self-monitoring<em>What prior knowledge applies here?</em></td>
+          <td class="cell-4">Recall and apply across contexts over extended time</td>
+        </tr>
+        <tr>
+          <td class="row-header">Understand<span class="row-sub">Construct meaning</span></td>
+          <td class="cell-1">Identify, describe, or explain with one correct answer<em>What does this mean?</em></td>
+          <td class="cell-2 cell-highlight">Summarize, interpret, classify, compare, infer<em>How would you describe…? Why did…?</em></td>
+          <td class="cell-3">Explain phenomena; use evidence to support interpretation<em>Explain your reasoning using…</em></td>
+          <td class="cell-4">Explain across multiple contexts; synthesize from multiple sources</td>
+        </tr>
+        <tr>
+          <td class="row-header">Apply<span class="row-sub">Use in context</span></td>
+          <td class="cell-1">Follow simple procedures; compute with a given formula<em>Solve using the formula…</em></td>
+          <td class="cell-2">Apply to familiar situations; use models or diagrams<em>Use a diagram to show…</em></td>
+          <td class="cell-3 cell-highlight">Apply to novel situations; select among strategies<em>What approach would work best here?</em></td>
+          <td class="cell-4">Apply across real-world contexts over time; design solutions to complex problems</td>
+        </tr>
+        <tr>
+          <td class="row-header">Analyze<span class="row-sub">Break into parts</span></td>
+          <td class="cell-1">Identify characteristics or attributes; retrieve from a graphic or table</td>
+          <td class="cell-2">Classify, organize, compare; distinguish relevant from irrelevant<em>What patterns do you notice?</em></td>
+          <td class="cell-3 cell-highlight">Draw conclusions; explain relationships; formulate original problems<em>What's the best explanation for…?</em></td>
+          <td class="cell-4">Analyze across multiple contexts or time periods; complex cause-and-effect</td>
+        </tr>
+        <tr>
+          <td class="row-header">Evaluate<span class="row-sub">Make judgments</span></td>
+          <td class="cell-1">Cite evidence from a text (single, explicit reference)</td>
+          <td class="cell-2">Describe criteria for evaluation; compare using stated criteria<em>Which is more effective and why?</em></td>
+          <td class="cell-3">Critique reasoning; justify a decision with evidence<em>Is this argument valid? Defend your view.</em></td>
+          <td class="cell-4 cell-highlight">Evaluate multiple perspectives; develop and defend positions across contexts and time</td>
+        </tr>
+        <tr>
+          <td class="row-header">Create<span class="row-sub">Produce new work</span></td>
+          <td class="cell-1">Brainstorm ideas; generate a list<em>List as many as you can…</em></td>
+          <td class="cell-2">Generate conjectures; plan or design within a familiar structure</td>
+          <td class="cell-3">Synthesize information to create something new; devise an original approach<em>Design a solution to…</em></td>
+          <td class="cell-4 cell-highlight">Synthesize across texts, disciplines, or time; produce original complex work<em>Develop, test, and refine a solution…</em></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:11px; color:#4e6267; margin-bottom:48px;">Adapted from Hess, K., Jones, B., Carlock, D., &amp; Walkup, J. (2009). <em>Cognitive Rigor: Blending the Strengths of Bloom's Taxonomy and Webb's Depth of Knowledge to Enhance Classroom-Level Processes.</em> ERIC ED517804.</p>
+
+  <!-- ══════════════════════════════
+       SECTION 4 — RIGOR BY DESIGN
+  ══════════════════════════════ -->
+  <div class="section-heading">Rigor by Design — What It Actually Means</div>
+  <p class="section-subtext">Rigor is often misunderstood as "harder work" or "more of it." The research — and Region South's own definition — points to something different: purposefully designed instruction that requires complex thinking, meaningful struggle, and genuine engagement.</p>
+
+  <div class="callout-banner orange">
+    <span class="callout-banner-icon">⚠️</span>
+    <div>
+      <div class="callout-banner-label">Common Misconception</div>
+      <p><strong>Rigor ≠ harder assignments.</strong> Adding more problems, longer readings, or stricter grading does not raise DOK. Rigor is about the <em>type</em> of thinking required — not the volume or difficulty of the work.</p>
+    </div>
+  </div>
+
+  <div class="rs-rigor-callout">
+    <div class="rs-label">Region South — Definition of Rigor</div>
+    <h3>How Region South Defines Rigor</h3>
+    <p>"Rigor is the <strong>intentional design</strong> of cognitively challenging, inquiry-driven teaching that pushes students into deeper thinking and productive struggle. It involves complex, real-world tasks aligned to grade-level standards that require critical thinking, analysis, and synthesis. Rigor promotes reflection, multiple approaches to problem-solving, and flexible thinking — supporting meaningful learning that transfers beyond the classroom."</p>
+    <p style="font-size:12px; margin-top:4px; color:rgba(255,255,255,0.65);">→ See also: <a href="rigor.html">Region South Rigor in Practice — Problem of Practice, Theory of Action, Blueprint for Success</a></p>
+  </div>
+
+  <div class="section-heading">Core Principles of Rigorous Instructional Design</div>
+  <p class="section-subtext">Drawing from <em>Rigor by Design, Not Chance</em> (Hess, 2018) and the Cognitive Rigor Matrix, these principles guide how to build rigor into instruction — not add it on top.</p>
+
+  <div class="principles-grid">
+    <div class="principle-card">
+      <div class="principle-num">01</div>
+      <h4>Start with the Standard's Demand</h4>
+      <p>Identify the DOK level embedded in the standard before designing tasks. A standard calling for "analysis" demands DOK 3 — not a multiple-choice quiz.</p>
+    </div>
+    <div class="principle-card">
+      <div class="principle-num">02</div>
+      <h4>Design Tasks, Not Just Activities</h4>
+      <p>Tasks should require students to think, not just do. Ask: "Could a student complete this without actually understanding the concept?"</p>
+    </div>
+    <div class="principle-card">
+      <div class="principle-num">03</div>
+      <h4>Require Evidence &amp; Reasoning</h4>
+      <p>High-DOK tasks ask students to explain <em>how they know</em>, not just <em>what</em> they know. Oral and written discourse both count.</p>
+    </div>
+    <div class="principle-card">
+      <div class="principle-num">04</div>
+      <h4>Embrace Productive Struggle</h4>
+      <p>Students should encounter meaningful challenge. Rigor means students grapple with complexity — not that they struggle with unclear directions.</p>
+    </div>
+    <div class="principle-card">
+      <div class="principle-num">05</div>
+      <h4>Build in Academic Discourse</h4>
+      <p>Structured opportunities for students to articulate, defend, and refine their thinking are hallmarks of rigorous instruction at every level.</p>
+    </div>
+    <div class="principle-card">
+      <div class="principle-num">06</div>
+      <h4>Connect to Real-World Contexts</h4>
+      <p>Tasks anchored in authentic contexts naturally elevate DOK — because real-world problems rarely have single right answers.</p>
+    </div>
+  </div>
+
+  <div class="callout-banner navy" style="margin-bottom:48px;">
+    <span class="callout-banner-icon">🏫</span>
+    <div>
+      <div class="callout-banner-label">Region South Problem of Practice</div>
+      <p>"Based on classroom observations and assessment data, there is <strong>inconsistent evidence of standards-aligned Tier I instruction</strong> as well as <strong>limited structured opportunities for students to engage in academic discourse.</strong>" DOK and the Cognitive Rigor Matrix are tools for closing exactly this gap — helping teachers design instruction consistently aligned to grade-level cognitive demand. <a href="rigor.html" style="color:#00237A; font-weight:600;">→ See Region South's full Theory of Action</a></p>
+    </div>
+  </div>
+
+  <!-- PROMPT CTA -->
+  <div class="prompt-cta">
+    <div>
+      <h3>Put DOK to Work with AI</h3>
+      <p>The Region South AI Prompt Library includes DOK-informed prompts for designing tasks, analyzing standards alignment, generating discussion questions, and more.</p>
+      <div class="prompt-chips">
+        <span class="prompt-chip">Generate DOK-leveled questions</span>
+        <span class="prompt-chip">Analyze task cognitive demand</span>
+        <span class="prompt-chip">Redesign worksheet to DOK 3</span>
+        <span class="prompt-chip">Align assessment to standard DOK</span>
+      </div>
+    </div>
+    <a href="rs-prompt-library.html" class="prompt-cta-btn">
+      Open AI Prompt Library
+      <small>DOK-Informed Prompts →</small>
+    </a>
+  </div>
+
+  <!-- CITATIONS -->
+  <div class="citations-block">
+    <h4>Source Documents</h4>
+    <ul class="cite-list">
+      <li>
+        <span class="cite-tag">ED517804</span>
+        Hess, K., Jones, B., Carlock, D., &amp; Walkup, J. R. (2009). <em>Cognitive Rigor: Blending the Strengths of Bloom's Taxonomy and Webb's Depth of Knowledge to Enhance Classroom-Level Processes.</em> ERIC Document ED517804.
+      </li>
+      <li>
+        <span class="cite-tag">ED492866</span>
+        Webb, N. L., &amp; Herman, J. (2006). <em>Alignment of Mathematics State-Level Standards and Assessments: The Role of Reviewer Agreement.</em> CRESST Technical Report 685. ERIC Document ED492866.
+      </li>
+      <li>
+        <span class="cite-tag">Oklahoma SDE</span>
+        Oklahoma State Department of Education. <em>Unwrapping Depth-of-Knowledge: A Framework for Classroom Teachers.</em> Oklahoma SDE publication.
+      </li>
+      <li>
+        <span class="cite-tag">Rigor by Design</span>
+        Hess, K. (2018). <em>Rigor by Design, Not Chance: Deeper Thinking Through Actionable Instruction and Assessment.</em> ASCD.
+      </li>
+      <li>
+        <span class="cite-tag">Webb 1997</span>
+        Webb, N. L. (1997). <em>Criteria for Alignment of Expectations and Assessments in Mathematics and Science Education.</em> Council of Chief State School Officers and National Institute for Science Education.
+      </li>
+    </ul>
+  </div>
+
+</div><!-- /.container -->
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <strong>Region South Instructional Resource Hub</strong> · Los Angeles Unified School District ·
+  Maintained by Region South Instructional Leadership ·
+  DOK Source: Webb (1997, 2002) · CR Matrix: Hess et al. (2009, ERIC ED517804) ·
+  <a href="index.html">Hub Home</a> · <a href="rigor.html">Rigor in Practice</a> · <a href="rs-prompt-library.html">AI Prompt Library</a>
+</footer>
+
+<script>
+function toggleDetail(level) {
+  var detail = document.getElementById('dok-detail-' + level);
+  var card   = document.querySelector('.dok-card[data-level="' + level + '"]');
+  var isOpen = detail.classList.contains('active');
+  document.querySelectorAll('.dok-detail').forEach(function(d) { d.classList.remove('active'); });
+  document.querySelectorAll('.dok-card').forEach(function(c) { c.setAttribute('aria-expanded', 'false'); });
+  if (!isOpen) {
+    detail.classList.add('active');
+    card.setAttribute('aria-expanded', 'true');
+    setTimeout(function() { detail.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 50);
+  }
+}
+document.querySelectorAll('.dok-card').forEach(function(card) {
+  card.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleDetail(parseInt(card.getAttribute('data-level')));
+    }
+  });
+});
+</script>
+
+</body>
+</html>

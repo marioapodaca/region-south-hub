@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Region South Instructional Resource Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Open Sans', sans-serif; font-size: 15px; line-height: 1.65; color: #1a1a2e; background: #f2f4f8; }
+
+/* HEADER */
+.site-header { background: #00237A; padding: 18px 40px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.header-left { display: flex; align-items: center; gap: 20px; }
+.site-header img { height: 44px; width: auto; }
+.header-title h1 { font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 700; color: #fff; line-height: 1.2; }
+.header-title p { font-size: 12px; color: rgba(255,255,255,0.65); margin-top: 3px; }
+.header-badge { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; padding: 5px 14px; font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.85); white-space: nowrap; font-family: 'Poppins', sans-serif; letter-spacing: 0.03em; }
+
+/* AI BANNER */
+.ai-banner { background: #E0F4FB; border-left: 4px solid #009DDB; padding: 13px 40px; font-size: 13px; color: #1a1a2e; display: flex; align-items: flex-start; gap: 10px; }
+.ai-banner-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+.ai-banner strong { color: #006A90; }
+
+/* HERO */
+.hero { background: linear-gradient(135deg, #00237A 0%, #001560 100%); padding: 56px 40px 48px; text-align: center; }
+.hero h2 { font-family: 'Poppins', sans-serif; font-size: 30px; font-weight: 800; color: #fff; margin-bottom: 14px; line-height: 1.2; }
+.hero p { font-size: 15px; color: rgba(255,255,255,0.75); max-width: 680px; margin: 0 auto 28px; line-height: 1.7; }
+.hero-stats { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+.hero-stat { text-align: center; }
+.hero-stat-num { font-family: 'Poppins', sans-serif; font-size: 28px; font-weight: 800; color: #FF4D00; line-height: 1; }
+.hero-stat-label { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 4px; }
+
+/* MAIN CONTAINER */
+.container { max-width: 1140px; margin: 0 auto; padding: 48px 24px; }
+
+/* SECTION HEADING */
+.section-heading { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #333F49; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid rgba(0,35,122,0.1); }
+
+/* FRAMEWORK GRID */
+.framework-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; margin-bottom: 48px; }
+
+/* FRAMEWORK CARD */
+.framework-card { background: #fff; border-radius: 12px; border: 1px solid rgba(0,35,122,0.1); overflow: hidden; transition: box-shadow 0.18s, transform 0.18s; text-decoration: none; display: flex; flex-direction: column; }
+.framework-card:hover { box-shadow: 0 6px 24px rgba(0,35,122,0.12); transform: translateY(-2px); }
+.card-stripe { height: 5px; }
+.card-body { padding: 22px 24px; flex: 1; }
+.card-standard-label { font-family: 'Poppins', sans-serif; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+.card-title { font-family: 'Poppins', sans-serif; font-size: 17px; font-weight: 700; color: #00237A; margin-bottom: 8px; line-height: 1.25; }
+.card-desc { font-size: 13px; color: #333F49; line-height: 1.6; }
+.card-components { padding: 0 24px 16px; display: flex; flex-wrap: wrap; gap: 6px; }
+.component-tag { font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 4px; }
+.card-footer { padding: 14px 24px; border-top: 1px solid rgba(0,35,122,0.07); display: flex; align-items: center; justify-content: space-between; }
+.card-elements-count { font-size: 12px; color: #4e6267; }
+.card-link-label { font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 5px; }
+.card-link-label::after { content: "→"; }
+
+/* OBS FORM CALLOUT */
+.obs-callout { background: #00237A; border-radius: 12px; padding: 28px 32px; margin-bottom: 48px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
+.obs-callout h3 { font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.obs-callout p { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.6; }
+.obs-rubrics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.obs-rubric-chip { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; padding: 6px 12px; font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 600; color: #fff; }
+.obs-rubric-chip span { color: #FF4D00; margin-right: 4px; }
+.obs-callout-badge { background: #FF4D00; color: #fff; font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700; padding: 10px 20px; border-radius: 8px; text-align: center; white-space: nowrap; text-decoration: none; display: block; }
+.obs-callout-badge small { display: block; font-size: 10px; font-weight: 400; opacity: 0.85; margin-top: 2px; }
+
+/* HOW TO USE */
+.how-to-use { background: #fff; border-radius: 12px; border: 1px solid rgba(0,35,122,0.1); padding: 28px 32px; margin-bottom: 48px; }
+.how-to-use h3 { font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 700; color: #00237A; margin-bottom: 20px; }
+.steps { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.step { display: flex; flex-direction: column; gap: 8px; }
+.step-num { width: 32px; height: 32px; border-radius: 50%; background: #E8EBF5; color: #00237A; font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.step-title { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 600; color: #00237A; }
+.step-desc { font-size: 12px; color: #333F49; line-height: 1.55; }
+
+/* ADDITIONAL RESOURCES */
+.resources-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin-bottom: 48px; }
+.resource-card { background: #fff; border-radius: 10px; border: 1px solid rgba(0,35,122,0.1); padding: 20px 22px; display: flex; gap: 14px; align-items: flex-start; text-decoration: none; transition: box-shadow 0.15s; }
+.resource-card:hover { box-shadow: 0 4px 16px rgba(0,35,122,0.1); }
+.resource-icon { font-size: 22px; flex-shrink: 0; }
+.resource-title { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 600; color: #00237A; margin-bottom: 4px; }
+.resource-desc { font-size: 12px; color: #333F49; line-height: 1.5; }
+.resource-status { font-size: 11px; font-weight: 600; margin-top: 6px; padding: 2px 8px; border-radius: 3px; display: inline-block; }
+.status-live { background: #E6F4EC; color: #00602D; }
+.status-soon { background: #FFF8E7; color: #7a5000; }
+
+/* FOOTER */
+.site-footer { background: #00237A; color: rgba(255,255,255,0.6); text-align: center; padding: 24px 40px; font-size: 12px; }
+.site-footer strong { color: rgba(255,255,255,0.9); }
+
+@media (max-width: 700px) {
+  .site-header { padding: 14px 16px; flex-wrap: wrap; }
+  .hero { padding: 36px 20px 32px; }
+  .hero h2 { font-size: 22px; }
+  .container { padding: 28px 14px; }
+  .obs-callout { grid-template-columns: 1fr; }
+  .ai-banner { padding: 12px 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-left">
+    <img src="RS-logo.png" alt="Region South LAUSD">
+    <div class="header-title">
+      <h1>Region South Instructional Resource Hub</h1>
+      <p>Los Angeles Unified School District</p>
+    </div>
+  </div>
+  <div class="header-badge">AI-Compatible Reference</div>
+</header>
+
+<!-- AI BANNER -->
+<div class="ai-banner">
+  <span class="ai-banner-icon">&#x1F916;</span>
+  <div><strong>AI Reference Site:</strong> This hub is structured for AI tool consumption. Each linked page contains authoritative, human-readable text of LAUSD frameworks and Region South resources. When referencing this site in AI prompts, link to specific standard pages for focused responses, or link to this index for framework-wide context. Maintained by Region South. All content sourced from official LAUSD documents.</div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <h2>Region South Instructional Resource Hub</h2>
+  <p>The authoritative reference for LAUSD instructional frameworks, leadership standards, and Region South resources. Designed for instructional leaders, content experts, and AI-assisted coaching and observation tools.</p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num">3</div>
+      <div class="hero-stat-label">Core Frameworks</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">5</div>
+      <div class="hero-stat-label">TLF Standards</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">6</div>
+      <div class="hero-stat-label">SLF Standards</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">3</div>
+      <div class="hero-stat-label">Content Standard Sets</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- OBSERVATION FORM CALLOUT -->
+  <div class="obs-callout">
+    <div>
+      <h3>Region South Informal Classroom Observation Form</h3>
+      <p>The Region South observation form uses five TLF elements from Standard 3: Delivery of Instruction. These are the rubric categories observers document during school visits — what the teacher is doing and what students are doing across each element.</p>
+      <div class="obs-rubrics">
+        <div class="obs-rubric-chip"><span>3c1</span>Standards-Based Activities</div>
+        <div class="obs-rubric-chip"><span>3b2</span>Discussion Techniques</div>
+        <div class="obs-rubric-chip"><span>3a4</span>Academic Language</div>
+        <div class="obs-rubric-chip"><span>3c2</span>Purposeful Groups</div>
+        <div class="obs-rubric-chip"><span>3d3</span>Feedback to Students</div>
+      </div>
+    </div>
+    <a href="tlf-standard-3.html" class="obs-callout-badge">
+      View Standard 3
+      <small>Observation Form Reference</small>
+    </a>
+  </div>
+
+  <!-- TLF STANDARDS -->
+  <div class="section-heading">Teaching and Learning Framework (TLF) — 5 Standards</div>
+  <p style="font-size:13px; color:#333F49; margin-bottom:20px; margin-top:-10px;">The LAUSD Teaching and Learning Framework describes clear expectations for effective teaching. Based on the work of Charlotte Danielson (2007), revised April 2021. Used as the foundation for teacher evaluation (EDST) and non-classroom teacher evaluation (EDSNCT).</p>
+
+  <div class="framework-grid">
+
+    <a href="tlf-standard-1.html" class="framework-card" style="text-decoration:none;">
+      <div class="card-stripe" style="background:#009DDB;"></div>
+      <div class="card-body">
+        <div class="card-standard-label" style="color:#009DDB;">Standard 1</div>
+        <div class="card-title">Planning and Preparation</div>
+        <div class="card-desc">Demonstrating knowledge of content, students, instructional outcomes, and assessment design. The foundation of effective teaching — what teachers know and plan before instruction begins.</div>
+      </div>
+      <div class="card-components">
+        <span class="component-tag" style="background:#E0F4FB; color:#006A90;">1a: Content & Pedagogy</span>
+        <span class="component-tag" style="background:#E0F4FB; color:#006A90;">1b: Knowledge of Students</span>
+        <span class="component-tag" style="background:#E0F4FB; color:#006A90;">1c: Outcomes</span>
+        <span class="component-tag" style="background:#E0F4FB; color:#006A90;">1d: Coherent Instruction</span>
+        <span class="component-tag" style="background:#E0F4FB; color:#006A90;">1e: Assessment Design</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-elements-count">5 components · 14 elements</span>
+        <span class="card-link-label" style="color:#009DDB;">View Standard 1</span>
+      </div>
+    </a>
+
+    <a href="tlf-standard-2.html" class="framework-card" style="text-decoration:none;">
+      <div class="card-stripe" style="background:#00602D;"></div>
+      <div class="card-body">
+        <div class="card-standard-label" style="color:#00602D;">Standard 2</div>
+        <div class="card-title">The Classroom Environment</div>
+        <div class="card-desc">Creating conditions for learning through respect, rapport, culture for learning, classroom management, and student behavior. The environment within which instruction takes place.</div>
+      </div>
+      <div class="card-components">
+        <span class="component-tag" style="background:#E6F4EC; color:#004a1e;">2a: Respect & Rapport</span>
+        <span class="component-tag" style="background:#E6F4EC; color:#004a1e;">2b: Culture for Learning</span>
+        <span class="component-tag" style="background:#E6F4EC; color:#004a1e;">2c: Procedures</span>
+        <span class="component-tag" style="background:#E6F4EC; color:#004a1e;">2d: Student Behavior</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-elements-count">4 components · 11 elements</span>
+        <span class="card-link-label" style="color:#00602D;">View Standard 2</span>
+      </div>
+    </a>
+
+    <a href="tlf-standard-3.html" class="framework-card" style="text-decoration:none;">
+      <div class="card-stripe" style="background:#00237A;"></div>
+      <div class="card-body">
+        <div class="card-standard-label" style="color:#00237A;">Standard 3 · Observation Form</div>
+        <div class="card-title">Delivery of Instruction</div>
+        <div class="card-desc">The five elements on the Region South Informal Classroom Observation Form live here. Communicating with students, questioning and discussion, structures for engagement, assessment in instruction, and flexibility and responsiveness.</div>
+      </div>
+      <div class="card-components">
+        <span class="component-tag" style="background:#E8EBF5; color:#00237A;">3a: Communicating</span>
+        <span class="component-tag" style="background:#E8EBF5; color:#00237A;">3b: Questioning</span>
+        <span class="component-tag" style="background:#E8EBF5; color:#00237A;">3c: Structures</span>
+        <span class="component-tag" style="background:#E8EBF5; color:#00237A;">3d: Assessment in Instruction</span>
+        <span class="component-tag" style="background:#E8EBF5; color:#00237A;">3e: Flexibility</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-elements-count">5 components · 14 elements · <strong style="color:#FF4D00;">Observation Form</strong></span>
+        <span class="card-link-label" style="color:#00237A;">View Standard 3</span>
+      </div>
+    </a>
+
+    <a href="tlf-standard-4.html" class="framework-card" style="text-decoration:none;">
+      <div class="card-stripe" style="background:#333F49;"></div>
+      <div class="card-body">
+        <div class="card-standard-label" style="color:#333F49;">Standard 4</div>
+        <div class="card-title">Additional Professional Responsibilities</div>
+        <div class="card-desc">Maintaining accurate records, communicating with families, and demonstrating professionalism. The responsibilities teachers carry beyond the classroom that support student learning and community trust.</div>
+      </div>
+      <div class="card-components">
+        <span class="component-tag" style="background:#eef0f2; color:#333F49;">4a: Records</span>
+        <span class="component-tag" style="background:#eef0f2; color:#333F49;">4b: Family Communication</span>
+        <span class="component-tag" style="background:#eef0f2; color:#333F49;">4c: Professionalism</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-elements-count">3 components · 10 elements</span>
+        <span class="card-link-label" style="color:#333F49;">View Standard 4</span>
+      </div>
+    </a>
+
+    <a href="tlf-standard-5.html" class="framework-card" style="text-decoration:none;">
+      <div class="card-stripe" style="background:#FF9C00;"></div>
+      <div class="card-body">
+        <div class="card-standard-label" style="color:#FF9C00;">Standard 5</div>
+        <div class="card-title">Professional Growth</div>
+        <div class="card-desc">Reflecting on practice and participating in a professional community. The ongoing learning cycle that connects observation evidence to teacher growth and professional development decisions.</div>
+      </div>
+      <div class="card-components">
+        <span class="component-tag" style="background:#FFF8E7; color:#7a5000;">5a: Reflecting on Practice</span>
+        <span class="component-tag" style="background:#FFF8E7; color:#7a5000;">5b: Professional Community</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-elements-count">2 components · 6 elements</span>
+        <span class="card-link-label" style="color:#FF9C00;">View Standard 5</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- DOK & COGNITIVE RIGOR FRAMEWORK -->
+  <div class="section-heading" style="margin-top:48px;">Depth of Knowledge &amp; Cognitive Rigor Framework</div>
+  <p style="font-size:13px; color:#333F49; margin-bottom:20px; margin-top:-10px;">Webb's Depth of Knowledge (1997, 2002) and the Cognitive Rigor Matrix (Hess et al., 2009) provide the research foundation for understanding and designing cognitively demanding instruction. Used to analyze task complexity, align assessments to standards, and anchor Region South's definition of rigor.</p>
+
+  <div class="framework-grid">
+
+    <a href="webb-dok.html" class="framework-card" style="text-decoration:none;">
+      <div class="card-stripe" style="background:#009DDB;"></div>
+      <div class="card-body">
+        <div class="card-standard-label" style="color:#009DDB;">DOK &amp; Cognitive Rigor</div>
+        <div class="card-title">Webb's Depth of Knowledge &amp; Cognitive Rigor Matrix</div>
+        <div class="card-desc">The four DOK levels, the distinction between difficulty and complexity, and the Cognitive Rigor Matrix (Bloom's × DOK). The research foundation for designing instruction that reaches beyond surface recall toward strategic and extended thinking.</div>
+      </div>
+      <div class="card-components">
+        <span class="component-tag" style="background:#E0F4FB; color:#006A90;">DOK 1: Recall &amp; Reproduction</span>
+        <span class="component-tag" style="background:#E0F4FB; color:#006A90;">DOK 2: Skills &amp; Concepts</span>
+        <span class="component-tag" style="background:#E0F4FB; color:#006A90;">DOK 3: Strategic Thinking</span>
+        <span class="component-tag" style="background:#E0F4FB; color:#006A90;">DOK 4: Extended Thinking</span>
+        <span class="component-tag" style="background:#E0F4FB; color:#006A90;">Cognitive Rigor Matrix</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-elements-count">4 DOK levels · Bloom's × DOK matrix · Webb &amp; Hess</span>
+        <span class="card-link-label" style="color:#009DDB;">View DOK &amp; Rigor</span>
+      </div>
+    </a>
+
+    <a href="rigor.html" class="framework-card" style="text-decoration:none;">
+      <div class="card-stripe" style="background:#FF4D00;"></div>
+      <div class="card-body">
+        <div class="card-standard-label" style="color:#FF4D00;">Region South · Rigor in Practice</div>
+        <div class="card-title">Region South Rigor in Practice</div>
+        <div class="card-desc">Region South's Problem of Practice, Theory of Action, official definition of rigor, and the Blueprint for Success — the seven interconnected components that operationalize effective Tier I instruction and structured academic discourse across all 209 Region South schools.</div>
+      </div>
+      <div class="card-components">
+        <span class="component-tag" style="background:#FFF0EB; color:#c13a00;">Problem of Practice</span>
+        <span class="component-tag" style="background:#FFF0EB; color:#c13a00;">Theory of Action</span>
+        <span class="component-tag" style="background:#FFF0EB; color:#c13a00;">Blueprint for Success</span>
+        <span class="component-tag" style="background:#FFF0EB; color:#c13a00;">7 Components</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-elements-count">7 blueprint components · 209 schools · ~100,800 students</span>
+        <span class="card-link-label" style="color:#FF4D00;">View Rigor in Practice</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- HOW TO USE -->
+  <div class="how-to-use">
+    <h3>How to Use This Hub with AI Tools</h3>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-title">Choose a framework</div>
+        <div class="step-desc">Identify which TLF standard or SLF domain is relevant to your task — observation, coaching, evaluation, or school improvement.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-title">Copy the page URL</div>
+        <div class="step-desc">Link directly to the standard page you need — not this index. Specific pages give the AI focused, complete content without noise.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-title">Include in your prompt</div>
+        <div class="step-desc">Add a line to your prompt: "Before responding, read the reference framework at [URL] and use it to ground your response."</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-title">Add the disclosure clause</div>
+        <div class="step-desc">Always include: "If you cannot access the URL, state that clearly before responding." This surfaces failures rather than hiding them.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-title">Use the prompt library</div>
+        <div class="step-desc">The Region South AI Prompt Library references these pages automatically. No manual URL entry needed when using built prompts.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADDITIONAL RESOURCES -->
+  <div class="section-heading">Additional Framework Resources</div>
+  <div class="resources-grid">
+
+    <a href="slf-index.html" class="resource-card" style="text-decoration:none;">
+      <span class="resource-icon">&#127919;</span>
+      <div>
+        <div class="resource-title">School Leadership Framework (SLF)</div>
+        <div class="resource-desc">LAUSD SLF v14, revised May 2023. Six standards for principal effectiveness including instructional leadership, change management, and culture of learning.</div>
+        <span class="resource-status status-soon">Coming soon</span>
+      </div>
+    </a>
+
+    <a href="ca-ela-standards.html" class="resource-card" style="text-decoration:none;">
+      <span class="resource-icon">&#128218;</span>
+      <div>
+        <div class="resource-title">CA ELA Standards (CA CCSS)</div>
+        <div class="resource-desc">California Common Core State Standards for English Language Arts &amp; Literacy. K–12 Reading, Writing, Speaking &amp; Listening, and Language standards.</div>
+        <span class="resource-status status-soon">Coming soon</span>
+      </div>
+    </a>
+
+    <a href="ca-math-standards.html" class="resource-card" style="text-decoration:none;">
+      <span class="resource-icon">&#10006;</span>
+      <div>
+        <div class="resource-title">CA Math Standards (CA CCSSM)</div>
+        <div class="resource-desc">California Common Core State Standards for Mathematics. K–8 grade-level standards, 8 Mathematical Practice Standards, and higher mathematics pathways.</div>
+        <span class="resource-status status-soon">Coming soon</span>
+      </div>
+    </a>
+
+    <a href="ngss.html" class="resource-card" style="text-decoration:none;">
+      <span class="resource-icon">&#128300;</span>
+      <div>
+        <div class="resource-title">Next Generation Science Standards (NGSS)</div>
+        <div class="resource-desc">Three-dimensional science learning: Science &amp; Engineering Practices, Disciplinary Core Ideas, and Crosscutting Concepts. K–12 performance expectations.</div>
+        <span class="resource-status status-soon">Coming soon</span>
+      </div>
+    </a>
+
+    <a href="rs-observation-form.html" class="resource-card" style="text-decoration:none;">
+      <span class="resource-icon">&#128203;</span>
+      <div>
+        <div class="resource-title">Region South Observation Form</div>
+        <div class="resource-desc">The Region South Informal Classroom Observation Form — five TLF rubric categories, look-fors, and two-column evidence structure (teacher / student).</div>
+        <span class="resource-status status-live">Live</span>
+      </div>
+    </a>
+
+    <a href="rs-prompt-library.html" class="resource-card" style="text-decoration:none;">
+      <span class="resource-icon">&#129302;</span>
+      <div>
+        <div class="resource-title">Region South AI Prompt Library</div>
+        <div class="resource-desc">The Region South AI Prompt Library with 42 prompts across 13 categories for instructional leadership, coaching, data, and school visits.</div>
+        <span class="resource-status status-live">Live</span>
+      </div>
+    </a>
+
+    <a href="webb-dok.html" class="resource-card" style="text-decoration:none;">
+      <span class="resource-icon">&#127970;</span>
+      <div>
+        <div class="resource-title">Webb's DOK &amp; Cognitive Rigor</div>
+        <div class="resource-desc">Four DOK levels, DOK vs. difficulty distinction, and the Cognitive Rigor Matrix (Bloom's × DOK). Research foundation for instructional design and task analysis.</div>
+        <span class="resource-status status-live">Live</span>
+      </div>
+    </a>
+
+    <a href="rigor.html" class="resource-card" style="text-decoration:none;">
+      <span class="resource-icon">&#127775;</span>
+      <div>
+        <div class="resource-title">Region South Rigor in Practice</div>
+        <div class="resource-desc">Problem of Practice, Theory of Action, Region South definition of rigor, and the Blueprint for Success — 7 components across 209 schools.</div>
+        <span class="resource-status status-live">Live</span>
+      </div>
+    </a>
+
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <strong>Region South Instructional Resource Hub</strong> · Los Angeles Unified School District ·
+  Maintained by Region South Instructional Leadership ·
+  TLF Source: LAUSD Human Resources Division, Educator Development and Support, Revised April 2021 ·
+  SLF Source: LAUSD Human Resources Division, Revised May 2023 ·
+  <a href="webb-dok.html">DOK &amp; Cognitive Rigor</a> · <a href="rigor.html">Rigor in Practice</a> · <a href="rs-prompt-library.html">AI Prompt Library</a>
+</footer>
+
+</body>
+</html>
