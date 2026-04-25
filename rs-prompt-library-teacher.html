@@ -88,11 +88,62 @@ body{font-family:'Open Sans',sans-serif;font-size:15px;line-height:1.65;color:#1
 .chip{font-family:'Poppins',sans-serif;font-size:11px;font-weight:600;padding:4px 12px;border-radius:20px;cursor:pointer;border:1.5px solid rgba(0,35,122,0.12);background:#f2f4f8;color:#333F49;transition:all 0.15s;user-select:none;}
 .chip:hover{border-color:#00237A;color:#00237A;}
 .chip.active{background:#00237A;color:#fff;border-color:#00237A;}
+.chip[data-stage="mystudents"].active{background:#0D6E6E;border-color:#0D6E6E;}
 .chip[data-stage="plan"].active{background:#009DDB;border-color:#009DDB;}
 .chip[data-stage="prepare"].active{background:#00602D;border-color:#00602D;}
 .chip[data-stage="teach"].active{background:#FF4D00;border-color:#FF4D00;}
 .chip[data-stage="assess"].active{background:#6B21A8;border-color:#6B21A8;}
 .chip[data-stage="reflect"].active{background:#B45309;border-color:#B45309;}
+/* My Students stage */
+.card-mystudents .card-stripe{background:#0D6E6E;}
+.stage-mystudents .stage-icon{background:#E0F5F5;}
+.stage-mystudents .stage-header h3{color:#0D6E6E;}
+.tag-mystudents{background:#E0F5F5;color:#084040;}
+/* Equity banner */
+.equity-banner{background:linear-gradient(135deg,#084040 0%,#0D6E6E 100%);padding:14px 40px;display:flex;align-items:flex-start;gap:12px;}
+.equity-banner-icon{font-size:18px;flex-shrink:0;margin-top:1px;}
+.equity-banner-text{font-size:13px;color:rgba(255,255,255,0.95);line-height:1.65;}
+.equity-banner-text strong{color:#fff;font-family:'Poppins',sans-serif;}
+/* Upload modal */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:10000;align-items:center;justify-content:center;}
+.modal-overlay.open{display:flex;}
+.modal-box{background:#fff;border-radius:16px;max-width:540px;width:94%;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.3);}
+.modal-head{background:#0D6E6E;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;border-radius:16px 16px 0 0;}
+.modal-head h3{font-family:'Poppins',sans-serif;font-size:15px;font-weight:700;color:#fff;}
+.modal-close{background:none;border:none;color:rgba(255,255,255,0.75);font-size:20px;cursor:pointer;line-height:1;}
+.modal-close:hover{color:#fff;}
+.modal-body{padding:22px;}
+.modal-privacy{background:#FFF0EB;border-left:4px solid #FF4D00;border-radius:0 8px 8px 0;padding:12px 14px;margin-bottom:18px;font-size:12px;color:#333F49;line-height:1.6;}
+.modal-privacy strong{color:#c13a00;display:block;font-family:'Poppins',sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:4px;}
+.upload-zone{border:2px dashed rgba(13,110,110,0.35);border-radius:10px;padding:28px 20px;text-align:center;background:#F0FAFA;cursor:pointer;transition:all 0.15s;margin-bottom:14px;}
+.upload-zone:hover,.upload-zone.drag-over{border-color:#0D6E6E;background:#E0F5F5;}
+.upload-zone-icon{font-size:32px;margin-bottom:8px;}
+.upload-zone-label{font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;color:#0D6E6E;margin-bottom:4px;}
+.upload-zone-sub{font-size:12px;color:#4e6267;}
+.upload-divider{display:flex;align-items:center;gap:10px;margin:12px 0;font-size:11px;color:#4e6267;}
+.upload-divider::before,.upload-divider::after{content:'';flex:1;height:1px;background:rgba(0,35,122,0.1);}
+.btn-camera{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:10px;border:1.5px solid rgba(13,110,110,0.3);border-radius:8px;background:#fff;font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;color:#0D6E6E;cursor:pointer;transition:all 0.15s;margin-bottom:14px;}
+.btn-camera:hover{background:#E0F5F5;border-color:#0D6E6E;}
+.upload-preview{display:none;margin-bottom:14px;}
+.upload-preview.visible{display:block;}
+.preview-img{max-width:100%;border-radius:8px;border:1px solid rgba(0,35,122,0.1);max-height:220px;object-fit:contain;display:block;margin:0 auto 8px;}
+.preview-label{font-size:11px;color:#4e6267;text-align:center;}
+.btn-clear-upload{font-size:11px;font-family:'Poppins',sans-serif;font-weight:600;color:#dc2626;background:none;border:none;cursor:pointer;display:block;margin:4px auto 0;}
+.modal-consent{display:flex;align-items:flex-start;gap:10px;background:#f8f9fc;border-radius:8px;padding:12px;margin-bottom:16px;}
+.modal-consent input{margin-top:3px;flex-shrink:0;accent-color:#0D6E6E;}
+.modal-consent label{font-size:12px;color:#333F49;line-height:1.55;cursor:pointer;}
+.btn-modal-submit{width:100%;padding:11px;background:#0D6E6E;color:#fff;border:none;border-radius:8px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:background 0.15s;}
+.btn-modal-submit:hover{background:#084040;}
+.btn-modal-submit:disabled{background:#aaa;cursor:not-allowed;}
+.btn-attach-img{font-family:'Poppins',sans-serif;font-size:11px;font-weight:600;color:#4e6267;background:none;border:none;cursor:pointer;padding:0;margin-top:10px;display:inline-flex;align-items:center;gap:5px;text-decoration:underline;text-underline-offset:2px;}
+.btn-attach-img:hover{color:#0D6E6E;}
+.img-attached-note{font-size:11px;color:#0D6E6E;font-weight:600;display:inline-flex;align-items:center;gap:5px;margin-top:10px;}
+.btn-upload-trigger{background:#0D6E6E;color:#fff;border:none;padding:5px 12px;border-radius:5px;font-family:'Poppins',sans-serif;font-size:11px;font-weight:600;cursor:pointer;margin-left:6px;}
+.btn-upload-trigger:hover{background:#084040;}
+.img-context-box{font-size:12px;padding:8px 10px;border:1.5px solid rgba(13,110,110,0.25);border-radius:6px;font-family:'Open Sans',sans-serif;background:#fff;color:#1a1a2e;width:100%;outline:none;margin-top:8px;resize:vertical;min-height:56px;}
+.img-context-box:focus{border-color:#0D6E6E;}
+
+
 .controls-divider{height:1px;background:rgba(0,35,122,0.07);margin:12px 0;}
 .search-wrap{position:relative;}
 .search-wrap input{width:100%;padding:8px 12px 8px 34px;border:1.5px solid rgba(0,35,122,0.15);border-radius:8px;font-size:13px;font-family:'Open Sans',sans-serif;color:#1a1a2e;outline:none;background:#f2f4f8;}
@@ -210,6 +261,11 @@ textarea.custom-input{resize:vertical;min-height:72px;}
   <div><strong>How to use this library:</strong> Select your grade band, find a prompt, then click <strong>Customize &amp; Fill In</strong> to enter your specific details. The prompt updates live &mdash; copy the filled version directly into any AI chat tool. Save prompts you use often to <strong>My Library</strong> and export to Excel anytime.</div>
 </div>
 
+<div class="equity-banner">
+  <span class="equity-banner-icon">&#x2696;&#xFE0F;</span>
+  <div class="equity-banner-text"><strong>Equity Commitment:</strong> Every student in Region South deserves access to rigorous, grade-level instruction — regardless of language background, prior performance, or zip code. These prompts are designed to help teachers maintain high cognitive demand for all students while providing strategic support. When using AI tools, name your students&rsquo; assets alongside their needs, and resist prompts that reduce expectations or lower the ceiling for any group.</div>
+</div>
+
 <div class="breadcrumb">
   <a href="rs_hub_index_teachers.html">Teacher Hub</a>
   <span class="breadcrumb-sep">&rsaquo;</span>
@@ -220,12 +276,13 @@ textarea.custom-input{resize:vertical;min-height:72px;}
   <h2>Teacher AI Prompt Library</h2>
   <p>Ready-to-customize AI prompts for every stage of your instructional work &mdash; grounded in the LAUSD Teaching and Learning Framework, Webb&rsquo;s DOK, and California content standards.</p>
   <div class="hero-stats">
-    <div><div class="hero-stat-num">40</div><div class="hero-stat-label">Prompts</div></div>
-    <div><div class="hero-stat-num">5</div><div class="hero-stat-label">Workflow Stages</div></div>
+    <div><div class="hero-stat-num">46</div><div class="hero-stat-label">Prompts</div></div>
+    <div><div class="hero-stat-num">6</div><div class="hero-stat-label">Workflow Stages</div></div>
     <div><div class="hero-stat-num">3</div><div class="hero-stat-label">Content Frameworks</div></div>
     <div><div class="hero-stat-num">5</div><div class="hero-stat-label">TLF Standards</div></div>
   </div>
   <div class="hero-tags">
+    <span class="hero-tag">&#x1F9D1;&#x200D;&#x1F393; My Students</span>
     <span class="hero-tag">&#x1F4CB; Plan</span>
     <span class="hero-tag">&#x2705; Prepare</span>
     <span class="hero-tag">&#x1F4AC; Teach</span>
@@ -239,11 +296,12 @@ textarea.custom-input{resize:vertical;min-height:72px;}
   <div class="how-to-use">
     <h3>How to Use These Prompts</h3>
     <div class="how-steps">
-      <div class="how-step"><div class="how-step-num">1</div><div class="how-step-title">Select grade band</div><div class="how-step-desc">Pre-fills [grade level] across all prompts automatically.</div></div>
-      <div class="how-step"><div class="how-step-num">2</div><div class="how-step-title">Find your stage</div><div class="how-step-desc">Filter by Plan, Prepare, Teach, Assess, or Reflect.</div></div>
-      <div class="how-step"><div class="how-step-num">3</div><div class="how-step-title">Customize &amp; fill in</div><div class="how-step-desc">Enter your standard, topic, and details. Prompt updates live.</div></div>
-      <div class="how-step"><div class="how-step-num">4</div><div class="how-step-title">Copy filled prompt</div><div class="how-step-desc">One click copies your customized prompt + grounding sources.</div></div>
-      <div class="how-step"><div class="how-step-num">5</div><div class="how-step-title">Save to My Library</div><div class="how-step-desc">Save prompts you use often. Export to Excel anytime.</div></div>
+      <div class="how-step"><div class="how-step-num">1</div><div class="how-step-title">Know your students first</div><div class="how-step-desc">Use <strong>My Students</strong> prompts to surface data, assets, and equity needs before planning.</div></div>
+      <div class="how-step"><div class="how-step-num">2</div><div class="how-step-title">Select grade band</div><div class="how-step-desc">Pre-fills [grade level] across all prompts automatically.</div></div>
+      <div class="how-step"><div class="how-step-num">3</div><div class="how-step-title">Find your stage</div><div class="how-step-desc">Filter by My Students, Plan, Prepare, Teach, Assess, or Reflect.</div></div>
+      <div class="how-step"><div class="how-step-num">4</div><div class="how-step-title">Customize &amp; fill in</div><div class="how-step-desc">Enter your standard, topic, and details. Prompt updates live.</div></div>
+      <div class="how-step"><div class="how-step-num">5</div><div class="how-step-title">Copy filled prompt</div><div class="how-step-desc">One click copies your customized prompt + grounding sources.</div></div>
+      <div class="how-step"><div class="how-step-num">6</div><div class="how-step-title">Save to My Library</div><div class="how-step-desc">Save prompts you use often. Export to Excel anytime.</div></div>
     </div>
   </div>
 
@@ -291,6 +349,7 @@ textarea.custom-input{resize:vertical;min-height:72px;}
       <span class="controls-label">Stage:</span>
       <div class="filter-chips" id="stage-chips">
         <div class="chip active" data-stage="all" onclick="filterStage('all',this)">All Stages</div>
+        <div class="chip" data-stage="mystudents" onclick="filterStage('mystudents',this)">&#x1F9D1;&#x200D;&#x1F393; My Students</div>
         <div class="chip" data-stage="plan"    onclick="filterStage('plan',this)">&#x1F4CB; Plan</div>
         <div class="chip" data-stage="prepare" onclick="filterStage('prepare',this)">&#x2705; Prepare</div>
         <div class="chip" data-stage="teach"   onclick="filterStage('teach',this)">&#x1F4AC; Teach</div>
@@ -315,7 +374,7 @@ textarea.custom-input{resize:vertical;min-height:72px;}
     </div>
   </div>
 
-  <div class="results-count"><strong id="visible-count">40</strong> prompts shown</div>
+  <div class="results-count"><strong id="visible-count">46</strong> prompts shown</div>
   <div id="cards-container"></div>
 
 </div>
@@ -325,10 +384,78 @@ textarea.custom-input{resize:vertical;min-height:72px;}
   <a href="rs_hub_index_teachers.html">Teacher Hub</a> &middot; <a href="webb-dok.html">DOK &amp; Cognitive Rigor</a> &middot; <a href="rigor.html">Rigor in Practice</a> &middot; <a href="rs-prompt-library.html">Admin Prompt Library</a>
 </footer>
 
+<!-- IMAGE UPLOAD MODAL -->
+<div class="modal-overlay" id="upload-modal" onclick="closeUploadModal(event)">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3>&#x1F4F7; Add Student Work Image</h3>
+      <button class="modal-close" onclick="closeUploadModal(null)">&#x2715;</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-privacy">
+        <strong>&#x26A0; Privacy &amp; Data Notice — Read Before Uploading</strong>
+        Student work may contain personally identifiable information (PII). Before uploading:
+        <br>&bull; <strong>Remove or cover student names</strong> and any other identifying information.
+        <br>&bull; This image is processed <strong>only for this session</strong> and is not stored by this tool.
+        <br>&bull; Do not upload images that contain <strong>sensitive or confidential student information</strong> beyond what is needed for instructional analysis.
+        <br>&bull; Use of AI tools for student data is subject to <strong>LAUSD data governance policies</strong>. When in doubt, describe the work in text instead.
+      </div>
+      <div class="upload-zone" id="upload-zone" onclick="document.getElementById('file-input').click()" ondragover="dragOver(event)" ondragleave="dragLeave(event)" ondrop="dropFile(event)">
+        <div class="upload-zone-icon">&#x1F4C4;</div>
+        <div class="upload-zone-label">Click to browse or drag &amp; drop</div>
+        <div class="upload-zone-sub">JPG, PNG, WEBP, HEIC &mdash; max 10 MB &mdash; remove student names first</div>
+        <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" style="display:none" onchange="fileSelected(event)">
+      </div>
+      <div class="upload-divider">or</div>
+      <button class="btn-camera" onclick="openCamera()">&#x1F4F7; Take a Photo with Camera</button>
+      <video id="camera-stream" style="display:none;width:100%;border-radius:8px;margin-bottom:8px;" autoplay playsinline></video>
+      <button id="btn-capture" style="display:none;width:100%;padding:9px;background:#0D6E6E;color:#fff;border:none;border-radius:8px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;cursor:pointer;margin-bottom:10px;" onclick="capturePhoto()">&#x23FA; Capture Photo</button>
+      <canvas id="capture-canvas" style="display:none;"></canvas>
+      <div class="upload-preview" id="upload-preview">
+        <img id="preview-img" class="preview-img" src="" alt="Preview">
+        <div class="preview-label">Preview &mdash; confirm names/PII have been removed before submitting</div>
+        <button class="btn-clear-upload" onclick="clearUpload()">&#x2715; Remove image</button>
+        <textarea class="img-context-box" id="img-context" placeholder="Optional: add any context about this image (e.g., which part to focus on, how many students are shown)..." rows="2"></textarea>
+      </div>
+      <div class="modal-consent">
+        <input type="checkbox" id="consent-check" onchange="updModalSubmit()">
+        <label for="consent-check">I confirm that student names and identifying information have been removed or covered, and I understand this image will be processed by AI for instructional purposes only.</label>
+      </div>
+      <button class="btn-modal-submit" id="btn-modal-submit" onclick="submitUpload()" disabled>Attach Image &amp; Build Prompt</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
 const PROMPTS=[
+// ── MY STUDENTS ────────────────────────────────────────────────────────────
+{id:41,stage:'mystudents',content:['universal'],title:'Interpret i-Ready Diagnostic Data for My Class',purpose:'Turn raw diagnostic results into a clear picture of class needs — with equity-conscious instructional priorities.',tlf:'TLF 1b · 1e',
+sources:[{label:'TLF Standard 1',url:'https://marioapodaca.github.io/region-south-hub/tlf-standard-1.html'}],
+fields:[{key:'results',label:'Paste or describe your i-Ready class diagnostic results',type:'textarea',ph:'e.g., Class median is 2.1 grade levels below; 14/28 students are ELs; most common gap is vocabulary and comprehension fluency; 5 students at/above grade level...'},{key:'demographics',label:'Describe your class demographics (optional — supports equity lens)',type:'input',ph:'e.g., 22 ELs, 4 students with IEPs, 80% FRPM'}],
+template:'I am a [grade level] teacher.\n\nMy i-Ready class diagnostic results: [results]\nClass demographics: [demographics]\n\nHelp me:\n1. Name 2–3 asset-based strengths visible in this data (what do students already know and do well?)\n2. Identify the highest-leverage instructional gap to address first\n3. Suggest one classroom strategy that addresses this gap while maintaining grade-level access\n4. Flag any equity patterns I should monitor (e.g., are gaps concentrated in a subgroup?)\n\nFrame your response around student assets first, then needs. I still teach grade-level standards — support should scaffold access, not lower the ceiling.\n\nBefore responding, use the information above to ground your response.'},
+{id:42,stage:'mystudents',content:['universal'],title:'Understand My English Learners\' Language Profiles',purpose:'Get a clear picture of what your EL students need linguistically — and instructional moves that preserve rigor.',tlf:'TLF 1b · 1d',
+sources:[{label:'TLF Standard 1',url:'https://marioapodaca.github.io/region-south-hub/tlf-standard-1.html'},{label:'Rigor in Practice',url:'https://marioapodaca.github.io/region-south-hub/rigor.html'}],
+fields:[{key:'el_profile',label:'Describe your EL population',type:'textarea',ph:'e.g., 14 ELs: 6 Early Advanced, 5 Intermediate, 3 Early; most have strong conversational English but struggle with academic vocabulary; 4 are Long-Term ELs'}],
+template:'I am a [grade level] teacher.\n\nMy English Learner profile: [el_profile]\n\nHelp me:\n1. Identify the primary academic language demands I should plan for with this group\n2. Suggest 2 classroom structures that give ELs access to grade-level content without reducing cognitive demand\n3. Recommend 2 specific vocabulary or discourse supports for this week\n4. Name one common instructional pitfall to avoid with Long-Term ELs specifically\n\nBefore responding, read TLF Standard 1 at https://marioapodaca.github.io/region-south-hub/tlf-standard-1.html and Rigor in Practice at https://marioapodaca.github.io/region-south-hub/rigor.html. If you cannot access a URL, state that clearly before proceeding.'},
+{id:43,stage:'mystudents',content:['universal'],title:'Build an Asset Map for My Class',purpose:'Document what your students already know, bring, and can do — as the foundation for equitable lesson design.',tlf:'TLF 1b · 1d',
+sources:[{label:'TLF Standard 1',url:'https://marioapodaca.github.io/region-south-hub/tlf-standard-1.html'}],
+fields:[{key:'class_description',label:'Describe your class — academically and culturally',type:'textarea',ph:"e.g., 28 students, 90% Latino, 22 ELs, many are bilingual in Spanish — some are stronger readers in Spanish than English; strong oral culture; many students have experience with hands-on work and problem-solving outside of school"},{key:'unit',label:'Upcoming unit or standard',type:'input',ph:'e.g., Argumentative writing, Fractions as division'}],
+template:'I am a [grade level] teacher.\n\nClass description: [class_description]\nUpcoming unit: [unit]\n\nHelp me build an asset map for this class:\n1. What linguistic, cultural, and experiential assets are visible in this description that connect to [unit]?\n2. What prior knowledge should I assume students already have?\n3. Suggest one way to activate these assets in the first lesson\n4. What would it look like for these students to engage with this unit at DOK 3?\n\nBefore responding, read TLF Standard 1 at https://marioapodaca.github.io/region-south-hub/tlf-standard-1.html. If you cannot access a URL, state that clearly before proceeding.'},
+{id:44,stage:'mystudents',content:['universal'],title:'Analyze a Student Work Sample (Upload)',purpose:'Get an AI interpretation of what a specific piece of student work reveals — assets, gaps, and next steps.',tlf:'TLF 3d · 1b',
+sources:[{label:'TLF Standard 3',url:'https://marioapodaca.github.io/region-south-hub/tlf-standard-3.html'},{label:'DOK & Cognitive Rigor',url:'https://marioapodaca.github.io/region-south-hub/webb-dok.html'}],
+fields:[{key:'task',label:'Describe the assignment or task',type:'input',ph:'e.g., Written argument paragraph with two pieces of evidence'},{key:'grade_context',label:'Any context about this student (optional)',type:'input',ph:'e.g., EL at Early Advanced level, strong verbal but struggles with written output'}],
+template:'I am a [grade level] teacher.\n\nTask: [task]\nStudent context: [grade_context]\n[STUDENT_WORK_IMAGE]\n\nAnalyze this student work sample:\n1. What does this work reveal about what the student understands? (Start with assets)\n2. What is the most important gap or next step visible in this work?\n3. What DOK level does this response demonstrate?\n4. Write specific, actionable written feedback I can give this student — pushes thinking without giving the answer away\n\nBefore responding, read TLF Standard 3 at https://marioapodaca.github.io/region-south-hub/tlf-standard-3.html. If you cannot access a URL, state that clearly before proceeding.',hasImageUpload:true},
+{id:45,stage:'mystudents',content:['universal'],title:'Identify Patterns Across a Set of Exit Tickets (Upload)',purpose:'Upload a photo of a stack of exit tickets and get a pattern analysis — who understands what, and who needs what next.',tlf:'TLF 3d · 1e',
+sources:[{label:'TLF Standard 3',url:'https://marioapodaca.github.io/region-south-hub/tlf-standard-3.html'}],
+fields:[{key:'ticket_prompt',label:'What was the exit ticket question?',type:'input',ph:'e.g., Explain in 2 sentences why the author uses this evidence'}],
+template:'I am a [grade level] teacher.\n\nExit ticket question: [ticket_prompt]\n[STUDENT_WORK_IMAGE]\n\nAnalyze the student responses visible in this image:\n1. What do most students understand? (Asset-first framing)\n2. What is the most common gap or misconception?\n3. Are there 2–3 distinct response patterns I should plan different instruction for?\n4. What is the one instructional move I should make at the start of tomorrow\'s class?\n\nBefore responding, read TLF Standard 3 at https://marioapodaca.github.io/region-south-hub/tlf-standard-3.html. If you cannot access a URL, state that clearly before proceeding.',hasImageUpload:true},
+{id:46,stage:'mystudents',content:['universal'],title:'Plan Differentiated Supports for a Specific Student',purpose:'Get targeted, asset-based instructional supports for one student — without reducing rigor or expectations.',tlf:'TLF 1b · 1d',
+sources:[{label:'TLF Standard 1',url:'https://marioapodaca.github.io/region-south-hub/tlf-standard-1.html'},{label:'Rigor in Practice',url:'https://marioapodaca.github.io/region-south-hub/rigor.html'}],
+fields:[{key:'student',label:'Describe this student — assets and challenges',type:'textarea',ph:"e.g., 7th grader, EL at Intermediate level, strong number sense but difficulty expressing reasoning in writing; engaged when tasks involve visuals or movement; testing shows 5th grade reading level"},{key:'lesson',label:'What is the upcoming lesson or task?',type:'input',ph:'e.g., Argumentative essay on a historical controversy'}],
+template:'I am a [grade level] teacher.\n\nStudent profile: [student]\nUpcoming lesson/task: [lesson]\n\nPlease help me:\n1. Name 2 specific assets this student brings that I can activate in this lesson\n2. Identify the most likely access barrier for this student in this task\n3. Suggest 2 targeted supports — each one gives access without doing the cognitive work for the student\n4. What does success look like for this student on this task — at DOK 2 or higher?\n\nBefore responding, read TLF Standard 1 at https://marioapodaca.github.io/region-south-hub/tlf-standard-1.html and Rigor in Practice at https://marioapodaca.github.io/region-south-hub/rigor.html. If you cannot access a URL, state that clearly before proceeding.'},
+// ── PLAN ──────────────────────────────────────────────────────────────────
 {id:1,stage:'plan',content:['ela','universal'],title:'Unpack an ELA Standard',purpose:'Break a standard into what students must know, understand, and do — with DOK level identified.',tlf:'TLF 1a · 1e',
 sources:[{label:'CA ELA Standards',url:'https://marioapodaca.github.io/region-south-hub/ca-ela-standards.html'},{label:'DOK & Cognitive Rigor',url:'https://marioapodaca.github.io/region-south-hub/webb-dok.html'},{label:'TLF Standard 1',url:'https://marioapodaca.github.io/region-south-hub/tlf-standard-1.html'}],
 fields:[{key:'topic',label:'Topic or standard name',type:'input',ph:'e.g., RL.5.3 — Character and Setting'},{key:'standard',label:'Paste the full standard text',type:'textarea',ph:'Paste the standard here...'}],
@@ -492,20 +619,21 @@ template:'I am a [grade level] teacher.\n\nPlease read TLF Standard 5 at https:/
 ];
 
 const SC={
+  mystudents:{icon:'&#x1F9D1;&#x200D;&#x1F393;',label:'Stage 0 &mdash; My Students',desc:'Know before you plan &middot; Data &middot; Assets &middot; Equity Lens'},
   plan:{icon:'&#x1F4CB;',label:'Stage 1 &mdash; Plan',desc:'Before the lesson &middot; Standards &middot; Tasks &middot; Lesson Design'},
   prepare:{icon:'&#x2705;',label:'Stage 2 &mdash; Prepare',desc:'Setting up for success &middot; Scaffolds &middot; Discourse &middot; Differentiation'},
   teach:{icon:'&#x1F4AC;',label:'Stage 3 &mdash; Teach',desc:'During instruction &middot; Questions &middot; Explanations &middot; Discourse Moves'},
   assess:{icon:'&#x1F4CA;',label:'Stage 4 &mdash; Assess',desc:'After the lesson &middot; Exit Tickets &middot; Student Work &middot; Data'},
   reflect:{icon:'&#x1F4A1;',label:'Stage 5 &mdash; Reflect &amp; Adjust',desc:'The improvement cycle &middot; Reteach &middot; Coaching &middot; Growth'}
 };
-const TC={plan:'tag-plan',prepare:'tag-prepare',teach:'tag-teach',assess:'tag-assess',reflect:'tag-reflect',ela:'tag-ela',math:'tag-math',science:'tag-science',universal:'tag-universal'};
+const TC={mystudents:'tag-mystudents',plan:'tag-plan',prepare:'tag-prepare',teach:'tag-teach',assess:'tag-assess',reflect:'tag-reflect',ela:'tag-ela',math:'tag-math',science:'tag-science',universal:'tag-universal'};
 
 let cStage='all',cContent='all',cBand='[grade level]';
 const openSet=new Set();
 
 function renderAll(){
   const cont=document.getElementById('cards-container');
-  const stages=['plan','prepare','teach','assess','reflect'];
+  const stages=['mystudents','plan','prepare','teach','assess','reflect'];
   let html='',tot=0;
   const srch=(document.getElementById('search-input')||{value:''}).value.toLowerCase().trim();
   stages.forEach(s=>{
@@ -531,13 +659,17 @@ function renderAll(){
 }
 
 function mkCard(p){
-  const stT=`<span class="card-tag ${TC[p.stage]||''}">${SC[p.stage].icon} ${p.stage.charAt(0).toUpperCase()+p.stage.slice(1)}</span>`;
+  const stageName=p.stage==='mystudents'?'My Students':(p.stage.charAt(0).toUpperCase()+p.stage.slice(1));
+  const stT=`<span class="card-tag ${TC[p.stage]||''}">${SC[p.stage].icon} ${stageName}</span>`;
   const ctT=p.content.map(c=>`<span class="card-tag ${TC[c]||''}">${c.charAt(0).toUpperCase()+c.slice(1)}</span>`).join('');
   const tlfT=`<span class="card-tag tag-tlf">${p.tlf}</span>`;
   const srcs=p.sources.map(s=>`<a href="${s.url}" target="_blank" class="source-chip">${s.label}</a>`).join('');
   const prev=hlPH(p.template);
   const flds=p.fields&&p.fields.length?p.fields.map(f=>`<div class="custom-field"><div class="custom-label">${f.label}</div>${f.type==='textarea'?`<textarea class="custom-input" id="cf-${p.id}-${f.key}" placeholder="${f.ph}" rows="3" oninput="updB(${p.id})"></textarea>`:`<input type="text" class="custom-input" id="cf-${p.id}-${f.key}" placeholder="${f.ph}" oninput="updB(${p.id})">`}</div>`).join(''):'<p style="font-size:12px;color:#4e6267;">No fill-in fields needed &mdash; ready to copy after selecting your grade band.</p>';
-  return `<div class="prompt-card card-${p.stage}" id="card-${p.id}"><div class="card-stripe"></div><div class="card-top" onclick="togCard(${p.id})"><div class="card-top-left"><div class="card-title">${p.title}</div><div class="card-purpose">${p.purpose}</div><div class="card-tags">${stT}${ctT}${tlfT}</div></div><div class="card-chevron" id="c-${p.id}">&rsaquo;</div></div><div class="card-body" id="b-${p.id}"><div class="card-body-inner"><div class="grounding-row"><span class="grounding-label">Sources:</span><div class="source-chips">${srcs}</div></div><div class="prompt-label">Prompt Template</div><div class="prompt-text-box">${prev}</div><div class="customize-panel" id="cp-${p.id}"><div class="customize-title">&#x270F;&#xFE0F; Fill In Your Details</div><div class="custom-fields">${flds}</div><div class="built-prompt-wrap" id="bw-${p.id}"><div class="built-prompt-label">&#x2705; Your Customized Prompt &mdash; Ready to Copy</div><div class="built-prompt-box" id="bp-${p.id}"></div></div></div><div class="card-actions"><button class="btn-action btn-copy-raw" onclick="cpRaw(${p.id})">&#x1F4CB; Copy Template</button><button class="btn-action btn-customize" onclick="togCP(${p.id})">&#x270F;&#xFE0F; Customize &amp; Fill In &#x25BE;</button><button class="btn-action btn-copy-built" id="bcb-${p.id}" onclick="cpBuilt(${p.id})">&#x1F4CB; Copy Filled Prompt</button><button class="btn-action btn-save" id="bs-${p.id}" onclick="saveLB(${p.id})">&#x2B50; Save to My Library</button><span class="copy-toast" id="ct-${p.id}">&#x2705; Copied!</span><span class="tlf-anchor">${p.tlf}</span></div></div></div></div>`;
+  const imgUploadHtml=p.hasImageUpload
+    ?`<div style="margin-top:10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;"><img id="img-thumb-${p.id}" src="" alt="" style="display:none;height:48px;width:auto;border-radius:6px;border:1px solid rgba(0,35,122,0.15);object-fit:cover;"><span id="img-lbl-${p.id}" style="font-size:12px;color:#4e6267;">No image attached</span><button class="btn-upload-trigger" onclick="openUploadModal(${p.id})">&#x1F4F7; Upload / Camera</button></div>`
+    :`<div style="margin-top:8px;"><button class="btn-attach-img" onclick="openUploadModal(${p.id})">&#x1F4F7; Attach an image (optional)</button><span id="img-lbl-${p.id}" style="display:none;margin-left:8px;" class="img-attached-note">&#x2705; Image attached</span></div>`;
+  return `<div class="prompt-card card-${p.stage}" id="card-${p.id}"><div class="card-stripe"></div><div class="card-top" onclick="togCard(${p.id})"><div class="card-top-left"><div class="card-title">${p.title}</div><div class="card-purpose">${p.purpose}</div><div class="card-tags">${stT}${ctT}${tlfT}</div></div><div class="card-chevron" id="c-${p.id}">&rsaquo;</div></div><div class="card-body" id="b-${p.id}"><div class="card-body-inner"><div class="grounding-row"><span class="grounding-label">Sources:</span><div class="source-chips">${srcs}</div></div><div class="prompt-label">Prompt Template</div><div class="prompt-text-box">${prev}</div><div class="customize-panel" id="cp-${p.id}"><div class="customize-title">&#x270F;&#xFE0F; Fill In Your Details</div><div class="custom-fields">${flds}</div>${imgUploadHtml}<div class="built-prompt-wrap" id="bw-${p.id}"><div class="built-prompt-label">&#x2705; Your Customized Prompt &mdash; Ready to Copy</div><div class="built-prompt-box" id="bp-${p.id}"></div></div></div><div class="card-actions"><button class="btn-action btn-copy-raw" onclick="cpRaw(${p.id})">&#x1F4CB; Copy Template</button><button class="btn-action btn-customize" onclick="togCP(${p.id})">&#x270F;&#xFE0F; Customize &amp; Fill In &#x25BE;</button><button class="btn-action btn-copy-built" id="bcb-${p.id}" onclick="cpBuilt(${p.id})">&#x1F4CB; Copy Filled Prompt</button><button class="btn-action btn-save" id="bs-${p.id}" onclick="saveLB(${p.id})">&#x2B50; Save to My Library</button><span class="copy-toast" id="ct-${p.id}">&#x2705; Copied!</span><span class="tlf-anchor">${p.tlf}</span></div></div></div></div>`;
 }
 
 function hlPH(t){return t.replace(/\[([^\]]+)\]/g,'<span class="fill-hint">[$1]</span>');}
@@ -555,18 +687,6 @@ function togCP(id){
   p.classList.toggle('open');updB(id);
 }
 
-function bldFill(id){
-  const p=PROMPTS.find(x=>x.id===id);if(!p)return'';
-  let t=p.template.replace(/\[grade level\]/g,cBand);
-  if(p.fields)p.fields.forEach(f=>{
-    const el=document.getElementById('cf-'+id+'-'+f.key);
-    const v=el?el.value.trim():'';
-    t=t.replace(new RegExp('\\['+escR(f.key)+'\\]','g'),v||('['+f.label+']'));
-  });
-  const s=p.sources.map(x=>x.label+': '+x.url).join('\n');
-  return t+(s?'\n\nGrounding sources:\n'+s:'');
-}
-
 function escR(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
 
 function updB(id){
@@ -576,8 +696,10 @@ function updB(id){
   const hasV=p.fields&&p.fields.some(f=>{const el=document.getElementById('cf-'+id+'-'+f.key);return el&&el.value.trim();});
   bp.textContent=bldFill(id);
   bw.classList.add('visible');
-  if(bcb)bcb.style.display=(hasV||!p.fields||!p.fields.length)?'flex':'none';
+  if(bcb)bcb.style.display=(hasV||!p.fields||!p.fields.length||p._imgData)?'flex':'none';
 }
+
+// IMAGE UPLOAD
 
 function cpRaw(id){
   const p=PROMPTS.find(x=>x.id===id);if(!p)return;
@@ -655,7 +777,7 @@ function toggleLibPanel(){
 function rndrLP(){
   const lib=getLib(),c=document.getElementById('library-items');if(!c)return;
   if(!lib.length){c.innerHTML='<div class="library-empty">No saved prompts yet. Customize a prompt and click <strong>Save to My Library</strong>.</div>';return;}
-  c.innerHTML=lib.map(it=>`<div class="library-item"><div class="lib-item-meta"><div class="lib-item-title">${it.title}</div><div class="lib-item-detail">${it.stage.charAt(0).toUpperCase()+it.stage.slice(1)} &middot; ${it.tlf} &middot; ${it.band} &middot; Saved ${it.at}</div><div class="lib-item-preview">${it.text.substring(0,120).replace(/\n/g,' ')}&hellip;</div></div><div class="lib-item-actions"><button class="btn-lib-copy" onclick="cpLB(${it.id})">&#x1F4CB; Copy</button><button class="btn-lib-delete" onclick="delLB(${it.id})">&#x1F5D1; Remove</button></div></div>`).join('');
+  c.innerHTML=lib.map(it=>{const sn=it.stage==='mystudents'?'My Students':(it.stage.charAt(0).toUpperCase()+it.stage.slice(1));return`<div class="library-item"><div class="lib-item-meta"><div class="lib-item-title">${it.title}</div><div class="lib-item-detail">${sn} &middot; ${it.tlf} &middot; ${it.band} &middot; Saved ${it.at}</div><div class="lib-item-preview">${it.text.substring(0,120).replace(/\n/g,' ')}&hellip;</div></div><div class="lib-item-actions"><button class="btn-lib-copy" onclick="cpLB(${it.id})">&#x1F4CB; Copy</button><button class="btn-lib-delete" onclick="delLB(${it.id})">&#x1F5D1; Remove</button></div></div>`}).join('');
 }
 
 function cpLB(iid){const it=getLib().find(x=>x.id===iid);if(it)clip(it.text,null,'Prompt copied from library!');}
@@ -681,6 +803,147 @@ function exportToExcel(){
   XLSX.utils.book_append_sheet(wb,ws,'My Prompt Library');
   XLSX.writeFile(wb,'RS-Teacher-Prompt-Library-'+new Date().toISOString().slice(0,10)+'.xlsx');
   showT('Excel file downloaded!');
+}
+
+// IMAGE UPLOAD
+let uploadImgDataUrl=null;
+let uploadTargetPromptId=null;
+let cameraStream=null;
+
+function openUploadModal(pid){
+  uploadTargetPromptId=pid;
+  document.getElementById('upload-modal').classList.add('open');
+  document.getElementById('consent-check').checked=false;
+  updModalSubmit();
+}
+function closeUploadModal(e){
+  if(e&&e.target!==document.getElementById('upload-modal'))return;
+  stopCamera();
+  document.getElementById('upload-modal').classList.remove('open');
+}
+function updModalSubmit(){
+  const ok=document.getElementById('consent-check').checked&&uploadImgDataUrl;
+  document.getElementById('btn-modal-submit').disabled=!ok;
+}
+function fileSelected(e){
+  const f=e.target.files[0];if(!f)return;
+  if(f.size>10*1024*1024){showT('Image too large — please use under 10 MB.');return;}
+  const isHEIC=/heic|heif/i.test(f.type||f.name);
+  const reader=new FileReader();
+  reader.onload=ev=>{
+    if(isHEIC){
+      // Convert HEIC to JPEG via canvas
+      const img=new Image();
+      img.onload=()=>{
+        const c=document.createElement('canvas');
+        c.width=img.naturalWidth;c.height=img.naturalHeight;
+        c.getContext('2d').drawImage(img,0,0);
+        setPreview(c.toDataURL('image/jpeg',0.88));
+      };
+      img.onerror=()=>{showT('Could not read HEIC file — try saving it as JPG first.');};
+      img.src=ev.target.result;
+    } else {
+      setPreview(ev.target.result);
+    }
+  };
+  reader.readAsDataURL(f);
+}
+function setPreview(dataUrl){
+  uploadImgDataUrl=dataUrl;
+  const p=document.getElementById('upload-preview');
+  document.getElementById('preview-img').src=dataUrl;
+  p.classList.add('visible');
+  updModalSubmit();
+}
+function clearUpload(){
+  uploadImgDataUrl=null;
+  document.getElementById('upload-preview').classList.remove('visible');
+  document.getElementById('preview-img').src='';
+  document.getElementById('file-input').value='';
+  document.getElementById('img-context').value='';
+  updModalSubmit();
+}
+function dragOver(e){e.preventDefault();document.getElementById('upload-zone').classList.add('drag-over');}
+function dragLeave(){document.getElementById('upload-zone').classList.remove('drag-over');}
+function dropFile(e){
+  e.preventDefault();document.getElementById('upload-zone').classList.remove('drag-over');
+  const f=e.dataTransfer.files[0];if(!f||!f.type.startsWith('image/'))return;
+  if(f.size>10*1024*1024){showT('Image too large — please use under 10 MB.');return;}
+  const reader=new FileReader();
+  reader.onload=ev=>setPreview(ev.target.result);
+  reader.readAsDataURL(f);
+}
+async function openCamera(){
+  try{
+    const stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'}});
+    cameraStream=stream;
+    const v=document.getElementById('camera-stream');
+    v.srcObject=stream;v.style.display='block';
+    document.getElementById('btn-capture').style.display='block';
+  }catch(err){showT('Camera not available — please upload an image file instead.');}
+}
+function stopCamera(){
+  if(cameraStream){cameraStream.getTracks().forEach(t=>t.stop());cameraStream=null;}
+  document.getElementById('camera-stream').style.display='none';
+  document.getElementById('btn-capture').style.display='none';
+}
+function capturePhoto(){
+  const v=document.getElementById('camera-stream');
+  const c=document.getElementById('capture-canvas');
+  c.width=v.videoWidth;c.height=v.videoHeight;
+  c.getContext('2d').drawImage(v,0,0);
+  const dataUrl=c.toDataURL('image/jpeg',0.85);
+  stopCamera();
+  setPreview(dataUrl);
+}
+function submitUpload(){
+  if(!uploadImgDataUrl||!uploadTargetPromptId)return;
+  const ctx=document.getElementById('img-context').value.trim();
+  const p=PROMPTS.find(x=>x.id===uploadTargetPromptId);
+  if(p){
+    p._imgData=uploadImgDataUrl;
+    p._imgCtx=ctx;
+    if(p.hasImageUpload){
+      // Dedicated upload card — show thumbnail
+      const thumb=document.getElementById('img-thumb-'+uploadTargetPromptId);
+      if(thumb){thumb.src=uploadImgDataUrl;thumb.style.display='block';}
+      const lbl=document.getElementById('img-lbl-'+uploadTargetPromptId);
+      if(lbl){lbl.textContent='Image attached \u2705';}
+    } else {
+      // Universal attach — show inline confirmed note, hide the link button
+      const lbl=document.getElementById('img-lbl-'+uploadTargetPromptId);
+      if(lbl){lbl.style.display='inline-flex';}
+      // Replace attach link with a change/remove pair
+      const attachBtn=document.querySelector(`button.btn-attach-img[onclick="openUploadModal(${uploadTargetPromptId})"]`);
+      if(attachBtn){attachBtn.textContent='\uD83D\uDCF7 Change image';attachBtn.style.marginLeft='8px';}
+    }
+    updB(uploadTargetPromptId);
+  }
+  document.getElementById('upload-modal').classList.remove('open');
+  showT('Image attached \u2014 copy your filled prompt to include it.');
+}
+
+// Override bldFill to handle image note in template
+function bldFill(id){
+  const p=PROMPTS.find(x=>x.id===id);if(!p)return'';
+  let t=p.template.replace(/\[grade level\]/g,cBand);
+  if(p.fields)p.fields.forEach(f=>{
+    const el=document.getElementById('cf-'+id+'-'+f.key);
+    const v=el?el.value.trim():'';
+    t=t.replace(new RegExp('\\['+escR(f.key)+'\\]','g'),v||('['+f.label+']'));
+  });
+  if(p.hasImageUpload){
+    const note=p._imgData
+      ?'[Student work image is attached — analyze the image provided.]'+(p._imgCtx?'\nImage context: '+p._imgCtx:'')
+      :'[Paste student work text here, or use the Upload Image button to attach a photo of student work.]';
+    t=t.replace('[STUDENT_WORK_IMAGE]',note);
+  } else if(p._imgData){
+    // Universal image attach — append note after prompt body
+    const note='\n\n[An image has been attached to this prompt. Please analyze the image in the context of the request above.]'+(p._imgCtx?'\nImage context: '+p._imgCtx:'');
+    t+=note;
+  }
+  const s=p.sources.map(x=>x.label+': '+x.url).join('\n');
+  return t+(s?'\n\nGrounding sources:\n'+s:'');
 }
 
 renderAll();
