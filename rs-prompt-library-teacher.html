@@ -384,6 +384,25 @@ textarea.custom-input{resize:vertical;min-height:72px;}
   <a href="rs_hub_index_teachers.html">Teacher Hub</a> &middot; <a href="webb-dok.html">DOK &amp; Cognitive Rigor</a> &middot; <a href="rigor.html">Rigor in Practice</a> &middot; <a href="rs-prompt-library.html">Admin Prompt Library</a>
 </footer>
 
+<!-- IMAGE REMINDER MODAL -->
+<div class="modal-overlay" id="img-remind-modal">
+  <div class="modal-box" style="max-width:420px;">
+    <div class="modal-head" style="background:#B45309;">
+      <h3>&#x26A0;&#xFE0F; Attach Your Image in the AI Tool</h3>
+      <button class="modal-close" onclick="dismissImgRemind(false)">&#x2715;</button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size:13px;color:#1a1a2e;line-height:1.65;margin-bottom:16px;">Your prompt has been copied and includes an instruction for the AI to check for an attached image.</p>
+      <p style="font-size:13px;color:#1a1a2e;line-height:1.65;margin-bottom:20px;"><strong>Before sending the prompt</strong>, attach your image directly in the AI tool (Claude.ai, ChatGPT, etc.) using its image upload or attachment button. The AI will ask you to attach it if you forget.</p>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+        <input type="checkbox" id="remind-suppress" style="accent-color:#B45309;flex-shrink:0;">
+        <label for="remind-suppress" style="font-size:12px;color:#4e6267;cursor:pointer;">Don&rsquo;t show this reminder again this session</label>
+      </div>
+      <button onclick="dismissImgRemind(true)" style="width:100%;padding:10px;background:#B45309;color:#fff;border:none;border-radius:8px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:700;cursor:pointer;">Got it &mdash; I&rsquo;ll attach the image</button>
+    </div>
+  </div>
+</div>
+
 <!-- IMAGE UPLOAD MODAL -->
 <div class="modal-overlay" id="upload-modal" onclick="closeUploadModal(event)">
   <div class="modal-box">
@@ -708,7 +727,28 @@ function cpRaw(id){
   clip(t+(s?'\n\nGrounding sources:\n'+s:''),id,'Template copied!');
 }
 
-function cpBuilt(id){clip(bldFill(id),id,'Filled prompt copied!');}
+let imgRemindSuppressed=false;
+let pendingCopyId=null;
+
+function cpBuilt(id){
+  const p=PROMPTS.find(x=>x.id===id);
+  if(p&&p._imgData&&!imgRemindSuppressed){
+    // Copy first, then show reminder
+    clip(bldFill(id),id,'Filled prompt copied!');
+    pendingCopyId=id;
+    document.getElementById('img-remind-modal').classList.add('open');
+  } else {
+    clip(bldFill(id),id,'Filled prompt copied!');
+  }
+}
+
+function dismissImgRemind(fromBtn){
+  if(fromBtn&&document.getElementById('remind-suppress').checked){
+    imgRemindSuppressed=true;
+  }
+  document.getElementById('img-remind-modal').classList.remove('open');
+  pendingCopyId=null;
+}
 
 function clip(text,id,msg){
   const done=()=>{
@@ -934,12 +974,11 @@ function bldFill(id){
   });
   if(p.hasImageUpload){
     const note=p._imgData
-      ?'[Student work image is attached — analyze the image provided.]'+(p._imgCtx?'\nImage context: '+p._imgCtx:'')
-      :'[Paste student work text here, or use the Upload Image button to attach a photo of student work.]';
+      ?'[IMPORTANT: An image should be attached to this prompt. If you do not see an attached image, stop and ask the user to attach it before continuing. Do not attempt to analyze without it.]\n[Student work image is attached — analyze the image provided.]'+(p._imgCtx?'\nImage context: '+p._imgCtx:'')
+      :'[IMPORTANT: An image should be attached to this prompt. If you do not see an attached image, stop and ask the user to attach it before continuing. Do not attempt to analyze without it.]\n[No image attached yet — teacher must attach image in the AI tool before sending.]';
     t=t.replace('[STUDENT_WORK_IMAGE]',note);
   } else if(p._imgData){
-    // Universal image attach — append note after prompt body
-    const note='\n\n[An image has been attached to this prompt. Please analyze the image in the context of the request above.]'+(p._imgCtx?'\nImage context: '+p._imgCtx:'');
+    const note='\n\n[IMPORTANT: An image has been attached to this prompt. If you do not see an attached image, stop and ask the user to attach it before continuing.]\n[An image has been attached — please analyze it in the context of the request above.]'+(p._imgCtx?'\nImage context: '+p._imgCtx:'');
     t+=note;
   }
   const s=p.sources.map(x=>x.label+': '+x.url).join('\n');
