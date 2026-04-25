@@ -97,6 +97,33 @@ body { font-family: 'Open Sans', sans-serif; font-size: 15px; line-height: 1.65;
 .insight-box { background: #f2f4f8; border-left: 3px solid #00237A; border-radius: 0 8px 8px 0; padding: 12px 14px; margin-top: 14px; font-size: 12px; color: #333F49; line-height: 1.55; }
 .insight-box strong { color: #00237A; display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; font-family: 'Poppins', sans-serif; }
 
+/* ── DETAIL TABS ── */
+.detail-tabs { display: flex; gap: 0; border-bottom: 2px solid rgba(0,35,122,0.1); margin: 0 0 20px; }
+.detail-tab { font-family: 'Poppins', sans-serif; font-size: 11px; font-weight: 600; padding: 8px 16px; cursor: pointer; border: none; background: none; color: #4e6267; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: color 0.15s, border-color 0.15s; }
+.detail-tab:hover { color: #00237A; }
+.detail-tab.active { color: #00237A; border-bottom-color: #00237A; }
+.detail-tab-panel { display: none; }
+.detail-tab-panel.active { display: block; }
+.detail-three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+.detail-role-card { background: #f2f4f8; border-radius: 8px; padding: 14px 16px; }
+.detail-role-card h5 { font-family: 'Poppins', sans-serif; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: #333F49; margin-bottom: 8px; }
+.detail-role-card ul { list-style: none; }
+.detail-role-card ul li { font-size: 12px; color: #333F49; padding: 3px 0; border-bottom: 1px dashed rgba(0,35,122,0.07); line-height: 1.45; }
+.detail-role-card ul li:last-child { border-bottom: none; }
+.product-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 4px; }
+.product-tag { font-size: 11px; color: #333F49; background: #f2f4f8; border: 1px solid rgba(0,35,122,0.1); border-radius: 4px; padding: 3px 9px; line-height: 1.4; }
+.activity-list { list-style: none; columns: 2; gap: 16px; }
+.activity-list li { font-size: 12px; color: #333F49; padding: 4px 0; border-bottom: 1px dashed rgba(0,35,122,0.07); line-height: 1.45; break-inside: avoid; display: flex; gap: 6px; }
+.activity-list li::before { content: '→'; color: #4e6267; flex-shrink: 0; }
+@media (max-width: 650px) { .detail-three-col { grid-template-columns: 1fr; } .activity-list { columns: 1; } }
+
+/* ── HOW TO ASSIGN DOK ── */
+.assign-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; margin-bottom: 48px; }
+.assign-card { background: #fff; border-radius: 12px; border: 1px solid rgba(0,35,122,0.1); padding: 20px 22px; display: flex; gap: 14px; align-items: flex-start; }
+.assign-num { font-family: 'Poppins', sans-serif; font-size: 24px; font-weight: 800; color: #FF4D00; line-height: 1; flex-shrink: 0; min-width: 28px; }
+.assign-card h4 { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700; color: #00237A; margin-bottom: 5px; }
+.assign-card p { font-size: 12px; color: #333F49; line-height: 1.55; margin: 0; }
+
 /* ── DIFFICULTY vs DOK ── */
 .comparison-block { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px; }
 .comparison-card { background: #fff; border-radius: 12px; border: 1px solid rgba(0,35,122,0.1); overflow: hidden; }
@@ -369,31 +396,125 @@ body { font-family: 'Open Sans', sans-serif; font-size: 15px; line-height: 1.65;
       </div>
       <button class="close-btn" onclick="toggleDetail(1)" aria-label="Close">✕</button>
     </div>
-    <div class="dok-detail-body">
-      <div class="dok-detail-col">
-        <h4>What it looks like</h4>
-        <ul class="detail-list">
-          <li><span class="bullet">→</span>Recall a math fact or formula from memory</li>
-          <li><span class="bullet">→</span>Define a vocabulary term</li>
-          <li><span class="bullet">→</span>Identify parts of a diagram</li>
-          <li><span class="bullet">→</span>Perform a one-step calculation</li>
-          <li><span class="bullet">→</span>Locate a fact in a passage</li>
-          <li><span class="bullet">→</span>Spell a word correctly</li>
-        </ul>
-        <div class="insight-box">
-          <strong>Note for Instructional Leaders</strong>
-          DOK 1 tasks are essential — foundational knowledge enables deeper thinking. The concern arises when classroom instruction consistently stops here.
+    <div style="padding:0 24px;">
+      <div class="detail-tabs">
+        <button class="detail-tab active" onclick="switchTab(1,'overview',this)">Overview</button>
+        <button class="detail-tab" onclick="switchTab(1,'roles',this)">Teacher &amp; Student Roles</button>
+        <button class="detail-tab" onclick="switchTab(1,'products',this)">Possible Products</button>
+        <button class="detail-tab" onclick="switchTab(1,'activities',this)">Potential Activities</button>
+      </div>
+    </div>
+    <div style="padding:0 24px 24px;">
+
+      <div id="tab-1-overview" class="detail-tab-panel active">
+        <div class="dok-detail-body" style="padding:0;">
+          <div class="dok-detail-col">
+            <h4>What it looks like</h4>
+            <ul class="detail-list">
+              <li><span class="bullet">→</span>Recall a math fact or formula from memory</li>
+              <li><span class="bullet">→</span>Define a vocabulary term</li>
+              <li><span class="bullet">→</span>Identify parts of a diagram</li>
+              <li><span class="bullet">→</span>Perform a one-step calculation</li>
+              <li><span class="bullet">→</span>Locate a fact in a passage</li>
+              <li><span class="bullet">→</span>Spell a word correctly</li>
+            </ul>
+            <div class="insight-box">
+              <strong>Note for Instructional Leaders</strong>
+              DOK 1 tasks are essential — foundational knowledge enables deeper thinking. The concern arises when classroom instruction consistently stops here.
+            </div>
+          </div>
+          <div class="dok-detail-col">
+            <h4>Classroom signals</h4>
+            <ul class="detail-list">
+              <li><span class="bullet">✓</span>Only one correct answer</li>
+              <li><span class="bullet">✓</span>Retrieval from memory or text with no interpretation</li>
+              <li><span class="bullet">✓</span>Task is clear; no decision-making required</li>
+              <li><span class="bullet">✓</span>Speed and accuracy are the primary measures</li>
+            </ul>
+            <div class="insight-box" style="margin-top:14px;">
+              <strong>Key Verbs</strong>
+              Locate, calculate, define, identify, list, label, match, measure, copy, memorize, repeat, recall, recite, recognize, state, tell, tabulate
+            </div>
+          </div>
         </div>
       </div>
-      <div class="dok-detail-col">
-        <h4>Classroom signals</h4>
-        <ul class="detail-list">
-          <li><span class="bullet">✓</span>Only one correct answer</li>
-          <li><span class="bullet">✓</span>Retrieval from memory or text with no interpretation</li>
-          <li><span class="bullet">✓</span>Task is clear; no decision-making required</li>
-          <li><span class="bullet">✓</span>Speed and accuracy are the primary measures</li>
+
+      <div id="tab-1-roles" class="detail-tab-panel">
+        <div class="detail-three-col">
+          <div class="detail-role-card">
+            <h5>Teacher Role</h5>
+            <ul>
+              <li>Directs or focuses attention</li>
+              <li>Shows, tells, and demonstrates</li>
+              <li>Provides examples</li>
+              <li>Leads and breaks down information</li>
+              <li>Defines terms and procedures</li>
+            </ul>
+          </div>
+          <div class="detail-role-card">
+            <h5>Student Role</h5>
+            <ul>
+              <li>Recognizes and responds</li>
+              <li>Remembers and memorizes</li>
+              <li>Restates and absorbs</li>
+              <li>Follows directions</li>
+              <li>Applies routine processes, definitions, and procedures</li>
+            </ul>
+          </div>
+          <div class="detail-role-card">
+            <h5>What You Hear</h5>
+            <ul>
+              <li>"What is the definition of…?"</li>
+              <li>"List the steps for…"</li>
+              <li>"Who, what, when, where?"</li>
+              <li>"Recall the formula for…"</li>
+              <li>"Identify the parts of…"</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-1-products" class="detail-tab-panel">
+        <p style="font-size:12px;color:#4e6267;margin-bottom:12px;">Tangible products students can create at DOK Level 1:</p>
+        <div class="product-tags">
+          <span class="product-tag">Fill-in-the-blank tasks</span>
+          <span class="product-tag">Recited math facts or poems</span>
+          <span class="product-tag">Plotted points on a graph</span>
+          <span class="product-tag">Edited sentences</span>
+          <span class="product-tag">Identified sentence types</span>
+          <span class="product-tag">Calculated computations</span>
+          <span class="product-tag">Measured and recorded data</span>
+          <span class="product-tag">Reproduced maps or diagrams</span>
+          <span class="product-tag">Located or recalled quotes</span>
+          <span class="product-tag">Documented or cited sources</span>
+          <span class="product-tag">Math relationship representations</span>
+          <span class="product-tag">Oral reading fluency</span>
+          <span class="product-tag">Map key use</span>
+          <span class="product-tag">Identified parts of speech</span>
+          <span class="product-tag">Decoded words</span>
+          <span class="product-tag">Show &amp; Tell</span>
+        </div>
+      </div>
+
+      <div id="tab-1-activities" class="detail-tab-panel">
+        <ul class="activity-list">
+          <li>Describe an event, character, or setting in a story</li>
+          <li>Write a list of keywords you know about a topic</li>
+          <li>Recite or recall a fact or date related to a topic</li>
+          <li>Cut out, draw, or match a picture that illustrates an event, process, or story</li>
+          <li>Memorize lines for a play</li>
+          <li>Retell in your own words / paraphrase</li>
+          <li>Locate information in a map, chart, table, graph, diagram, or caption</li>
+          <li>Use a dictionary, glossary, or thesaurus to find word meanings</li>
+          <li>Locate or retrieve information in verbatim form to answer a question</li>
+          <li>Make conversions between metric and customary units</li>
+          <li>Edit applying a standard set of conventions and/or criteria</li>
+          <li>Memorize and recognize formulas and algorithms</li>
+          <li>Use a formula where at least one of the unknowns is provided</li>
+          <li>Recall, restate, or recognize facts, terms, or properties heard, viewed, or read</li>
         </ul>
       </div>
+
     </div>
   </div>
 
@@ -405,31 +526,119 @@ body { font-family: 'Open Sans', sans-serif; font-size: 15px; line-height: 1.65;
       </div>
       <button class="close-btn" onclick="toggleDetail(2)" aria-label="Close">✕</button>
     </div>
-    <div class="dok-detail-body">
-      <div class="dok-detail-col">
-        <h4>What it looks like</h4>
-        <ul class="detail-list">
-          <li><span class="bullet">→</span>Classify organisms by shared characteristics</li>
-          <li><span class="bullet">→</span>Compare two characters' motivations in a text</li>
-          <li><span class="bullet">→</span>Convert between units of measurement</li>
-          <li><span class="bullet">→</span>Describe the cause of a historical event</li>
-          <li><span class="bullet">→</span>Summarize a multi-paragraph text</li>
-          <li><span class="bullet">→</span>Predict an outcome based on observed patterns</li>
-        </ul>
+    <div style="padding:0 24px;">
+      <div class="detail-tabs">
+        <button class="detail-tab active" onclick="switchTab(2,'overview',this)">Overview</button>
+        <button class="detail-tab" onclick="switchTab(2,'roles',this)">Teacher &amp; Student Roles</button>
+        <button class="detail-tab" onclick="switchTab(2,'products',this)">Possible Products</button>
+        <button class="detail-tab" onclick="switchTab(2,'activities',this)">Potential Activities</button>
       </div>
-      <div class="dok-detail-col">
-        <h4>Classroom signals</h4>
-        <ul class="detail-list">
-          <li><span class="bullet">✓</span>Requires more than one step or mental operation</li>
-          <li><span class="bullet">✓</span>Involves applying a concept to a familiar context</li>
-          <li><span class="bullet">✓</span>Student must organize or interpret information</li>
-          <li><span class="bullet">✓</span>Still has one right answer — but not just recall</li>
-        </ul>
-        <div class="insight-box">
-          <strong>Key Distinction</strong>
-          DOK 2 tasks engage students in mental processing beyond retrieval — they must think, not just remember. This is where most textbook application problems live.
+    </div>
+    <div style="padding:0 24px 24px;">
+
+      <div id="tab-2-overview" class="detail-tab-panel active">
+        <div class="dok-detail-body" style="padding:0;">
+          <div class="dok-detail-col">
+            <h4>What it looks like</h4>
+            <ul class="detail-list">
+              <li><span class="bullet">→</span>Classify organisms by shared characteristics</li>
+              <li><span class="bullet">→</span>Compare two characters' motivations in a text</li>
+              <li><span class="bullet">→</span>Convert between units of measurement</li>
+              <li><span class="bullet">→</span>Describe the cause of a historical event</li>
+              <li><span class="bullet">→</span>Summarize a multi-paragraph text</li>
+              <li><span class="bullet">→</span>Predict an outcome based on observed patterns</li>
+            </ul>
+          </div>
+          <div class="dok-detail-col">
+            <h4>Classroom signals</h4>
+            <ul class="detail-list">
+              <li><span class="bullet">✓</span>Requires more than one step or mental operation</li>
+              <li><span class="bullet">✓</span>Involves applying a concept to a familiar context</li>
+              <li><span class="bullet">✓</span>Student must organize or interpret information</li>
+              <li><span class="bullet">✓</span>Still has one right answer — but not just recall</li>
+            </ul>
+            <div class="insight-box">
+              <strong>Key Distinction</strong>
+              DOK 2 tasks engage students in mental processing beyond retrieval — they must think, not just remember. This is where most textbook application problems live.
+            </div>
+            <div class="insight-box" style="margin-top:10px;">
+              <strong>Key Verbs</strong>
+              Infer, categorize, organize and display, compare/contrast, modify, predict, interpret, use context clues, make observations, summarize, classify, show cause/effect, relate, edit for clarity
+            </div>
+          </div>
         </div>
       </div>
+
+      <div id="tab-2-roles" class="detail-tab-panel">
+        <div class="detail-three-col">
+          <div class="detail-role-card">
+            <h5>Teacher Role</h5>
+            <ul>
+              <li>Questions to differentiate, infer, or check conceptual understanding</li>
+              <li>Models and organizes/reorganizes</li>
+              <li>Explores possible options or connections</li>
+              <li>Provides examples and non-examples</li>
+            </ul>
+          </div>
+          <div class="detail-role-card">
+            <h5>Student Role</h5>
+            <ul>
+              <li>Solves routine problems involving multiple decision points</li>
+              <li>Constructs models to show relationships</li>
+              <li>Demonstrates use of conceptual knowledge</li>
+              <li>Compiles, organizes, and illustrates with examples</li>
+              <li>Examines and explains</li>
+            </ul>
+          </div>
+          <div class="detail-role-card">
+            <h5>What You Hear</h5>
+            <ul>
+              <li>"How would you describe…?"</li>
+              <li>"Why did…?"</li>
+              <li>"What patterns do you notice?"</li>
+              <li>"Compare these two…"</li>
+              <li>"Summarize the main idea of…"</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-2-products" class="detail-tab-panel">
+        <p style="font-size:12px;color:#4e6267;margin-bottom:12px;">Tangible products students can create at DOK Level 2:</p>
+        <div class="product-tags">
+          <span class="product-tag">Captioned photo summary</span>
+          <span class="product-tag">Presentation</span>
+          <span class="product-tag">Interview</span>
+          <span class="product-tag">Science logs</span>
+          <span class="product-tag">Timeline</span>
+          <span class="product-tag">Diary entry</span>
+          <span class="product-tag">Graphic organizers</span>
+          <span class="product-tag">Demonstration</span>
+          <span class="product-tag">Spreadsheet</span>
+          <span class="product-tag">Survey development</span>
+          <span class="product-tag">Venn diagram</span>
+          <span class="product-tag">Concept map</span>
+          <span class="product-tag">Outline or flow chart</span>
+          <span class="product-tag">Diorama</span>
+          <span class="product-tag">Puzzle or game</span>
+        </div>
+      </div>
+
+      <div id="tab-2-activities" class="detail-tab-panel">
+        <ul class="activity-list">
+          <li>Sequence a key chain of events using a timeline, cartoon strip, outline, or flow chart</li>
+          <li>Write a summary or informational report with central ideas and supporting details</li>
+          <li>Develop a concept map or diagram showing a process or relationships</li>
+          <li>Explain a series of steps used to find a solution</li>
+          <li>Make a diorama to illustrate or explain an event</li>
+          <li>Write a diary or blog entry for a character or historical figure</li>
+          <li>Make a puzzle or game about the topic</li>
+          <li>Create a questionnaire or survey to answer a question</li>
+          <li>Organize data into a table, graph, or Venn diagram</li>
+          <li>Participate in a simulation to understand differing perspectives</li>
+        </ul>
+      </div>
+
     </div>
   </div>
 
@@ -441,31 +650,120 @@ body { font-family: 'Open Sans', sans-serif; font-size: 15px; line-height: 1.65;
       </div>
       <button class="close-btn" onclick="toggleDetail(3)" aria-label="Close">✕</button>
     </div>
-    <div class="dok-detail-body">
-      <div class="dok-detail-col">
-        <h4>What it looks like</h4>
-        <ul class="detail-list">
-          <li><span class="bullet">→</span>Justify a claim using textual evidence</li>
-          <li><span class="bullet">→</span>Analyze author's purpose across two texts</li>
-          <li><span class="bullet">→</span>Formulate a mathematical argument</li>
-          <li><span class="bullet">→</span>Investigate a scientific question</li>
-          <li><span class="bullet">→</span>Critique the reasoning in a source or argument</li>
-          <li><span class="bullet">→</span>Develop an alternative solution strategy</li>
-        </ul>
+    <div style="padding:0 24px;">
+      <div class="detail-tabs">
+        <button class="detail-tab active" onclick="switchTab(3,'overview',this)">Overview</button>
+        <button class="detail-tab" onclick="switchTab(3,'roles',this)">Teacher &amp; Student Roles</button>
+        <button class="detail-tab" onclick="switchTab(3,'products',this)">Possible Products</button>
+        <button class="detail-tab" onclick="switchTab(3,'activities',this)">Potential Activities</button>
       </div>
-      <div class="dok-detail-col">
-        <h4>Classroom signals</h4>
-        <ul class="detail-list">
-          <li><span class="bullet">✓</span>Multiple valid responses are possible</li>
-          <li><span class="bullet">✓</span>Students must explain and justify their reasoning</li>
-          <li><span class="bullet">✓</span>Non-routine — students can't just apply a procedure</li>
-          <li><span class="bullet">✓</span>Requires drawing on multiple concepts at once</li>
-        </ul>
-        <div class="insight-box">
-          <strong>Why It Matters for Region South</strong>
-          DOK 3 is where academic discourse lives. Students must articulate their thinking — which is precisely the kind of instruction Region South's Problem of Practice calls for.
+    </div>
+    <div style="padding:0 24px 24px;">
+
+      <div id="tab-3-overview" class="detail-tab-panel active">
+        <div class="dok-detail-body" style="padding:0;">
+          <div class="dok-detail-col">
+            <h4>What it looks like</h4>
+            <ul class="detail-list">
+              <li><span class="bullet">→</span>Justify a claim using textual evidence</li>
+              <li><span class="bullet">→</span>Analyze author's purpose across two texts</li>
+              <li><span class="bullet">→</span>Formulate a mathematical argument</li>
+              <li><span class="bullet">→</span>Investigate a scientific question</li>
+              <li><span class="bullet">→</span>Critique the reasoning in a source or argument</li>
+              <li><span class="bullet">→</span>Develop an alternative solution strategy</li>
+            </ul>
+          </div>
+          <div class="dok-detail-col">
+            <h4>Classroom signals</h4>
+            <ul class="detail-list">
+              <li><span class="bullet">✓</span>Multiple valid responses are possible</li>
+              <li><span class="bullet">✓</span>Students must explain and justify their reasoning</li>
+              <li><span class="bullet">✓</span>Non-routine — students can't just apply a procedure</li>
+              <li><span class="bullet">✓</span>Requires drawing on multiple concepts at once</li>
+            </ul>
+            <div class="insight-box">
+              <strong>Why It Matters for Region South</strong>
+              DOK 3 is where academic discourse lives. Students must articulate their thinking — which is precisely the kind of instruction Region South's Problem of Practice calls for.
+            </div>
+            <div class="insight-box" style="margin-top:10px;">
+              <strong>Key Verbs</strong>
+              Critique, appraise, revise for meaning, assess, investigate, cite evidence, test hypothesis, develop a logical argument, draw conclusions based on data, explain phenomena in terms of concepts
+            </div>
+          </div>
         </div>
       </div>
+
+      <div id="tab-3-roles" class="detail-tab-panel">
+        <div class="detail-three-col">
+          <div class="detail-role-card">
+            <h5>Teacher Role</h5>
+            <ul>
+              <li>Probes reasoning and underlying thinking</li>
+              <li>Asks open-ended questions</li>
+              <li>Acts as a resource and coach</li>
+              <li>Provides criteria and examples for making judgments</li>
+              <li>Supports students in supporting claims</li>
+            </ul>
+          </div>
+          <div class="detail-role-card">
+            <h5>Student Role</h5>
+            <ul>
+              <li>Uncovers and selects relevant, credible evidence</li>
+              <li>Critiques, debates, and makes judgments</li>
+              <li>Plans and initiates questions</li>
+              <li>Disputes and argues ideas/solutions</li>
+              <li>Applies reasoning to real-world situations</li>
+            </ul>
+          </div>
+          <div class="detail-role-card">
+            <h5>What You Hear</h5>
+            <ul>
+              <li>"What's the best explanation for…?"</li>
+              <li>"Defend your position using evidence."</li>
+              <li>"Is this argument valid? How do you know?"</li>
+              <li>"What would happen if…?"</li>
+              <li>"Explain your reasoning."</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-3-products" class="detail-tab-panel">
+        <p style="font-size:12px;color:#4e6267;margin-bottom:12px;">Tangible products students can create at DOK Level 3:</p>
+        <div class="product-tags">
+          <span class="product-tag">Complex graph or database</span>
+          <span class="product-tag">Storyboard</span>
+          <span class="product-tag">Literary critique</span>
+          <span class="product-tag">Video cast or podcast</span>
+          <span class="product-tag">Debate from a given perspective</span>
+          <span class="product-tag">Fact-based argument</span>
+          <span class="product-tag">Multi-paragraph essay</span>
+          <span class="product-tag">Informational report</span>
+          <span class="product-tag">Website</span>
+          <span class="product-tag">Play, book, music, or movie review</span>
+          <span class="product-tag">Letter to the editor</span>
+          <span class="product-tag">Persuasive speech</span>
+          <span class="product-tag">Booklet or brochure</span>
+        </div>
+      </div>
+
+      <div id="tab-3-activities" class="detail-tab-panel">
+        <ul class="activity-list">
+          <li>Analyze results of a questionnaire or survey</li>
+          <li>Prepare an informational report about an area of study</li>
+          <li>Write a letter to the editor after evaluating a product or issue</li>
+          <li>Prepare for and participate in a debate</li>
+          <li>Use evidence to generate criteria for making judgments</li>
+          <li>Make a booklet or brochure about a topic, organization, or issue</li>
+          <li>Participate on a panel to discuss differing viewpoints</li>
+          <li>Prepare a speech to support your perspective</li>
+          <li>Explain and apply abstract terms and concepts to real-world situations</li>
+          <li>Write an essay, short story, poem, or play</li>
+          <li>Propose an alternate solution to a problem studied</li>
+          <li>Solve complex, non-routine problems drawing on multiple skills and concepts</li>
+        </ul>
+      </div>
+
     </div>
   </div>
 
@@ -477,29 +775,149 @@ body { font-family: 'Open Sans', sans-serif; font-size: 15px; line-height: 1.65;
       </div>
       <button class="close-btn" onclick="toggleDetail(4)" aria-label="Close">✕</button>
     </div>
-    <div class="dok-detail-body">
-      <div class="dok-detail-col">
-        <h4>What it looks like</h4>
-        <ul class="detail-list">
-          <li><span class="bullet">→</span>Design a research project conducted over several weeks</li>
-          <li><span class="bullet">→</span>Connect concepts across two or more subject areas</li>
-          <li><span class="bullet">→</span>Develop a solution to a real-world community problem</li>
-          <li><span class="bullet">→</span>Prove a mathematical conjecture with original reasoning</li>
-          <li><span class="bullet">→</span>Evaluate competing interpretations of historical evidence</li>
+    <div style="padding:0 24px;">
+      <div class="detail-tabs">
+        <button class="detail-tab active" onclick="switchTab(4,'overview',this)">Overview</button>
+        <button class="detail-tab" onclick="switchTab(4,'roles',this)">Teacher &amp; Student Roles</button>
+        <button class="detail-tab" onclick="switchTab(4,'products',this)">Possible Products</button>
+        <button class="detail-tab" onclick="switchTab(4,'activities',this)">Potential Activities</button>
+      </div>
+    </div>
+    <div style="padding:0 24px 24px;">
+
+      <div id="tab-4-overview" class="detail-tab-panel active">
+        <div class="dok-detail-body" style="padding:0;">
+          <div class="dok-detail-col">
+            <h4>What it looks like</h4>
+            <ul class="detail-list">
+              <li><span class="bullet">→</span>Design a research project conducted over several weeks</li>
+              <li><span class="bullet">→</span>Connect concepts across two or more subject areas</li>
+              <li><span class="bullet">→</span>Develop a solution to a real-world community problem</li>
+              <li><span class="bullet">→</span>Prove a mathematical conjecture with original reasoning</li>
+              <li><span class="bullet">→</span>Evaluate competing interpretations of historical evidence</li>
+            </ul>
+          </div>
+          <div class="dok-detail-col">
+            <h4>Classroom signals</h4>
+            <ul class="detail-list">
+              <li><span class="bullet">✓</span>Spans extended time — days, weeks, or a full unit</li>
+              <li><span class="bullet">✓</span>Often project-based or long-form inquiry</li>
+              <li><span class="bullet">✓</span>Connects learning to authentic real-world contexts</li>
+              <li><span class="bullet">✓</span>Draws from multiple sources and subject areas</li>
+            </ul>
+            <div class="insight-box">
+              <strong>Common Misconception</strong>
+              DOK 4 is about the scope and complexity of the task — not just adding more steps. A long worksheet is still DOK 1. The hallmark is sustained, complex reasoning applied beyond a single lesson.
+            </div>
+            <div class="insight-box" style="margin-top:10px;">
+              <strong>Key Verbs</strong>
+              Initiate, design and conduct, collaborate, research, synthesize, self-monitor, critique, produce/present
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-4-roles" class="detail-tab-panel">
+        <div class="detail-three-col">
+          <div class="detail-role-card">
+            <h5>Teacher Role</h5>
+            <ul>
+              <li>Extends thinking and broadens perspectives</li>
+              <li>Facilitates teaming and collaboration</li>
+              <li>Supports self-evaluation and reflection</li>
+              <li>Poses questions that connect across disciplines</li>
+              <li>Acts as facilitator, not director</li>
+            </ul>
+          </div>
+          <div class="detail-role-card">
+            <h5>Student Role</h5>
+            <ul>
+              <li>Designs and takes intellectual risks</li>
+              <li>Researches, synthesizing multiple resources</li>
+              <li>Collaborates, plans, organizes, and modifies</li>
+              <li>Creates concrete, tangible products</li>
+              <li>Self-monitors and evaluates progress</li>
+            </ul>
+          </div>
+          <div class="detail-role-card">
+            <h5>What You Hear</h5>
+            <ul>
+              <li>"Develop, test, and refine your solution."</li>
+              <li>"How does this connect to what you learned in…?"</li>
+              <li>"What evidence from multiple sources supports…?"</li>
+              <li>"How will you present your findings?"</li>
+              <li>"What would you change if you did this again?"</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-4-products" class="detail-tab-panel">
+        <p style="font-size:12px;color:#4e6267;margin-bottom:12px;">Tangible products students can create at DOK Level 4:</p>
+        <div class="product-tags">
+          <span class="product-tag">Short film</span>
+          <span class="product-tag">Play</span>
+          <span class="product-tag">Newspaper or series of articles</span>
+          <span class="product-tag">Presentation</span>
+          <span class="product-tag">Video game</span>
+          <span class="product-tag">Multimedia product</span>
+          <span class="product-tag">Research report</span>
+          <span class="product-tag">Documentary</span>
+          <span class="product-tag">Anthology of original writing, art, or music</span>
+          <span class="product-tag">Community service project</span>
+          <span class="product-tag">Internship product</span>
+          <span class="product-tag">Cross-disciplinary investigation</span>
+        </div>
+      </div>
+
+      <div id="tab-4-activities" class="detail-tab-panel">
+        <ul class="activity-list">
+          <li>Apply information from more than one discipline to solve problems in novel or real-world situations</li>
+          <li>Research tasks that involve generating questions and formulating and testing hypotheses</li>
+          <li>Tasks requiring multiple strategic and procedural decisions as new information is processed</li>
+          <li>Tasks requiring multiple roles and collaboration — script writing, camera work, editing, and acting</li>
+          <li>Tasks involving drawing evidence from multiple sources to support solutions and conclusions</li>
+          <li>Organize and conduct a community service project or school-based event</li>
+          <li>Conduct an internship in industry where students face real-world, unpredictable problems</li>
         </ul>
       </div>
-      <div class="dok-detail-col">
-        <h4>Classroom signals</h4>
-        <ul class="detail-list">
-          <li><span class="bullet">✓</span>Spans extended time — days, weeks, or a full unit</li>
-          <li><span class="bullet">✓</span>Often project-based or long-form inquiry</li>
-          <li><span class="bullet">✓</span>Connects learning to authentic real-world contexts</li>
-          <li><span class="bullet">✓</span>Draws from multiple sources and subject areas</li>
-        </ul>
-        <div class="insight-box">
-          <strong>Common Misconception</strong>
-          DOK 4 is about the scope and complexity of the task — not just adding more steps. A long worksheet is still DOK 1. The hallmark is sustained, complex reasoning applied beyond a single lesson.
-        </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════
+       SECTION 1b — HOW TO ASSIGN DOK LEVELS
+  ══════════════════════════════ -->
+  <div class="section-heading" style="margin-top:48px;">How to Assign DOK Levels</div>
+  <p class="section-subtext">Assigning the correct DOK level to a task or standard requires judgment — not just verb-matching. These four rules, drawn from Region South professional development, guide accurate DOK assignment.</p>
+
+  <div class="assign-grid">
+    <div class="assign-card">
+      <div class="assign-num">1</div>
+      <div>
+        <h4>Base DOK on proficiency level typically required</h4>
+        <p>Assign DOK based on the level of work students are typically required to demonstrate, as outlined in rubric descriptions — not on the hardest possible interpretation of the task.</p>
+      </div>
+    </div>
+    <div class="assign-card">
+      <div class="assign-num">2</div>
+      <div>
+        <h4>Reflect cognitive complexity, not difficulty</h4>
+        <p>DOK should reflect the complexity of cognitive processes in the learning or assessment objective, rather than simply how hard the content is. A hard recall task is still DOK 1.</p>
+      </div>
+    </div>
+    <div class="assign-card">
+      <div class="assign-num">3</div>
+      <div>
+        <h4>When uncertain, use the higher level as the ceiling</h4>
+        <p>When uncertain between two DOK levels, use the higher level as the ceiling while incorporating lower levels for instructional progression. This preserves rigor.</p>
+      </div>
+    </div>
+    <div class="assign-card">
+      <div class="assign-num">4</div>
+      <div>
+        <h4>Focus on the central performance, not just the verb</h4>
+        <p>DOK levels should be based on the cognitive demand of the central performance in the objective or task — not solely on the verb used. "Explain" can be DOK 1, 2, or 3 depending on what's being explained and how.</p>
       </div>
     </div>
   </div>
@@ -779,6 +1197,17 @@ function toggleDetail(level) {
     card.setAttribute('aria-expanded', 'true');
     setTimeout(function() { detail.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 50);
   }
+}
+function switchTab(level, tab, btn) {
+  ['overview','roles','products','activities'].forEach(function(t) {
+    var panel = document.getElementById('tab-' + level + '-' + t);
+    if (panel) panel.classList.remove('active');
+  });
+  var container = btn.closest('.dok-detail');
+  container.querySelectorAll('.detail-tab').forEach(function(t) { t.classList.remove('active'); });
+  var target = document.getElementById('tab-' + level + '-' + tab);
+  if (target) target.classList.add('active');
+  btn.classList.add('active');
 }
 document.querySelectorAll('.dok-card').forEach(function(card) {
   card.addEventListener('keydown', function(e) {
