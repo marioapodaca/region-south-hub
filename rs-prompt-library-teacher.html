@@ -232,14 +232,88 @@ textarea.custom-input{resize:vertical;min-height:72px;}
 .site-footer strong{color:rgba(255,255,255,0.9);}
 .site-footer a{color:rgba(255,255,255,0.6);}
 .site-footer a:hover{color:#fff;}
-@media(max-width:700px){
-  .site-header{padding:14px 16px;flex-wrap:wrap;}
-  .hero{padding:32px 20px 28px;}
-  .hero h2{font-size:22px;}
-  .container{padding:24px 14px 48px;}
-  .ai-banner,.breadcrumb{padding:12px 16px;}
-  .tlf-anchor{margin-left:0;}
-  .library-bar{flex-direction:column;align-items:flex-start;}
+/* Image workflow tooltip */
+.img-help-wrap{position:relative;display:inline-flex;align-items:center;margin-left:6px;}
+.img-help-btn{width:16px;height:16px;border-radius:50%;background:rgba(0,35,122,0.12);border:none;cursor:pointer;font-size:10px;font-weight:700;color:#4e6267;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Poppins',sans-serif;line-height:1;}
+.img-help-btn:hover{background:#00237A;color:#fff;}
+.img-tooltip{display:none;position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:#1a1a2e;color:#fff;font-size:11px;line-height:1.6;padding:10px 13px;border-radius:8px;width:260px;z-index:999;box-shadow:0 4px 16px rgba(0,0,0,0.25);font-family:'Open Sans',sans-serif;}
+.img-tooltip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:#1a1a2e;}
+.img-tooltip ol{padding-left:14px;margin-top:4px;}
+.img-tooltip li{margin-bottom:3px;}
+.img-tooltip strong{color:#7dd3c8;}
+.img-help-wrap:hover .img-tooltip,.img-help-btn:focus+.img-tooltip{display:block;}
+@media(max-width:768px){
+  .img-tooltip{left:auto;right:0;transform:none;width:240px;}
+  .img-tooltip::after{left:auto;right:14px;transform:none;}
+}
+@media(max-width:768px){
+  .site-header{padding:12px 16px;gap:10px;}
+  .site-header img{height:34px;}
+  .header-title h1{font-size:14px;}
+  .header-title p{font-size:11px;}
+  .header-badge{font-size:10px;padding:4px 10px;}
+  .ai-banner,.equity-banner{padding:12px 16px;font-size:12px;}
+  .breadcrumb{padding:10px 16px;font-size:11px;}
+  .hero{padding:28px 16px 24px;}
+  .hero h2{font-size:20px;}
+  .hero p{font-size:13px;margin-bottom:18px;}
+  .hero-stats{gap:18px;}
+  .hero-stat-num{font-size:20px;}
+  .hero-stat-label{font-size:10px;}
+  .hero-tags{gap:6px;}
+  .hero-tag{font-size:10px;padding:3px 9px;}
+  .container{padding:18px 12px 48px;}
+  .how-to-use{padding:18px 16px;}
+  .how-steps{grid-template-columns:1fr 1fr;gap:10px;}
+  .how-step-num{font-size:15px;}
+  .how-step-title{font-size:11px;}
+  .library-bar{flex-direction:column;align-items:stretch;gap:10px;padding:12px 14px;}
+  .library-bar-left{justify-content:space-between;}
+  .library-bar-right{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;}
+  .btn-library{text-align:center;justify-content:center;}
+  .grade-band-bar{flex-direction:column;align-items:flex-start;gap:10px;padding:14px 14px;}
+  .grade-band-note{margin-left:0;font-size:10px;}
+  .grade-chips{gap:5px;}
+  .grade-chip{font-size:11px;padding:4px 10px;}
+  .controls-block{padding:12px 14px;}
+  .controls-row{gap:8px;}
+  .filter-chips{gap:5px;}
+  .chip{font-size:10px;padding:3px 9px;}
+  .search-wrap input{font-size:12px;}
+  .stage-desc{display:none;}
+  .card-top{padding:12px 14px 10px;}
+  .card-title{font-size:13px;}
+  .card-purpose{font-size:11px;}
+  .card-body-inner{padding:14px 14px;}
+  .prompt-text-box{font-size:12px;padding:12px 13px;}
+  .card-actions{flex-direction:column;align-items:stretch;gap:7px;}
+  .btn-action{justify-content:center;font-size:12px;padding:9px 14px;}
+  .tlf-anchor{margin-left:0;align-self:flex-start;}
+  .copy-toast{align-self:flex-start;}
+  .customize-panel{padding:13px;}
+  .custom-input{font-size:12px;}
+  .built-prompt-box{font-size:12px;max-height:200px;}
+  .modal-box{width:98%;border-radius:12px;}
+  .modal-head{padding:14px 16px;border-radius:12px 12px 0 0;}
+  .modal-head h3{font-size:13px;}
+  .modal-body{padding:16px;}
+  .upload-zone{padding:20px 14px;}
+  .upload-zone-icon{font-size:26px;}
+  .upload-zone-label{font-size:12px;}
+  .btn-camera{font-size:12px;padding:9px;}
+  .btn-modal-submit{font-size:12px;padding:10px;}
+  .results-count{font-size:11px;}
+  .library-item{flex-direction:column;gap:8px;}
+  .lib-item-actions{flex-direction:row;}
+  .lib-item-preview{max-width:100%;}
+  .site-footer{padding:18px 16px;font-size:11px;}
+  .toast{bottom:16px;right:12px;left:12px;text-align:center;font-size:12px;}
+}
+@media(max-width:420px){
+  .how-steps{grid-template-columns:1fr;}
+  .library-bar-right{grid-template-columns:1fr 1fr;}
+  .hero-stats{gap:12px;}
+  .hero h2{font-size:18px;}
 }
 </style>
 </head>
@@ -276,7 +350,7 @@ textarea.custom-input{resize:vertical;min-height:72px;}
   <h2>Teacher AI Prompt Library</h2>
   <p>Ready-to-customize AI prompts for every stage of your instructional work &mdash; grounded in the LAUSD Teaching and Learning Framework, Webb&rsquo;s DOK, and California content standards.</p>
   <div class="hero-stats">
-    <div><div class="hero-stat-num">46</div><div class="hero-stat-label">Prompts</div></div>
+    <div><div class="hero-stat-num">52</div><div class="hero-stat-label">Prompts</div></div>
     <div><div class="hero-stat-num">6</div><div class="hero-stat-label">Workflow Stages</div></div>
     <div><div class="hero-stat-num">3</div><div class="hero-stat-label">Content Frameworks</div></div>
     <div><div class="hero-stat-num">5</div><div class="hero-stat-label">TLF Standards</div></div>
@@ -374,7 +448,7 @@ textarea.custom-input{resize:vertical;min-height:72px;}
     </div>
   </div>
 
-  <div class="results-count"><strong id="visible-count">46</strong> prompts shown</div>
+  <div class="results-count"><strong id="visible-count">52</strong> prompts shown</div>
   <div id="cards-container"></div>
 
 </div>
@@ -452,7 +526,7 @@ const PROMPTS=[
 // ── MY STUDENTS ────────────────────────────────────────────────────────────
 {id:41,stage:'mystudents',content:['universal'],title:'Interpret i-Ready Diagnostic Data for My Class',purpose:'Turn raw diagnostic results into a clear picture of class needs — with equity-conscious instructional priorities.',tlf:'TLF 1b · 1e',
 sources:[{label:'TLF Standard 1',url:'https://marioapodaca.github.io/region-south-hub/tlf-standard-1.html'}],
-fields:[{key:'results',label:'Paste or describe your i-Ready class diagnostic results',type:'textarea',ph:'e.g., Class median is 2.1 grade levels below; 14/28 students are ELs; most common gap is vocabulary and comprehension fluency; 5 students at/above grade level...'},{key:'demographics',label:'Describe your class demographics (optional — supports equity lens)',type:'input',ph:'e.g., 22 ELs, 4 students with IEPs, 80% FRPM'}],
+fields:[{key:'results',label:'Paste or describe your i-Ready class diagnostic results',type:'textarea',ph:'e.g., Class median is 2.1 grade levels below; 14/28 students are ELs; most common gap is vocabulary and comprehension fluency; 5 students at/above grade level...'},{key:'demographics',label:'Describe your class demographics (optional — supports equity lens)',type:'input',ph:'e.g., 22 ELs, 4 students with IEPs, 80% Free and Reduced Price Meals'}],
 template:'I am a [grade level] teacher.\n\nMy i-Ready class diagnostic results: [results]\nClass demographics: [demographics]\n\nHelp me:\n1. Name 2–3 asset-based strengths visible in this data (what do students already know and do well?)\n2. Identify the highest-leverage instructional gap to address first\n3. Suggest one classroom strategy that addresses this gap while maintaining grade-level access\n4. Flag any equity patterns I should monitor (e.g., are gaps concentrated in a subgroup?)\n\nFrame your response around student assets first, then needs. I still teach grade-level standards — support should scaffold access, not lower the ceiling.\n\nBefore responding, use the information above to ground your response.'},
 {id:42,stage:'mystudents',content:['universal'],title:'Understand My English Learners\' Language Profiles',purpose:'Get a clear picture of what your EL students need linguistically — and instructional moves that preserve rigor.',tlf:'TLF 1b · 1d',
 sources:[{label:'TLF Standard 1',url:'https://marioapodaca.github.io/region-south-hub/tlf-standard-1.html'},{label:'Rigor in Practice',url:'https://marioapodaca.github.io/region-south-hub/rigor.html'}],
@@ -474,6 +548,30 @@ template:'I am a [grade level] teacher.\n\nExit ticket question: [ticket_prompt]
 sources:[{label:'TLF Standard 1',url:'https://marioapodaca.github.io/region-south-hub/tlf-standard-1.html'},{label:'Rigor in Practice',url:'https://marioapodaca.github.io/region-south-hub/rigor.html'}],
 fields:[{key:'student',label:'Describe this student — assets and challenges',type:'textarea',ph:"e.g., 7th grader, EL at Intermediate level, strong number sense but difficulty expressing reasoning in writing; engaged when tasks involve visuals or movement; testing shows 5th grade reading level"},{key:'lesson',label:'What is the upcoming lesson or task?',type:'input',ph:'e.g., Argumentative essay on a historical controversy'}],
 template:'I am a [grade level] teacher.\n\nStudent profile: [student]\nUpcoming lesson/task: [lesson]\n\nPlease help me:\n1. Name 2 specific assets this student brings that I can activate in this lesson\n2. Identify the most likely access barrier for this student in this task\n3. Suggest 2 targeted supports — each one gives access without doing the cognitive work for the student\n4. What does success look like for this student on this task — at DOK 2 or higher?\n\nBefore responding, read TLF Standard 1 at https://marioapodaca.github.io/region-south-hub/tlf-standard-1.html and Rigor in Practice at https://marioapodaca.github.io/region-south-hub/rigor.html. If you cannot access a URL, state that clearly before proceeding.'},
+{id:47,stage:'mystudents',content:['universal'],title:'Interpret ELPAC Scores for My EL Students',purpose:'Translate four-domain ELPAC results into targeted classroom language development priorities.',tlf:'TLF 1b · 1d',
+sources:[{label:'TLF Standard 1',url:'https://marioapodaca.github.io/region-south-hub/tlf-standard-1.html'}],
+fields:[{key:'elpac',label:'Describe your ELPAC class or student results',type:'textarea',ph:'e.g., Class of 18 ELs: Listening avg 3, Speaking avg 2, Reading avg 2, Writing avg 1. Several students are Long-Term ELs strong in Listening but weak in academic writing.'},{key:'unit',label:'Upcoming unit or content area',type:'input',ph:'e.g., Argumentative writing unit, Fractions'}],
+template:'I am a [grade level] teacher.\n\nELPAC results: [elpac]\nUpcoming unit: [unit]\n\nHelp me:\n1. Identify the highest-priority language domain to address based on these scores\n2. Explain what a score pattern like this typically means for academic language in the classroom\n3. Suggest 2 targeted instructional moves for the weakest domain that connect to [unit]\n4. Flag any students or patterns I should monitor for reclassification readiness\n5. What does strong academic language use look like for students at this ELPAC level during [unit]?\n\nStart with an asset framing — name what students at this level can do before describing gaps.\n\nBefore responding, read TLF Standard 1 at https://marioapodaca.github.io/region-south-hub/tlf-standard-1.html. If you cannot access the URL, state that clearly before proceeding.'},
+{id:48,stage:'mystudents',content:['universal'],title:'Analyze IXL Usage Patterns for My Class',purpose:'Interpret IXL time-on-task and pass rate data to identify silent strugglers, disengaged learners, and students ready for more challenge.',tlf:'TLF 1b · 1e',
+sources:[{label:'TLF Standard 1',url:'https://marioapodaca.github.io/region-south-hub/tlf-standard-1.html'}],
+fields:[{key:'ixl',label:'Describe your IXL class usage data',type:'textarea',ph:'e.g., 28 students. 6 students high time (60+ min) but low pass rate (<40%). 8 students barely logging in (<10 min). 5 students high time and high pass rate (80%+). Rest are mid-range.'},{key:'skills',label:'Which IXL skill areas or strands?',type:'input',ph:'e.g., 5th grade fractions, 7th grade language arts — sentence structure'}],
+template:'I am a [grade level] teacher.\n\nIXL usage data: [ixl]\nSkill areas: [skills]\n\nAnalyze this usage data:\n1. Which students are likely struggling silently? (High time, low pass rate — what does this pattern suggest?)\n2. Which students appear disengaged or avoidant? (Very low time — what might be driving this?)\n3. Which students may need more challenge or extension? (High time, high pass rate)\n4. What is one instructional move I should make based on this data before the next IXL session?\n5. Are there any equity patterns in this data I should be paying attention to?\n\nBefore responding, read TLF Standard 1 at https://marioapodaca.github.io/region-south-hub/tlf-standard-1.html. If you cannot access the URL, state that clearly before proceeding.'},
+{id:49,stage:'mystudents',content:['universal'],title:'A-G Readiness Check — Support a Student\'s Course Trajectory',purpose:'Help a teacher think through a student\'s A-G course path and identify intervention or counseling conversation entry points.',tlf:'TLF 1b · 1e',
+sources:[{label:'TLF Standard 1',url:'https://marioapodaca.github.io/region-south-hub/tlf-standard-1.html'}],
+fields:[{key:'student',label:'Describe the student — current grade, courses, and grades',type:'textarea',ph:'e.g., 10th grader. Has A-G: English B+, Algebra I B (needs to still take Geometry and Algebra II), Biology C, World History B. First-generation, EL at Early Advanced. Parents not aware of A-G requirements.'},{key:'concern',label:'What is your specific concern or question?',type:'input',ph:'e.g., Is this student on track? What should I say in our next check-in?'}],
+template:'I am a [grade level] teacher.\n\nStudent profile: [student]\nMy concern: [concern]\n\nHelp me:\n1. Based on this trajectory, is this student on track to complete A-G requirements by graduation? What are the key gaps or risks?\n2. What is the most important thing I can do in my classroom to support this student\'s A-G completion?\n3. Draft 3–4 talking points I can use in a supportive check-in conversation with this student\n4. Are there any equity dimensions I should be sensitive to in this conversation (e.g., first-generation status, language background, family awareness of college requirements)?\n5. What other school supports or staff should I connect this student with?\n\nBefore responding, read TLF Standard 1 at https://marioapodaca.github.io/region-south-hub/tlf-standard-1.html. If you cannot access the URL, state that clearly before proceeding.'},
+{id:50,stage:'mystudents',content:['ela'],title:'ELA Asset Map — Know My Readers and Writers',purpose:'Build a class asset map specifically for ELA — oral language, home language literacy, narrative experience, and genre knowledge.',tlf:'TLF 1b · 1d',
+sources:[{label:'TLF Standard 1',url:'https://marioapodaca.github.io/region-south-hub/tlf-standard-1.html'},{label:'CA ELA Standards',url:'https://marioapodaca.github.io/region-south-hub/ca-ela-standards.html'}],
+fields:[{key:'class',label:'Describe your class — linguistically and culturally',type:'textarea',ph:'e.g., 30 students, 90% Latino, 18 ELs (most Spanish-dominant at home), several students are stronger oral storytellers than writers, 4 students with IEPs for reading'},{key:'unit',label:'Upcoming ELA unit',type:'input',ph:'e.g., Argumentative essay on a social issue, Literary analysis of a coming-of-age novel'}],
+template:'I am a [grade level] ELA teacher.\n\nClass profile: [class]\nUpcoming unit: [unit]\n\nBuild an ELA-specific asset map for this class:\n1. What oral language and storytelling assets do these students likely bring that I can activate for [unit]?\n2. For bilingual/Spanish-dominant students, what literacy transfers from Spanish to English academic writing? What does NOT transfer and needs explicit instruction?\n3. What is the most common misconception students at this grade level bring to [unit]?\n4. Suggest one opening task or warm-up that activates student assets before introducing the academic demand\n5. What does success look like on a DOK 3 task in [unit] for students in this class?\n\nBefore responding, read TLF Standard 1 at https://marioapodaca.github.io/region-south-hub/tlf-standard-1.html and CA ELA Standards at https://marioapodaca.github.io/region-south-hub/ca-ela-standards.html. If you cannot access a URL, state that clearly.'},
+{id:51,stage:'mystudents',content:['math'],title:'Math Asset Map — Know My Problem Solvers',purpose:'Build a class asset map for math — number sense, informal reasoning, prior conceptual knowledge, and common misconceptions to anticipate.',tlf:'TLF 1b · 1d',
+sources:[{label:'TLF Standard 1',url:'https://marioapodaca.github.io/region-south-hub/tlf-standard-1.html'},{label:'CA Math Standards',url:'https://marioapodaca.github.io/region-south-hub/ca-math-standards.html'}],
+fields:[{key:'class',label:'Describe your class mathematically and culturally',type:'textarea',ph:'e.g., 28 students, 85% Latino, 20 ELs, many students show strong number sense and mental math but struggle to express reasoning in writing; several are stronger in Spanish math vocabulary than English'},{key:'unit',label:'Upcoming math unit or standard',type:'input',ph:'e.g., Proportional reasoning, Solving linear equations, Fraction division'}],
+template:'I am a [grade level] math teacher.\n\nClass profile: [class]\nUpcoming unit: [unit]\n\nBuild a math-specific asset map:\n1. What informal mathematical reasoning or real-world problem-solving assets do these students likely bring to [unit]?\n2. What prior knowledge should I assume students have coming into [unit]? What are the most common gaps at this grade level?\n3. What is the most common misconception for [unit] at this grade level and how do I address it without just re-teaching the procedure?\n4. For EL students, what math language demands in [unit] need explicit instruction? (Vocabulary, syntax, academic language structures)\n5. Suggest one DOK 3 task for [unit] that would allow these students to show what they know before I formally teach the concept\n\nBefore responding, read TLF Standard 1 at https://marioapodaca.github.io/region-south-hub/tlf-standard-1.html and CA Math Standards at https://marioapodaca.github.io/region-south-hub/ca-math-standards.html. If you cannot access a URL, state that clearly.'},
+{id:52,stage:'mystudents',content:['science'],title:'Science Asset Map — Know My Investigators',purpose:'Build a class asset map for science — prior knowledge, NGSS practice assets, cultural connections to phenomena, and CER scaffolding needs.',tlf:'TLF 1b · 1d',
+sources:[{label:'TLF Standard 1',url:'https://marioapodaca.github.io/region-south-hub/tlf-standard-1.html'},{label:'NGSS Standards',url:'https://marioapodaca.github.io/region-south-hub/ngss-standards.html'}],
+fields:[{key:'class',label:'Describe your class — culturally and scientifically',type:'textarea',ph:'e.g., 32 students, mostly Latino and Black students, many from families with agricultural or construction backgrounds, strong observational skills from daily life, 14 ELs, 3 students with IEPs'},{key:'unit',label:'Upcoming science unit or phenomenon',type:'input',ph:'e.g., Ecosystems and matter cycling, Forces and motion, Chemical reactions'}],
+template:'I am a [grade level] science teacher.\n\nClass profile: [class]\nUpcoming unit/phenomenon: [unit]\n\nBuild a science-specific asset map:\n1. What cultural, community, or everyday experiential knowledge do these students likely bring that connects to [unit]? (Name specific connections, not generalities)\n2. Which NGSS science and engineering practices (SEPs) do students typically bring informal versions of at this age? How can I activate those in [unit]?\n3. What is the most common misconception for [unit] and how do I surface it through phenomena rather than lecture?\n4. For a Claim-Evidence-Reasoning (CER) task in [unit], what specific language supports do EL students at this level need without removing the cognitive demand?\n5. Suggest one anchoring phenomenon for [unit] that would be culturally relevant and accessible for this class\n\nBefore responding, read TLF Standard 1 at https://marioapodaca.github.io/region-south-hub/tlf-standard-1.html and NGSS Standards at https://marioapodaca.github.io/region-south-hub/ngss-standards.html. If you cannot access a URL, state that clearly.',hasImageUpload:false},
 // ── PLAN ──────────────────────────────────────────────────────────────────
 {id:1,stage:'plan',content:['ela','universal'],title:'Unpack an ELA Standard',purpose:'Break a standard into what students must know, understand, and do — with DOK level identified.',tlf:'TLF 1a · 1e',
 sources:[{label:'CA ELA Standards',url:'https://marioapodaca.github.io/region-south-hub/ca-ela-standards.html'},{label:'DOK & Cognitive Rigor',url:'https://marioapodaca.github.io/region-south-hub/webb-dok.html'},{label:'TLF Standard 1',url:'https://marioapodaca.github.io/region-south-hub/tlf-standard-1.html'}],
@@ -685,9 +783,10 @@ function mkCard(p){
   const srcs=p.sources.map(s=>`<a href="${s.url}" target="_blank" class="source-chip">${s.label}</a>`).join('');
   const prev=hlPH(p.template);
   const flds=p.fields&&p.fields.length?p.fields.map(f=>`<div class="custom-field"><div class="custom-label">${f.label}</div>${f.type==='textarea'?`<textarea class="custom-input" id="cf-${p.id}-${f.key}" placeholder="${f.ph}" rows="3" oninput="updB(${p.id})"></textarea>`:`<input type="text" class="custom-input" id="cf-${p.id}-${f.key}" placeholder="${f.ph}" oninput="updB(${p.id})">`}</div>`).join(''):'<p style="font-size:12px;color:#4e6267;">No fill-in fields needed &mdash; ready to copy after selecting your grade band.</p>';
+  const imgTooltip=`<div class="img-help-wrap"><button class="img-help-btn" aria-label="How to use image attachment">?</button><div class="img-tooltip"><strong>How image attachment works:</strong><ol><li>Click <strong>Upload / Camera</strong> to attach your image here</li><li>Click <strong>Copy Filled Prompt</strong> — your prompt is copied to clipboard</li><li>Open your AI tool (Claude.ai, ChatGPT, etc.)</li><li><strong>Attach the image</strong> using the AI tool&rsquo;s paperclip or image button</li><li>Paste and send your prompt</li></ol>The AI will ask you if the image is missing.</div></div>`;
   const imgUploadHtml=p.hasImageUpload
-    ?`<div style="margin-top:10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;"><img id="img-thumb-${p.id}" src="" alt="" style="display:none;height:48px;width:auto;border-radius:6px;border:1px solid rgba(0,35,122,0.15);object-fit:cover;"><span id="img-lbl-${p.id}" style="font-size:12px;color:#4e6267;">No image attached</span><button class="btn-upload-trigger" onclick="openUploadModal(${p.id})">&#x1F4F7; Upload / Camera</button></div>`
-    :`<div style="margin-top:8px;"><button class="btn-attach-img" onclick="openUploadModal(${p.id})">&#x1F4F7; Attach an image (optional)</button><span id="img-lbl-${p.id}" style="display:none;margin-left:8px;" class="img-attached-note">&#x2705; Image attached</span></div>`;
+    ?`<div style="margin-top:10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;"><img id="img-thumb-${p.id}" src="" alt="" style="display:none;height:48px;width:auto;border-radius:6px;border:1px solid rgba(0,35,122,0.15);object-fit:cover;"><span id="img-lbl-${p.id}" style="font-size:12px;color:#4e6267;">No image attached</span><button class="btn-upload-trigger" onclick="openUploadModal(${p.id})">&#x1F4F7; Upload / Camera</button>${imgTooltip}</div>`
+    :`<div style="margin-top:8px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;"><button class="btn-attach-img" onclick="openUploadModal(${p.id})">&#x1F4F7; Attach an image (optional)</button><span id="img-lbl-${p.id}" style="display:none;" class="img-attached-note">&#x2705; Image attached</span>${imgTooltip}</div>`;
   return `<div class="prompt-card card-${p.stage}" id="card-${p.id}"><div class="card-stripe"></div><div class="card-top" onclick="togCard(${p.id})"><div class="card-top-left"><div class="card-title">${p.title}</div><div class="card-purpose">${p.purpose}</div><div class="card-tags">${stT}${ctT}${tlfT}</div></div><div class="card-chevron" id="c-${p.id}">&rsaquo;</div></div><div class="card-body" id="b-${p.id}"><div class="card-body-inner"><div class="grounding-row"><span class="grounding-label">Sources:</span><div class="source-chips">${srcs}</div></div><div class="prompt-label">Prompt Template</div><div class="prompt-text-box">${prev}</div><div class="customize-panel" id="cp-${p.id}"><div class="customize-title">&#x270F;&#xFE0F; Fill In Your Details</div><div class="custom-fields">${flds}</div>${imgUploadHtml}<div class="built-prompt-wrap" id="bw-${p.id}"><div class="built-prompt-label">&#x2705; Your Customized Prompt &mdash; Ready to Copy</div><div class="built-prompt-box" id="bp-${p.id}"></div></div></div><div class="card-actions"><button class="btn-action btn-copy-raw" onclick="cpRaw(${p.id})">&#x1F4CB; Copy Template</button><button class="btn-action btn-customize" onclick="togCP(${p.id})">&#x270F;&#xFE0F; Customize &amp; Fill In &#x25BE;</button><button class="btn-action btn-copy-built" id="bcb-${p.id}" onclick="cpBuilt(${p.id})">&#x1F4CB; Copy Filled Prompt</button><button class="btn-action btn-save" id="bs-${p.id}" onclick="saveLB(${p.id})">&#x2B50; Save to My Library</button><span class="copy-toast" id="ct-${p.id}">&#x2705; Copied!</span><span class="tlf-anchor">${p.tlf}</span></div></div></div></div>`;
 }
 
