@@ -1,0 +1,190 @@
+version: '1.3'
+priority_order:
+- data_accuracy
+- brand_compliance
+- readability
+- correct_subject_identity
+- student_representation
+- aesthetic_polish
+assets:
+  region_south_logo:
+    url: https://github.com/marioapodaca/region-south-hub/blob/main/RS-logo.png
+    redraw: false
+    recolor: false
+    distort: false
+    preferred_position: bottom_left
+  lausd_logo:
+    url: https://github.com/marioapodaca/region-south-hub/blob/main/LAUSD_seal.png
+    redraw: false
+    recolor: false
+    distort: false
+  lausd_brand_guide: https://communications.lausd.org/apps/pages/index.jsp?uREC_ID=4433467&type=d&pREC_ID=2674581
+colors:
+  official:
+    navy: '#00237A'
+    bright_blue: '#0089FF'
+    green: '#00602D'
+    orange: '#FF4D00'
+    gold: '#FF9C00'
+    red: '#FF0000'
+  regional:
+    math:
+      south: '#00237A'
+      east: '#0089FF'
+      north: '#001A5A'
+      west: '#6F8FAF'
+    ela:
+      south: '#FF4D00'
+      east: '#FF8A4C'
+      north: '#B93600'
+      west: '#C97A55'
+    science:
+      south: '#00602D'
+      east: '#5CBF82'
+      north: '#003D1D'
+      west: '#70947F'
+subject_rules:
+  math:
+    family: blue
+    icon: calculator
+    anchor: '#00237A'
+  ela:
+    family: orange
+    icon: open_book
+    anchor: '#FF4D00'
+  science:
+    family: green
+    icons:
+    - beaker
+    - flask
+    - microscope
+    anchor: '#00602D'
+terminology:
+  P+A:
+    full_name: Proficient + Advanced
+    source_aliases:
+    - PoA
+    - Percent Proficient or Advanced
+  DFP:
+    full_name: Distance from Proficiency
+  SP:
+    full_name: Science Points
+  definitions_required_in_visual:
+  - P+A
+  - DFP
+  - SP
+metadata:
+  source:
+    prompt_if_missing: true
+    user_may_omit: true
+    never_invent: true
+  date:
+    prompt_if_missing: true
+    user_may_omit: true
+    never_invent: true
+  approved_date_labels:
+  - Data as of
+  - Downloaded
+  - Results through
+templates:
+  RS-01: Hero Data
+  RS-02: Regional Comparison
+  RS-03: Cohort Analysis
+components:
+  RS-C01: Key Takeaway
+  RS-C02: Metric Callout
+  RS-C03: Measure Definition
+  RS-C04: Proficiency Benchmark
+  RS-C05: Preliminary Trend
+  RS-C06: Internal Use Notice
+  RS-C07: Data Metadata
+  RS-C08: Data Panel
+  RS-C09: Region Label
+benchmarks:
+  DFP: 0
+  SP: 65
+preliminary_data:
+  show_actual_value_if_restricted: false
+  use_generalized_direction: true
+  use_dashed_or_dotted_trend: true
+  label: Preliminary Trend
+validation_rules:
+  subject_color_precedence:
+    scope: SBA/CAASPP academic data graphics
+    math_primary_marks: blue family
+    ela_primary_marks: orange family
+    science_primary_marks: green family
+    semantic_color_is_secondary: true
+    do_not_replace_subject_family_with_green_red_bars: true
+  subject_icons:
+    math: calculator
+    ela: open_book
+    science:
+    - beaker
+    - flask
+    - microscope
+  logos:
+    generated_or_approximate_logos_allowed: false
+    fallback: reserve_space_and_add_authentic_asset_in_postproduction
+  preliminary_trend:
+    endpoint_must_not_be_inferable: true
+    avoid_axis_aligned_endpoint: true
+    preferred: direction_only_or_separate_trend_zone
+  regional_comparison_panel:
+    default_plot_area: white_or_very_light
+    overall_background_may_be: region_south_navy
+    locked_region_colors_required: true
+  science_green_placement:
+    hex: '#00602D'
+    allowed_backgrounds:
+    - white
+    - light
+    directly_on_navy: false
+    dark_slide_icon_container: white_or_light
+  small_text:
+    minimum_17pt_colors:
+    - '#0089FF'
+    - '#FF4D00'
+    - '#FF9C00'
+    - '#FF0000'
+    small_text_on_light: '#00237A'
+    small_text_on_dark: '#FFFFFF'
+  cohort_bars:
+    primary_encoding: subject_color_family
+    sign_encoding: bar_direction
+    semantic_green_red: secondary_callouts_only
+    educational_meaning_over_math_sign: true
+  approved_examples:
+    requires_postproduction: true
+    checks:
+    - authentic_logos
+    - typography
+    - numeric_labels
+    - source_and_date
+    - abbreviation_definitions
+    - embargo_rules
+display_mode:
+  allowed:
+  - light
+  - dark
+  prompt_if_missing: true
+  user_may_request_recommendation: true
+  recommendation_requires_user_confirmation: true
+  never_silently_choose: true
+  light:
+    best_for:
+    - print
+    - dense_charts
+    - regional_comparisons
+    - maximum_color_contrast
+    background: white_or_soft_white
+    primary_text: '#00237A'
+  dark:
+    best_for:
+    - presentations
+    - executive_dashboards
+    - hero_graphics
+    - student_photography
+    background: region_south_navy
+    primary_text: '#FFFFFF'
+    detailed_plot_areas: white_or_light_when_needed
