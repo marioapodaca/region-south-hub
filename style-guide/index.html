@@ -1,93 +1,795 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Region South Visual Style Guide</title><style>
-:root{
- --navy:#00237A; --blue:#0089FF; --green:#00602D; --orange:#FF4D00;
- --gold:#FF9C00; --red:#FF0000; --ink:#15233B; --muted:#62728B;
- --paper:#F4F7FB; --line:#D7DEE8;
-}
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--paper);color:var(--ink);line-height:1.55}
-.hero{background:linear-gradient(135deg,#00183f,#00237A);color:#fff;padding:64px 7vw 56px}
-.hero h1{font-size:52px;line-height:1.05;margin:0 0 14px}
-.hero p{font-size:22px;max-width:900px;margin:0;color:#dbe8ff}
-.wrap{max-width:1280px;margin:auto;padding:36px 28px 80px}
-nav{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px 24px;margin-top:-30px;box-shadow:0 8px 24px #00183f18}
-nav a{display:inline-block;margin:6px 18px 6px 0;color:var(--navy);font-weight:700;text-decoration:none}
-section{background:#fff;border:1px solid var(--line);border-radius:22px;padding:30px;margin-top:28px}
-h2{font-size:34px;color:var(--navy);margin:0 0 18px}
-h3{font-size:24px;color:var(--navy);margin:24px 0 10px}
-.rule{border-left:6px solid var(--blue);padding:14px 18px;background:#eef6ff;border-radius:10px;margin:18px 0;font-weight:700}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
-.card{border:1px solid var(--line);border-radius:16px;padding:20px;background:#fbfcfe}
-.swatch{height:70px;border-radius:12px;margin-bottom:10px}
-table{width:100%;border-collapse:collapse;margin:14px 0}
-th,td{border-bottom:1px solid var(--line);text-align:left;padding:12px}
-th{color:var(--navy)}
-.figure{width:100%;border-radius:16px;border:1px solid var(--line);margin:14px 0}
-.darkdemo{background:#00183f;color:#fff;border-radius:18px;padding:22px}
-.lightdemo{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}
-.small{font-size:14px;color:var(--muted)}
-code{background:#eef2f7;padding:2px 6px;border-radius:5px}
-footer{padding:36px 7vw;color:#65748b;text-align:center}
-</style></head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Region South Visual Style Guide</title>
+
+  <style>
+    :root {
+      --navy: #00237A;
+      --navy-deep: #00183F;
+      --blue: #0089FF;
+      --green: #00602D;
+      --orange: #FF4D00;
+      --gold: #FF9C00;
+      --red: #FF0000;
+      --ink: #15233B;
+      --muted: #62728B;
+      --paper: #F4F7FB;
+      --line: #D7DEE8;
+      --white: #FFFFFF;
+      --shadow: 0 10px 30px rgba(0, 24, 63, 0.10);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", "Open Sans", Arial, Helvetica, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; }
+
+    .ecosystem {
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .ecosystem-inner {
+      max-width: 1440px;
+      margin: auto;
+      padding: 11px 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .ecosystem-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--navy);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .ecosystem-brand img {
+      width: 42px;
+      height: auto;
+      display: block;
+    }
+
+    .ecosystem-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .ecosystem-links a {
+      text-decoration: none;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 700;
+      padding: 9px 12px;
+      border-radius: 10px;
+      transition: 0.15s ease;
+    }
+
+    .ecosystem-links a:hover {
+      background: #EEF6FF;
+      color: var(--blue);
+    }
+
+    .ecosystem-links a.active {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 90% 20%, rgba(0,137,255,.22), transparent 28%),
+        linear-gradient(135deg, var(--navy-deep), var(--navy));
+      color: var(--white);
+      padding: 74px 7vw 70px;
+      min-height: 350px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-inner {
+      width: min(1440px, 100%);
+      margin: auto;
+      position: relative;
+    }
+
+    .hero-copy {
+      max-width: 900px;
+      padding-right: 230px;
+    }
+
+    .hero-kicker {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #8EC8FF;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 4vw, 64px);
+      line-height: 1.04;
+      margin: 0 0 18px;
+      font-weight: 800;
+    }
+
+    .hero p {
+      font-size: clamp(19px, 1.7vw, 25px);
+      max-width: 880px;
+      margin: 0;
+      color: #DBE8FF;
+    }
+
+    .hero-logo {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      width: 180px;
+      max-height: 185px;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 18px rgba(0,0,0,.15));
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .hero-actions a {
+      text-decoration: none;
+      font-weight: 800;
+      border-radius: 12px;
+      padding: 11px 16px;
+      font-size: 14px;
+    }
+
+    .btn-primary {
+      background: var(--white);
+      color: var(--navy);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,.55);
+      color: var(--white);
+      background: rgba(255,255,255,.06);
+    }
+
+    .wrap {
+      max-width: 1380px;
+      margin: auto;
+      padding: 34px 28px 80px;
+    }
+
+    .section-nav {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 18px 22px;
+      margin-top: -28px;
+      box-shadow: var(--shadow);
+      position: relative;
+      z-index: 10;
+    }
+
+    .section-nav-label {
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .section-nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px 6px;
+    }
+
+    .section-nav a {
+      display: inline-block;
+      padding: 7px 10px;
+      color: var(--navy);
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 9px;
+      font-size: 14px;
+    }
+
+    .section-nav a:hover {
+      background: #EEF6FF;
+      color: var(--blue);
+    }
+
+    section {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 34px;
+      margin-top: 28px;
+    }
+
+    h2 {
+      font-size: 34px;
+      color: var(--navy);
+      margin: 0 0 18px;
+      line-height: 1.15;
+    }
+
+    h3 {
+      font-size: 23px;
+      color: var(--navy);
+      margin: 24px 0 10px;
+      line-height: 1.2;
+    }
+
+    .rule {
+      border-left: 6px solid var(--blue);
+      padding: 14px 18px;
+      background: #EEF6FF;
+      border-radius: 10px;
+      margin: 18px 0;
+      font-weight: 700;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px;
+      background: #FBFCFE;
+    }
+
+    .swatch {
+      height: 70px;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+    }
+
+    th, td {
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      padding: 12px;
+      vertical-align: top;
+    }
+
+    th { color: var(--navy); }
+
+    .figure {
+      width: 100%;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      margin: 14px 0;
+      display: block;
+    }
+
+    .darkdemo {
+      background: var(--navy-deep);
+      color: var(--white);
+      border-radius: 18px;
+      padding: 22px;
+    }
+
+    .lightdemo {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+    }
+
+    .small {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    code {
+      background: #EEF2F7;
+      padding: 2px 6px;
+      border-radius: 5px;
+      overflow-wrap: anywhere;
+    }
+
+    .resource-links {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+    }
+
+    .resource {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      text-decoration: none;
+      background: #FBFCFE;
+      transition: .15s ease;
+    }
+
+    .resource:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+      border-color: #B8CEF2;
+    }
+
+    .resource strong {
+      display: block;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .resource span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer {
+      padding: 34px 7vw 46px;
+      color: #65748B;
+      text-align: center;
+    }
+
+    footer a {
+      color: var(--navy);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    @media (max-width: 900px) {
+      .ecosystem-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .ecosystem-links {
+        justify-content: flex-start;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 48px;
+        padding-bottom: 62px;
+      }
+
+      .hero-copy {
+        padding-right: 0;
+      }
+
+      .hero-logo {
+        position: static;
+        transform: none;
+        width: 120px;
+        margin-bottom: 24px;
+      }
+
+      .hero-inner {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .hero-logo { order: -1; }
+
+      section { padding: 24px; }
+
+      h2 { font-size: 29px; }
+    }
+  </style>
+</head>
+
 <body>
-<header class="hero"><h1>Region South Visual Style Guide</h1>
-<p>A consistent visual system for Region South presentations, dashboards, data stories, and AI-generated graphics.</p></header>
-<div class="wrap"><nav><a href="#foundation">Brand Foundation</a><a href="#modes">Light & Dark Modes</a><a href="#colors">Color System</a><a href="#typography">Typography</a><a href="#photography">Photography & Student Representation</a><a href="#templates">Templates</a><a href="#terms">Terminology</a><a href="#data">Data Visualization</a><a href="#metadata">Metadata & Embargo</a><a href="#approved">Approved Example Workflow</a></nav><section id="foundation"><h2>Brand Foundation</h2><p>The Region South visual system is a presentation and communication framework designed to make instructional and data communications consistent, recognizable, student-centered, and aligned with LAUSD branding.</p>
-<div class="rule">Priority: Data accuracy → Brand compliance → Readability → Subject identity → Student representation → Aesthetic polish.</div>
-<p><b>Canonical Region South logo:</b><br><code>https://github.com/marioapodaca/region-south-hub/blob/main/RS-logo.png</code></p>
-<p><b>Canonical LAUSD seal:</b><br><code>https://github.com/marioapodaca/region-south-hub/blob/main/LAUSD_seal.png</code></p></section>
-<section id="modes"><h2>Light & Dark Modes</h2><img class="figure" src="assets/light-dark-modes.png" alt="Light and dark mode comparison">
-<div class="grid"><div class="lightdemo"><h3>Light Mode</h3><p>Best for print, dense charts, regional comparisons, and maximum color contrast.</p></div>
-<div class="darkdemo"><h3 style="color:white">Dark Mode</h3><p>Best for presentations, executive dashboards, hero graphics, and student photography.</p></div></div>
-<div class="rule">If the user has not specified a mode, prompt them to choose Light or Dark. If they ask for a recommendation, recommend one and obtain confirmation before generating.</div></section>
-<section id="colors"><h2>Color System</h2><div class="grid">
-<div class="card"><div class="swatch" style="background:#00237A"></div><b>LAUSD Navy</b><br>#00237A</div>
-<div class="card"><div class="swatch" style="background:#0089FF"></div><b>Bright Blue</b><br>#0089FF</div>
-<div class="card"><div class="swatch" style="background:#00602D"></div><b>Science Green</b><br>#00602D</div>
-<div class="card"><div class="swatch" style="background:#FF4D00"></div><b>ELA Orange</b><br>#FF4D00</div>
-<div class="card"><div class="swatch" style="background:#FF9C00"></div><b>Gold</b><br>#FF9C00</div>
-<div class="card"><div class="swatch" style="background:#FF0000"></div><b>Red</b><br>#FF0000</div>
-</div>
-<h3>Locked regional comparison palette</h3>
-<img class="figure" src="assets/regional-palette.png" alt="Regional comparison palette">
-<div class="rule">Subject determines the color family. Region determines the shade.</div></section>
-<section id="typography"><h2>Typography</h2><p><b>Primary typeface: Poppins.</b></p>
-<table><tr><th>Use</th><th>Weight</th></tr>
-<tr><td>Major title</td><td>Bold / ExtraBold</td></tr><tr><td>Section heading</td><td>Bold</td></tr>
-<tr><td>Subtitle</td><td>Medium</td></tr><tr><td>Chart title</td><td>SemiBold</td></tr>
-<tr><td>Large metric</td><td>Bold / ExtraBold</td></tr><tr><td>Body</td><td>Regular</td></tr>
-<tr><td>Chart labels</td><td>Medium</td></tr><tr><td>Footer/source</td><td>Regular</td></tr></table>
-<p class="small">Digital body alternative: Open Sans. Fallback: Arial.</p></section>
-<section id="photography"><h2>Photography & Student Representation</h2><p>Use authentic, age-appropriate, diverse students actively engaged in learning. Students are not decorative props.</p>
-<div class="grid">
-<div class="card"><h3>ELA</h3><p>Reading, annotating, discussing text, writing in response to reading.</p><p><b>Icon:</b> open book, LAUSD Orange.</p></div>
-<div class="card"><h3>Math</h3><p>Solving equations, calculator use, graphing, collaborative problem-solving.</p><p><b>Icon:</b> calculator, LAUSD Navy.</p></div>
-<div class="card"><h3>Science</h3><p>Experiments, measuring liquids, recording observations, discussing results.</p><p><b>Icon:</b> beaker, flask, or microscope, LAUSD Green.</p></div>
-</div></section>
-<section id="templates"><h2>Templates</h2><div class="grid">
-<div class="card"><h3>RS-01 — Hero Data</h3><p>Photo | Main Data | Key Takeaway</p><p>Use for SBA trends, CAST, attendance, and single-subject dashboards.</p></div>
-<div class="card"><h3>RS-02 — Regional Comparison</h3><p>P+A | DFP or SP | Region South Story</p><p>Use light plotting areas by default.</p></div>
-<div class="card"><h3>RS-03 — Cohort Analysis</h3><p>Multiple Grade Panels + Student Image + Key Takeaway</p><p>Keep cross-panel axes consistent.</p></div>
-</div></section>
-<section id="terms"><h2>Terminology</h2><table><tr><th>Preferred</th><th>Short form</th><th>Rule</th></tr>
-<tr><td>Proficient + Advanced</td><td>P+A</td><td>Do not display PoA in Region South-facing graphics.</td></tr>
-<tr><td>Distance from Proficiency</td><td>DFP</td><td>Higher is better; 0 is proficiency.</td></tr>
-<tr><td>Science Points</td><td>SP</td><td>Range 0–100; 65 is proficiency.</td></tr></table>
-<div class="rule">If P+A, DFP, or SP appears, define it somewhere in the same visual.</div></section>
-<section id="data"><h2>Data Visualization</h2><p>Use accurate scales, direct labels where useful, minimal clutter, and fair comparison.</p>
-<ul><li><b>P+A:</b> higher is better; use percentage points for differences.</li>
-<li><b>DFP:</b> higher is better; show 0 = Proficiency when relevant; never reverse the axis.</li>
-<li><b>SP:</b> higher is better; 65 = Proficiency; never say “Proficiency Floor.”</li>
-<li><b>Regional comparisons:</b> South receives strongest visual emphasis, but comparison regions remain fully legible.</li>
-<li><b>Cohort bars:</b> subject color is primary; bar direction shows sign; green/red are secondary semantic cues only.</li></ul></section>
-<section id="metadata"><h2>Metadata & Embargo</h2><h3>Source and date</h3><p>If either is missing, prompt the user. Always offer the option to omit the item if it is not pertinent. Never invent a source or date.</p>
-<h3>Preliminary / embargoed data</h3><p>Do not show restricted values or inferable endpoints. Use a direction-only or separate Preliminary Trend treatment.</p>
-<div class="rule">Preferred wording: “Preliminary results remain embargoed and are shown only as a generalized trend.”</div></section>
-<section id="approved"><h2>Approved Example Workflow</h2><img class="figure" src="assets/validation-board.png" alt="Validation board">
-<p>A graphic becomes an <b>Approved Example</b> only after post-production review.</p>
-<ul><li>Authentic logos</li><li>Poppins typography</li><li>Numeric accuracy</li><li>Correct subject/regional colors</li><li>Source/date resolved</li><li>Definitions present</li><li>Embargo rules followed</li><li>Accessibility and contrast checked</li></ul></section></div>
-<footer>Region South Visual Style Guide — Human-Facing Draft v1.0</footer>
-</body></html>
+
+  <div class="ecosystem">
+    <div class="ecosystem-inner">
+      <a class="ecosystem-brand" href="../">
+        <img src="../RS-logo.png" alt="Region South">
+        <span>Region South Hub</span>
+      </a>
+
+      <div class="ecosystem-links">
+        <a class="active" href="./">Visual Style Guide</a>
+        <a href="examples.html">Examples</a>
+        <a href="AI-QUICKSTART.md">AI Quick Start</a>
+        <a href="../rs-prompt-library.html">AI Prompt Library</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <img src="../RS-logo.png" alt="Region South" class="hero-logo">
+
+      <div class="hero-copy">
+        <div class="hero-kicker">Region South Design System</div>
+        <h1>Region South Visual Style Guide</h1>
+        <p>
+          A consistent visual system for Region South presentations,
+          dashboards, data stories, and AI-generated graphics.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn-primary" href="#foundation">Explore the Guide</a>
+          <a class="btn-secondary" href="examples.html">View Examples</a>
+          <a class="btn-secondary" href="../rs-prompt-library.html">Open Prompt Library</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap">
+
+    <nav class="section-nav">
+      <p class="section-nav-label">Guide sections</p>
+      <div class="section-nav-links">
+        <a href="#foundation">Brand Foundation</a>
+        <a href="#modes">Light &amp; Dark Modes</a>
+        <a href="#colors">Color System</a>
+        <a href="#typography">Typography</a>
+        <a href="#photography">Photography &amp; Student Representation</a>
+        <a href="#templates">Templates</a>
+        <a href="#terms">Terminology</a>
+        <a href="#data">Data Visualization</a>
+        <a href="#metadata">Metadata &amp; Embargo</a>
+        <a href="#approved">Approved Example Workflow</a>
+      </div>
+    </nav>
+
+    <section id="foundation">
+      <h2>Brand Foundation</h2>
+
+      <p>
+        The Region South visual system is a presentation and communication
+        framework designed to make instructional and data communications
+        consistent, recognizable, student-centered, and aligned with LAUSD branding.
+      </p>
+
+      <div class="rule">
+        Priority: Data accuracy → Brand compliance → Readability →
+        Subject identity → Student representation → Aesthetic polish.
+      </div>
+
+      <p>
+        <b>Canonical Region South logo:</b><br>
+        <code>https://github.com/marioapodaca/region-south-hub/blob/main/RS-logo.png</code>
+      </p>
+
+      <p>
+        <b>Canonical LAUSD seal:</b><br>
+        <code>https://github.com/marioapodaca/region-south-hub/blob/main/LAUSD_seal.png</code>
+      </p>
+
+      <div class="resource-links">
+        <a class="resource" href="../rs-prompt-library.html">
+          <strong>AI Prompt Library</strong>
+          <span>Find Region South prompts by category and AI tool.</span>
+        </a>
+
+        <a class="resource" href="AI-QUICKSTART.md">
+          <strong>AI Quick Start</strong>
+          <span>Give an AI the essential Region South rules.</span>
+        </a>
+
+        <a class="resource" href="examples.html">
+          <strong>Examples Gallery</strong>
+          <span>Review approved concepts and design references.</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="modes">
+      <h2>Light &amp; Dark Modes</h2>
+
+      <img
+        class="figure"
+        src="assets/light-dark-modes.png"
+        alt="Light and dark mode comparison">
+
+      <div class="grid">
+        <div class="lightdemo">
+          <h3>Light Mode</h3>
+          <p>
+            Best for print, dense charts, regional comparisons,
+            and maximum color contrast.
+          </p>
+        </div>
+
+        <div class="darkdemo">
+          <h3 style="color:white">Dark Mode</h3>
+          <p>
+            Best for presentations, executive dashboards,
+            hero graphics, and student photography.
+          </p>
+        </div>
+      </div>
+
+      <div class="rule">
+        If the user has not specified a mode, prompt them to choose
+        Light or Dark. If they ask for a recommendation, recommend
+        one and obtain confirmation before generating.
+      </div>
+    </section>
+
+    <section id="colors">
+      <h2>Color System</h2>
+
+      <div class="grid">
+        <div class="card">
+          <div class="swatch" style="background:#00237A"></div>
+          <b>LAUSD Navy</b><br>#00237A
+        </div>
+
+        <div class="card">
+          <div class="swatch" style="background:#0089FF"></div>
+          <b>Bright Blue</b><br>#0089FF
+        </div>
+
+        <div class="card">
+          <div class="swatch" style="background:#00602D"></div>
+          <b>Science Green</b><br>#00602D
+        </div>
+
+        <div class="card">
+          <div class="swatch" style="background:#FF4D00"></div>
+          <b>ELA Orange</b><br>#FF4D00
+        </div>
+
+        <div class="card">
+          <div class="swatch" style="background:#FF9C00"></div>
+          <b>Gold</b><br>#FF9C00
+        </div>
+
+        <div class="card">
+          <div class="swatch" style="background:#FF0000"></div>
+          <b>Red</b><br>#FF0000
+        </div>
+      </div>
+
+      <h3>Locked regional comparison palette</h3>
+
+      <img
+        class="figure"
+        src="assets/regional-palette.png"
+        alt="Regional comparison palette">
+
+      <div class="rule">
+        Subject determines the color family.
+        Region determines the shade.
+      </div>
+    </section>
+
+    <section id="typography">
+      <h2>Typography</h2>
+
+      <p><b>Primary typeface: Poppins.</b></p>
+
+      <table>
+        <tr><th>Use</th><th>Weight</th></tr>
+        <tr><td>Major title</td><td>Bold / ExtraBold</td></tr>
+        <tr><td>Section heading</td><td>Bold</td></tr>
+        <tr><td>Subtitle</td><td>Medium</td></tr>
+        <tr><td>Chart title</td><td>SemiBold</td></tr>
+        <tr><td>Large metric</td><td>Bold / ExtraBold</td></tr>
+        <tr><td>Body</td><td>Regular</td></tr>
+        <tr><td>Chart labels</td><td>Medium</td></tr>
+        <tr><td>Footer/source</td><td>Regular</td></tr>
+      </table>
+
+      <p class="small">
+        Digital body alternative: Open Sans. Fallback: Arial.
+      </p>
+    </section>
+
+    <section id="photography">
+      <h2>Photography &amp; Student Representation</h2>
+
+      <p>
+        Use authentic, age-appropriate, diverse students actively engaged
+        in learning. Students are not decorative props.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>ELA</h3>
+          <p>
+            Reading, annotating, discussing text,
+            writing in response to reading.
+          </p>
+          <p><b>Icon:</b> open book, LAUSD Orange.</p>
+        </div>
+
+        <div class="card">
+          <h3>Math</h3>
+          <p>
+            Solving equations, calculator use, graphing,
+            collaborative problem-solving.
+          </p>
+          <p><b>Icon:</b> calculator, LAUSD Navy.</p>
+        </div>
+
+        <div class="card">
+          <h3>Science</h3>
+          <p>
+            Experiments, measuring liquids,
+            recording observations, discussing results.
+          </p>
+          <p>
+            <b>Icon:</b> beaker, flask, or microscope,
+            LAUSD Green.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="templates">
+      <h2>Templates</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>RS-01 — Hero Data</h3>
+          <p>Photo | Main Data | Key Takeaway</p>
+          <p>
+            Use for SBA trends, CAST, attendance,
+            and single-subject dashboards.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>RS-02 — Regional Comparison</h3>
+          <p>P+A | DFP or SP | Region South Story</p>
+          <p>Use light plotting areas by default.</p>
+        </div>
+
+        <div class="card">
+          <h3>RS-03 — Cohort Analysis</h3>
+          <p>Multiple Grade Panels + Student Image + Key Takeaway</p>
+          <p>Keep cross-panel axes consistent.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="terms">
+      <h2>Terminology</h2>
+
+      <table>
+        <tr>
+          <th>Preferred</th>
+          <th>Short form</th>
+          <th>Rule</th>
+        </tr>
+        <tr>
+          <td>Proficient + Advanced</td>
+          <td>P+A</td>
+          <td>Do not display PoA in Region South-facing graphics.</td>
+        </tr>
+        <tr>
+          <td>Distance from Proficiency</td>
+          <td>DFP</td>
+          <td>Higher is better; 0 is proficiency.</td>
+        </tr>
+        <tr>
+          <td>Science Points</td>
+          <td>SP</td>
+          <td>Range 0–100; 65 is proficiency.</td>
+        </tr>
+      </table>
+
+      <div class="rule">
+        If P+A, DFP, or SP appears,
+        define it somewhere in the same visual.
+      </div>
+    </section>
+
+    <section id="data">
+      <h2>Data Visualization</h2>
+
+      <p>
+        Use accurate scales, direct labels where useful,
+        minimal clutter, and fair comparison.
+      </p>
+
+      <ul>
+        <li><b>P+A:</b> higher is better; use percentage points for differences.</li>
+        <li><b>DFP:</b> higher is better; show 0 = Proficiency when relevant; never reverse the axis.</li>
+        <li><b>SP:</b> higher is better; 65 = Proficiency; never say “Proficiency Floor.”</li>
+        <li><b>Regional comparisons:</b> South receives strongest visual emphasis, but comparison regions remain fully legible.</li>
+        <li><b>Cohort bars:</b> subject color is primary; bar direction shows sign; green/red are secondary semantic cues only.</li>
+      </ul>
+    </section>
+
+    <section id="metadata">
+      <h2>Metadata &amp; Embargo</h2>
+
+      <h3>Source and date</h3>
+      <p>
+        If either is missing, prompt the user.
+        Always offer the option to omit the item if it is not pertinent.
+        Never invent a source or date.
+      </p>
+
+      <h3>Preliminary / embargoed data</h3>
+      <p>
+        Do not show restricted values or inferable endpoints.
+        Use a direction-only or separate Preliminary Trend treatment.
+      </p>
+
+      <div class="rule">
+        Preferred wording: “Preliminary results remain embargoed and are shown only as a generalized trend.”
+      </div>
+    </section>
+
+    <section id="approved">
+      <h2>Approved Example Workflow</h2>
+
+      <img
+        class="figure"
+        src="assets/validation-board.png"
+        alt="Validation board">
+
+      <p>
+        A graphic becomes an <b>Approved Example</b>
+        only after post-production review.
+      </p>
+
+      <ul>
+        <li>Authentic logos</li>
+        <li>Poppins typography</li>
+        <li>Numeric accuracy</li>
+        <li>Correct subject/regional colors</li>
+        <li>Source/date resolved</li>
+        <li>Definitions present</li>
+        <li>Embargo rules followed</li>
+        <li>Accessibility and contrast checked</li>
+      </ul>
+    </section>
+
+  </div>
+
+  <footer>
+    Region South Visual Style Guide &nbsp;·&nbsp;
+    <a href="../rs-prompt-library.html">AI Prompt Library</a>
+    &nbsp;·&nbsp;
+    <a href="examples.html">Examples</a>
+    &nbsp;·&nbsp;
+    <a href="AI-QUICKSTART.md">AI Quick Start</a>
+  </footer>
+
+</body>
+</html>
