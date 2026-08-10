@@ -1,77 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Create a Region South Graphic with AI</title>
-<style>
-:root{--navy:#00237A;--navy-deep:#00183F;--blue:#0089FF;--orange:#FF4D00;--ink:#15233B;--muted:#62728B;--paper:#F4F7FB;--line:#D7DEE8;--white:#FFF;--shadow:0 10px 30px rgba(0,24,63,.10)}
-*{box-sizing:border-box} html{scroll-behavior:smooth}
-body{margin:0;font-family:"Poppins","Open Sans",Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.55}
-.ecosystem{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:1000}
-.ecosystem-inner{max-width:1440px;margin:auto;padding:11px 5vw;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.ecosystem-brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--navy);font-weight:800}
-.ecosystem-brand img{width:42px}
-.ecosystem-links{display:flex;gap:8px;flex-wrap:wrap}
-.ecosystem-links a{text-decoration:none;color:var(--navy);font-size:14px;font-weight:700;padding:9px 12px;border-radius:10px}
-.ecosystem-links .active{background:var(--navy);color:#fff}
-.hero{background:radial-gradient(circle at 90% 20%,rgba(0,137,255,.22),transparent 28%),linear-gradient(135deg,var(--navy-deep),var(--navy));color:#fff;padding:64px 7vw 60px}
-.hero-inner{max-width:1320px;margin:auto} .hero-logo{width:205px;margin-bottom:24px}
-.kicker{font-size:14px;letter-spacing:.08em;text-transform:uppercase;font-weight:800;color:#8EC8FF;margin-bottom:10px}
-h1{font-size:clamp(40px,4vw,62px);line-height:1.05;margin:0 0 18px} .hero p{font-size:clamp(18px,1.6vw,24px);max-width:900px;color:#DBE8FF;margin:0}
-.wrap{max-width:1320px;margin:auto;padding:34px 28px 80px}
-.intro,.section{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:var(--shadow)} .intro{margin-top:-28px;position:relative}
-.section{margin-top:24px;box-shadow:none} h2{color:var(--navy);font-size:32px;margin:0 0 16px} h3{color:var(--navy);font-size:22px;margin:0 0 8px}
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:18px}
-.step{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px} .num{width:34px;height:34px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:var(--navy);color:white;font-weight:800;margin-bottom:12px}
-.checklist{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px 20px;padding:0;list-style:none} .checklist li{padding:10px 12px;background:#F7F9FC;border-radius:10px}
-.prompt-box{background:#0B1E46;color:#fff;border-radius:16px;padding:18px;border:1px solid #2F5C9C}
-textarea{width:100%;min-height:430px;resize:vertical;background:#071633;color:#fff;border:0;border-radius:12px;padding:18px;font:14px/1.5 Consolas,monospace}
-.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px} button,.button{display:inline-block;border:0;border-radius:11px;padding:11px 16px;font-weight:800;cursor:pointer;text-decoration:none}
-.primary{background:var(--blue);color:white} .secondary{background:#EEF6FF;color:var(--navy)} .status{font-size:14px;color:#B9E0FF;align-self:center}
-.ai-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px} .ai-card{border:1px solid var(--line);border-radius:14px;padding:18px;background:#FBFCFE;text-decoration:none;color:var(--ink)}
-.ai-card strong{display:block;color:var(--navy);font-size:18px;margin-bottom:4px} .example{border-left:5px solid var(--orange);background:#FFF5EF;border-radius:10px;padding:16px 18px;margin:12px 0}
-.note{border-left:6px solid var(--blue);background:#EEF6FF;border-radius:10px;padding:14px 18px;font-weight:700}
-footer{padding:32px 7vw 46px;text-align:center;color:#65748B} footer a{color:var(--navy);font-weight:700;text-decoration:none}
-@media(max-width:900px){.ecosystem-inner{align-items:flex-start;flex-direction:column;gap:6px}.hero-logo{width:150px}.wrap{padding-left:18px;padding-right:18px}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create a Region South Graphic with AI</title>
+  <style>
+    :root {
+      --navy:#00237A; --navy-deep:#00183F; --blue:#0089FF; --green:#00602D;
+      --orange:#FF4D00; --ink:#15233B; --muted:#62728B; --paper:#F4F7FB;
+      --line:#D7DEE8; --white:#FFFFFF; --shadow:0 10px 30px rgba(0,24,63,.10);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:"Poppins","Open Sans",Arial,Helvetica,sans-serif;background:var(--paper);color:var(--ink);line-height:1.55}
+    a{color:inherit}
+
+    .ecosystem{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:1000}
+    .ecosystem-inner{max-width:1440px;margin:auto;padding:11px 5vw;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .ecosystem-brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--navy);font-weight:800}
+    .ecosystem-brand img{width:42px;height:auto}
+    .ecosystem-links{display:flex;gap:8px;flex-wrap:wrap}
+    .ecosystem-links a{text-decoration:none;color:var(--navy);font-size:14px;font-weight:700;padding:9px 12px;border-radius:10px}
+    .ecosystem-links a:hover{background:#EEF6FF;color:var(--blue)}
+    .ecosystem-links .active{background:var(--navy);color:#fff}
+
+    .hero{background:radial-gradient(circle at 90% 20%,rgba(0,137,255,.22),transparent 28%),linear-gradient(135deg,var(--navy-deep),var(--navy));color:white;padding:58px 7vw 62px}
+    .hero-inner{max-width:1320px;margin:auto}
+    .hero-logo{width:190px;height:auto;margin-bottom:20px;display:block}
+    .kicker{font-size:14px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#8EC8FF;margin-bottom:9px}
+    .hero h1{font-size:clamp(40px,4vw,60px);line-height:1.05;margin:0 0 14px}
+    .hero p{font-size:clamp(18px,1.6vw,23px);max-width:900px;margin:0;color:#DBE8FF}
+
+    .wrap{max-width:1320px;margin:auto;padding:34px 28px 80px}
+    .section{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px;margin-top:24px}
+    .first{margin-top:-28px;position:relative;box-shadow:var(--shadow)}
+    h2{color:var(--navy);font-size:31px;line-height:1.15;margin:0 0 12px}
+    h3{color:var(--navy);font-size:21px;margin:0 0 6px}
+    .lead{color:var(--muted);margin:0 0 18px}
+
+    .copy-panel{display:grid;grid-template-columns:1.35fr .65fr;gap:24px;align-items:start}
+    .copy-card{border:1px solid #BFD4F2;background:#EEF6FF;border-radius:18px;padding:24px}
+    .copy-card h2{margin-bottom:8px}
+    .copy-card p{margin:0;color:#40536F}
+    .copy-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+    button,.button{display:inline-block;border:0;border-radius:12px;padding:12px 17px;font-weight:800;cursor:pointer;text-decoration:none;font-family:inherit}
+    .primary{background:var(--navy);color:white}
+    .secondary{background:white;color:var(--navy);border:1px solid #BFD4F2}
+    .status{font-size:14px;color:var(--green);font-weight:700;align-self:center}
+
+    .next-box{border:1px solid var(--line);border-radius:18px;padding:22px;background:#FBFCFE}
+    .next-box strong{display:block;color:var(--navy);font-size:18px;margin-bottom:8px}
+    .next-box ol{margin:0;padding-left:21px}
+    .next-box li{margin:6px 0}
+
+    details{margin-top:16px;border-top:1px solid #C9DDF9;padding-top:14px}
+    summary{cursor:pointer;color:var(--navy);font-weight:800}
+    textarea{width:100%;min-height:380px;margin-top:12px;resize:vertical;background:#071633;color:white;border:0;border-radius:12px;padding:16px;font:13px/1.5 Consolas,monospace}
+
+    .ai-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+    .ai-card{border:1px solid var(--line);border-radius:16px;padding:20px;background:#FBFCFE;text-decoration:none;transition:.15s ease}
+    .ai-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:#B8CEF2}
+    .ai-card strong{display:block;color:var(--navy);font-size:18px;margin-bottom:5px}
+    .ai-card span{color:var(--muted);font-size:14px}
+
+    .step-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+    .step-card{border:1px solid var(--line);border-radius:16px;padding:20px;background:#FBFCFE}
+    .num{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--navy);color:white;font-weight:800;margin-bottom:11px}
+    .step-card p{margin:0;color:var(--muted)}
+
+    .examples{display:grid;gap:12px}
+    .example{border-left:5px solid var(--orange);background:#FFF5EF;border-radius:10px;padding:16px 18px}
+    .example strong{color:var(--navy)}
+
+    .chips{display:flex;gap:9px;flex-wrap:wrap}
+    .chip{background:#EEF6FF;color:var(--navy);border:1px solid #C9DDF9;border-radius:999px;padding:8px 12px;font-weight:700;font-size:14px}
+    .note{border-left:6px solid var(--blue);background:#EEF6FF;border-radius:10px;padding:14px 18px;margin-top:16px;font-weight:700}
+
+    .advanced-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+    .resource{border:1px solid var(--line);border-radius:14px;padding:18px;background:#FBFCFE;text-decoration:none}
+    .resource strong{display:block;color:var(--navy);margin-bottom:4px}
+    .resource span{color:var(--muted);font-size:14px}
+
+    footer{padding:32px 7vw 46px;text-align:center;color:#65748B}
+    footer a{color:var(--navy);font-weight:700;text-decoration:none}
+
+    @media(max-width:900px){
+      .ecosystem-inner{align-items:flex-start;flex-direction:column;gap:6px}
+      .hero-logo{width:150px}
+      .wrap{padding-left:18px;padding-right:18px}
+      .copy-panel{grid-template-columns:1fr}
+    }
+  </style>
 </head>
 <body>
-<div class="ecosystem"><div class="ecosystem-inner">
-<a class="ecosystem-brand" href="../"><img src="../RS-logo.png" alt="Region South"><span>Region South Hub</span></a>
-<div class="ecosystem-links"><a href="./">Visual Style Guide</a><a class="active" href="create.html">Create with AI</a><a href="examples.html">Examples</a><a href="../rs-prompt-library.html">AI Prompt Library</a></div>
-</div></div>
 
-<header class="hero"><div class="hero-inner">
-<img class="hero-logo" src="../RS-logo.png" alt="Region South">
-<div class="kicker">Region South Design System</div>
-<h1>Create a Region South Graphic with AI</h1>
-<p>Copy the Region South instructions, open your preferred AI, provide your data, and tell it what you want to create.</p>
-</div></header>
+<div class="ecosystem">
+  <div class="ecosystem-inner">
+    <a class="ecosystem-brand" href="../">
+      <img src="../RS-logo.png" alt="Region South">
+      <span>Region South Hub</span>
+    </a>
+    <div class="ecosystem-links">
+      <a href="./">Visual Style Guide</a>
+      <a class="active" href="create.html">Create with AI</a>
+      <a href="examples.html">Examples</a>
+      <a href="../rs-prompt-library.html">AI Prompt Library</a>
+    </div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="hero-inner">
+    <img class="hero-logo" src="../RS-logo.png" alt="Region South">
+    <div class="kicker">Region South Design System</div>
+    <h1>Create a Region South Graphic with AI</h1>
+    <p>Copy the Region South instructions, open your preferred AI, upload your data, and tell it what you want to create.</p>
+  </div>
+</header>
 
 <main class="wrap">
-<div class="intro">
-<h2>Four steps</h2>
-<div class="steps">
-<div class="step"><div class="num">1</div><h3>Copy Instructions</h3><p>Use the master Region South AI instructions below.</p></div>
-<div class="step"><div class="num">2</div><h3>Open Your AI</h3><p>Use ChatGPT, Claude, Gemini, Copilot, or another capable AI.</p></div>
-<div class="step"><div class="num">3</div><h3>Provide Your Data</h3><p>Upload a spreadsheet, PDF, screenshot, image, or paste the values.</p></div>
-<div class="step"><div class="num">4</div><h3>Describe the Graphic</h3><p>Tell the AI the subject, audience, data story, and what you want created.</p></div>
-</div></div>
 
-<section class="section">
-<h2>Before you begin</h2>
-<ul class="checklist">
-<li>□ Data or source file</li><li>□ Subject: Math, ELA, Science, Attendance, etc.</li><li>□ Light Mode or Dark Mode</li><li>□ Source</li><li>□ Data/download date — or choose to omit it</li><li>□ Preliminary/embargo status</li><li>□ Intended audience</li><li>□ Optional student-image preferences</li>
-</ul>
-<div class="note">Not sure which template to use? Ask the AI to recommend RS-01, RS-02, or RS-03 based on the data and purpose.</div>
-</section>
+  <section class="section first">
+    <div class="copy-panel">
 
-<section class="section">
-<h2>1. Copy the Region South AI Instructions</h2>
-<p>The prompt contains the critical rules and points the AI to the public Region South files. If the AI cannot access the linked pages, the embedded rules serve as the fallback.</p>
-<div class="prompt-box">
-<textarea id="masterPrompt" readonly>Use the Region South Visual Style Guide as the governing design system for this task.
+      <div class="copy-card">
+        <h2>1. Copy the Region South Instructions</h2>
+        <p>This is the only prompt you need to start. It tells the AI how to follow the Region South visual standards.</p>
+
+        <div class="copy-actions">
+          <button class="primary" onclick="copyPrompt()">Copy Region South Instructions</button>
+          <a class="button secondary" href="region-south-style-guide.md" target="_blank" rel="noopener">View Detailed Style Rules</a>
+          <span id="copyStatus" class="status" aria-live="polite"></span>
+        </div>
+
+        <details>
+          <summary>View full instructions</summary>
+          <textarea id="masterPrompt" readonly>Use the Region South Visual Style Guide as the governing design system for this task.
 
 Human-facing style guide:
 https://marioapodaca.github.io/region-south-hub/style-guide/
@@ -110,55 +174,183 @@ Priority order:
 Data accuracy &gt; Brand compliance &gt; Readability &gt; Correct subject identity &gt; Student representation &gt; Aesthetic polish.
 
 If you can access the linked Region South guide/specification, use it as the authoritative source. If you cannot access the URLs, use the instructions above as the authoritative fallback.</textarea>
-<div class="actions">
-<button class="primary" onclick="copyPrompt()">Copy Region South Instructions</button>
-<a class="button secondary" href="https://marioapodaca.github.io/region-south-hub/style-guide/region-south-style-guide.md" target="_blank" rel="noopener">Open AI Specification</a>
-<span id="copyStatus" class="status" aria-live="polite"></span>
-</div></div>
-</section>
+        </details>
+      </div>
 
-<section class="section">
-<h2>2. Open your preferred AI</h2>
-<div class="ai-grid">
-<a class="ai-card" href="https://chatgpt.com/" target="_blank" rel="noopener"><strong>ChatGPT</strong><span>Paste the instructions, then upload or paste your data.</span></a>
-<a class="ai-card" href="https://claude.ai/" target="_blank" rel="noopener"><strong>Claude</strong><span>Paste the same Region South instructions before describing your graphic.</span></a>
-<a class="ai-card" href="https://gemini.google.com/" target="_blank" rel="noopener"><strong>Gemini</strong><span>Use the same instruction block and attach your data if available.</span></a>
-<a class="ai-card" href="https://copilot.microsoft.com/" target="_blank" rel="noopener"><strong>Microsoft Copilot</strong><span>Paste the instructions first, then provide the data and request.</span></a>
-</div>
-</section>
+      <div class="next-box">
+        <strong>After you copy:</strong>
+        <ol>
+          <li>Open your preferred AI.</li>
+          <li>Paste the Region South instructions.</li>
+          <li>Upload your data or file.</li>
+          <li>Describe the graphic you want.</li>
+        </ol>
+      </div>
 
-<section class="section">
-<h2>3. Tell the AI what you want</h2>
-<div class="example"><strong>Example — Trend graphic</strong><br>Create a Grade 11 Math DFP trend graphic. Use Dark Mode. Source: CAASPP. Omit the date. The 2026 value is preliminary and embargoed.</div>
-<div class="example"><strong>Example — Regional comparison</strong><br>Create a Grade 8 ELA regional comparison using P+A and DFP for East, North, South, and West. Use Light Mode. Source: CAASPP. Omit the date.</div>
-<div class="example"><strong>Example — Let the AI recommend the layout</strong><br>I am uploading a spreadsheet with school performance data. Recommend the best Region South template for an executive presentation, explain your recommendation, and wait for my approval before generating the graphic.</div>
-</section>
+    </div>
+  </section>
 
-<section class="section">
-<h2>How the AI accesses the guide</h2>
-<p><strong>Most reliable:</strong> copy the master instruction block into the AI.</p>
-<p><strong>When web access is available:</strong> the prompt also directs the AI to the public guide, AI specification, and Quick Start files.</p>
-<p><strong>Fallback:</strong> if the AI cannot open the URLs, the copied prompt itself contains the critical Region South rules.</p>
-<div class="ai-grid">
-<a class="ai-card" href="https://marioapodaca.github.io/region-south-hub/style-guide/"><strong>Human Style Guide</strong><span>Visual standards and explanations.</span></a>
-<a class="ai-card" href="https://marioapodaca.github.io/region-south-hub/style-guide/region-south-style-guide.md"><strong>AI Specification</strong><span>Detailed AI-readable standards.</span></a>
-<a class="ai-card" href="https://marioapodaca.github.io/region-south-hub/style-guide/AI-QUICKSTART.md"><strong>AI Quick Start</strong><span>Condensed rules for AI and advanced users.</span></a>
-<a class="ai-card" href="https://marioapodaca.github.io/region-south-hub/style-guide/examples.html"><strong>Examples Gallery</strong><span>Reference visuals showing the system.</span></a>
-</div>
-</section>
+
+  <section class="section">
+    <h2>2. Open Your AI</h2>
+    <p class="lead">The same Region South instructions can be used across platforms.</p>
+
+    <div class="ai-grid">
+      <a class="ai-card" href="https://chatgpt.com/" target="_blank" rel="noopener">
+        <strong>Open ChatGPT</strong>
+        <span>Paste the instructions, then upload or paste your data.</span>
+      </a>
+
+      <a class="ai-card" href="https://claude.ai/" target="_blank" rel="noopener">
+        <strong>Open Claude</strong>
+        <span>Paste the instructions before describing your graphic.</span>
+      </a>
+
+      <a class="ai-card" href="https://gemini.google.com/" target="_blank" rel="noopener">
+        <strong>Open Gemini</strong>
+        <span>Use the same instructions and attach your data if available.</span>
+      </a>
+
+      <a class="ai-card" href="https://copilot.microsoft.com/" target="_blank" rel="noopener">
+        <strong>Open Copilot</strong>
+        <span>Paste the instructions first, then provide your data and request.</span>
+      </a>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <h2>3. Upload Your Data</h2>
+    <p class="lead">Give the AI the information it needs to create an accurate graphic.</p>
+
+    <div class="step-grid">
+      <div class="step-card">
+        <div class="num">A</div>
+        <h3>Spreadsheet</h3>
+        <p>Upload Excel, CSV, or another table containing the values you want visualized.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="num">B</div>
+        <h3>PDF or Report</h3>
+        <p>Upload a report when the data or context is already documented in a source file.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="num">C</div>
+        <h3>Screenshot or Image</h3>
+        <p>Use a screenshot when you need the AI to recreate or improve an existing data visual.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="num">D</div>
+        <h3>Paste the Values</h3>
+        <p>For smaller datasets, you can simply paste the numbers into the conversation.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <h2>4. Tell the AI What You Want</h2>
+    <p class="lead">Your request can be short. The Region South instructions tell the AI what questions to ask if information is missing.</p>
+
+    <div class="examples">
+      <div class="example">
+        <strong>Trend graphic</strong><br>
+        Create a Grade 11 Math DFP trend graphic. Use Dark Mode. Source: CAASPP. Omit the date. The 2026 value is preliminary and embargoed.
+      </div>
+
+      <div class="example">
+        <strong>Regional comparison</strong><br>
+        Create a Grade 8 ELA regional comparison using P+A and DFP for East, North, South, and West. Use Light Mode. Source: CAASPP. Omit the date.
+      </div>
+
+      <div class="example">
+        <strong>Let the AI recommend the layout</strong><br>
+        I am uploading a spreadsheet with school performance data. Recommend the best Region South template for an executive presentation, explain your recommendation, and wait for my approval before generating.
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <h2>Before the Graphic Is Finalized</h2>
+    <p class="lead">The AI may ask you to resolve these items before it creates the final visual.</p>
+
+    <div class="chips">
+      <span class="chip">Light or Dark Mode</span>
+      <span class="chip">Subject</span>
+      <span class="chip">Source</span>
+      <span class="chip">Date or omit date</span>
+      <span class="chip">Preliminary / Embargo status</span>
+      <span class="chip">Audience</span>
+    </div>
+
+    <div class="note">
+      You do not need to know every answer before starting. The AI should ask for missing required information instead of inventing it.
+    </div>
+  </section>
+
+
+  <section class="section">
+    <h2>Advanced: How the AI Accesses the Guide</h2>
+    <p class="lead">Most users do not need this section, but it explains what happens behind the scenes.</p>
+
+    <p><strong>Most reliable:</strong> the copied Region South instruction block is pasted directly into the AI.</p>
+    <p><strong>When web access is available:</strong> the instructions also point the AI to the public style guide and AI-readable specification.</p>
+    <p><strong>Fallback:</strong> if the AI cannot open the linked files, the copied instructions contain the critical Region South rules.</p>
+
+    <div class="advanced-grid">
+      <a class="resource" href="./">
+        <strong>Human Style Guide</strong>
+        <span>Visual standards and explanations for users.</span>
+      </a>
+
+      <a class="resource" href="region-south-style-guide.md">
+        <strong>AI Specification</strong>
+        <span>Detailed AI-readable Region South standards.</span>
+      </a>
+
+      <a class="resource" href="AI-QUICKSTART.md">
+        <strong>AI Quick Start</strong>
+        <span>Condensed rules for AI systems and advanced users.</span>
+      </a>
+
+      <a class="resource" href="examples.html">
+        <strong>Examples Gallery</strong>
+        <span>Finished graphics demonstrating the visual system.</span>
+      </a>
+    </div>
+  </section>
+
 </main>
 
-<footer>Region South Design System · <a href="./">Visual Style Guide</a> · <a href="examples.html">Examples</a> · <a href="../rs-prompt-library.html">AI Prompt Library</a></footer>
+<footer>
+  Region South Design System ·
+  <a href="./">Visual Style Guide</a> ·
+  <a href="examples.html">Examples</a> ·
+  <a href="../rs-prompt-library.html">AI Prompt Library</a>
+</footer>
 
 <script>
-async function copyPrompt(){
-  const text=document.getElementById('masterPrompt').value;
-  const status=document.getElementById('copyStatus');
-  try{await navigator.clipboard.writeText(text);}
-  catch(e){const box=document.getElementById('masterPrompt');box.focus();box.select();document.execCommand('copy');}
-  status.textContent='Copied to clipboard.';
-  setTimeout(()=>status.textContent='',3000);
+async function copyPrompt() {
+  const text = document.getElementById('masterPrompt').value;
+  const status = document.getElementById('copyStatus');
+
+  try {
+    await navigator.clipboard.writeText(text);
+  } catch (e) {
+    const box = document.getElementById('masterPrompt');
+    box.focus();
+    box.select();
+    document.execCommand('copy');
+  }
+
+  status.textContent = 'Copied!';
+  setTimeout(() => status.textContent = '', 3000);
 }
 </script>
+
 </body>
 </html>
