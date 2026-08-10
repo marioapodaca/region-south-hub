@@ -1,41 +1,691 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Region South Examples Gallery</title>
-<style>
-body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#F4F7FB;color:#17243B}
-header{background:#00237A;color:white;padding:44px 7vw}
-main{max-width:1250px;margin:auto;padding:32px}
-h1{margin:0;font-size:44px} h2{color:#00237A;margin-top:36px}
-.note{background:#eef6ff;border-left:6px solid #0089FF;padding:15px 18px;border-radius:10px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:24px}
-.card{background:white;border:1px solid #D7DEE8;border-radius:18px;padding:18px}
-.card img{width:100%;border-radius:12px;border:1px solid #D7DEE8}
-.badge{display:inline-block;padding:5px 10px;border-radius:999px;font-size:13px;font-weight:bold}
-.approved{background:#e3f5e9;color:#00602D}.legacy{background:#fff0e8;color:#B93600}
-ul{padding-left:20px}
-</style></head><body>
-<header><h1>Region South Examples Gallery</h1><p>Approved concepts and legacy design references</p></header>
-<main>
-<div class="note">Legacy references are useful for layout and storytelling, but should not be copied literally without applying the current style guide.</div>
-<h2>Approved Concept Reference</h2>
-<div class="grid">
-<div class="card"><span class="badge approved">APPROVED CONCEPT</span><h3>Light Mode + Dark Mode</h3>
-<img src="examples/light-dark-reference.png" alt="Light and Dark Mode reference">
-<p>Demonstrates the two approved Region South display modes.</p></div>
-</div>
-<h2>Legacy / Design References</h2>
-<div class="grid">
-<div class="card"><span class="badge legacy">LEGACY REFERENCE</span><h3>RS-01 — Math Trend</h3>
-<img src="examples/rs01-math-trend-reference.png" alt="RS-01 Math trend reference">
-<p>Strong hero layout and student/data balance. Apply current icon, color, logo, metadata, and embargo rules before reuse.</p></div>
-<div class="card"><span class="badge legacy">LEGACY REFERENCE</span><h3>RS-02 — Grade 8 Math Regional Comparison</h3>
-<img src="examples/rs02-grade8-math-reference.png" alt="RS-02 regional comparison reference">
-<p>Strong regional comparison structure. Replace PoA, define abbreviations, and apply locked regional colors.</p></div>
-<div class="card"><span class="badge legacy">LEGACY REFERENCE</span><h3>RS-03 — ELA Cohort Analysis</h3>
-<img src="examples/rs03-ela-cohort-reference.png" alt="RS-03 ELA cohort reference">
-<p>Strong small-multiple composition. Convert primary bar colors to the ELA orange family and define DFP.</p></div>
-<div class="card"><span class="badge legacy">LEGACY REFERENCE</span><h3>CAST / Science</h3>
-<img src="examples/cast-science-reference.png" alt="CAST Science reference">
-<p>Strong science storytelling structure. Apply locked green palette, SP definitions, and Science contrast rules.</p></div>
-</div>
-</main></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Region South Approved Examples</title>
+
+  <style>
+    :root {
+      --navy: #00237A;
+      --navy-deep: #00183F;
+      --blue: #0089FF;
+      --green: #00602D;
+      --orange: #FF4D00;
+      --ink: #15233B;
+      --muted: #62728B;
+      --paper: #F4F7FB;
+      --line: #D7DEE8;
+      --white: #FFFFFF;
+      --shadow: 0 10px 30px rgba(0, 24, 63, 0.10);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", "Open Sans", Arial, Helvetica, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; }
+
+    /* TOP NAV */
+    .ecosystem {
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .ecosystem-inner {
+      max-width: 1440px;
+      margin: auto;
+      padding: 11px 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .ecosystem-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--navy);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .ecosystem-brand img {
+      width: 42px;
+      height: auto;
+      display: block;
+    }
+
+    .ecosystem-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .ecosystem-links a {
+      text-decoration: none;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 700;
+      padding: 9px 12px;
+      border-radius: 10px;
+      transition: .15s ease;
+    }
+
+    .ecosystem-links a:hover {
+      background: #EEF6FF;
+      color: var(--blue);
+    }
+
+    .ecosystem-links a.active {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    /* HERO */
+    .hero {
+      background:
+        radial-gradient(circle at 90% 20%, rgba(0,137,255,.22), transparent 28%),
+        linear-gradient(135deg, var(--navy-deep), var(--navy));
+      color: white;
+      padding: 58px 7vw 64px;
+    }
+
+    .hero-inner {
+      max-width: 1320px;
+      margin: auto;
+    }
+
+    .hero-logo {
+      display: block;
+      width: 190px;
+      height: auto;
+      margin-bottom: 22px;
+    }
+
+    .kicker {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #8EC8FF;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 {
+      margin: 0 0 14px;
+      font-size: clamp(40px, 4vw, 60px);
+      line-height: 1.05;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 880px;
+      font-size: clamp(18px, 1.6vw, 23px);
+      color: #DBE8FF;
+    }
+
+    /* PAGE */
+    .wrap {
+      max-width: 1360px;
+      margin: auto;
+      padding: 34px 28px 80px;
+    }
+
+    .intro {
+      margin-top: -28px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 22px 26px;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .intro strong { color: var(--navy); }
+
+    .section-head {
+      margin: 34px 0 16px;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 32px;
+      line-height: 1.15;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 680px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .example-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,24,63,.06);
+    }
+
+    .example-card.math { border-top: 5px solid var(--navy); }
+    .example-card.ela { border-top: 5px solid var(--orange); }
+    .example-card.science { border-top: 5px solid var(--green); }
+
+    .example-image-link {
+      display: block;
+      background: #EEF2F7;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .example-card img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-body {
+      padding: 20px 22px 22px;
+    }
+
+    .badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .badge {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+
+    .approved {
+      background: #E6F5EC;
+      color: #00602D;
+    }
+
+    .mode {
+      background: #EEF6FF;
+      color: var(--navy);
+    }
+
+    .card-body h3 {
+      margin: 0 0 8px;
+      color: var(--navy);
+      font-size: 22px;
+    }
+
+    .card-body p {
+      margin: 0 0 14px;
+      color: var(--muted);
+    }
+
+    .why {
+      border-top: 1px solid var(--line);
+      padding-top: 13px;
+      margin-top: 13px;
+      color: var(--ink) !important;
+      font-size: 14px;
+    }
+
+    .why strong { color: var(--navy); }
+
+    .open-image {
+      display: inline-block;
+      margin-top: 5px;
+      color: var(--navy);
+      font-weight: 800;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .open-image:hover { color: var(--blue); }
+
+    /* DISPLAY MODES */
+    .mode-section {
+      margin-top: 36px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 26px;
+    }
+
+    .mode-section h2 {
+      margin: 0 0 8px;
+      color: var(--navy);
+      font-size: 30px;
+    }
+
+    .mode-section > p {
+      margin: 0 0 18px;
+      color: var(--muted);
+    }
+
+    .mode-image {
+      width: 100%;
+      display: block;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+    }
+
+    .mode-note {
+      margin-top: 14px;
+      border-left: 6px solid var(--blue);
+      background: #EEF6FF;
+      padding: 13px 16px;
+      border-radius: 10px;
+      font-weight: 700;
+    }
+
+    /* CTA */
+    .cta {
+      margin-top: 30px;
+      border-radius: 20px;
+      padding: 28px;
+      background: linear-gradient(135deg, var(--navy-deep), var(--navy));
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .cta h2 {
+      margin: 0 0 6px;
+      font-size: 28px;
+    }
+
+    .cta p {
+      margin: 0;
+      color: #DBE8FF;
+    }
+
+    .cta a {
+      text-decoration: none;
+      background: white;
+      color: var(--navy);
+      font-weight: 800;
+      border-radius: 12px;
+      padding: 12px 17px;
+      white-space: nowrap;
+    }
+
+    footer {
+      padding: 34px 7vw 46px;
+      text-align: center;
+      color: #65748B;
+    }
+
+    footer a {
+      color: var(--navy);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    @media (max-width: 900px) {
+      .ecosystem-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-logo { width: 150px; }
+
+      .wrap {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="ecosystem">
+    <div class="ecosystem-inner">
+
+      <a class="ecosystem-brand" href="../">
+        <img src="../RS-logo.png" alt="Region South">
+        <span>Region South Hub</span>
+      </a>
+
+      <div class="ecosystem-links">
+        <a href="./">Visual Style Guide</a>
+        <a href="create.html">Create with AI</a>
+        <a class="active" href="examples.html">Examples</a>
+        <a href="../rs-prompt-library.html">AI Prompt Library</a>
+      </div>
+
+    </div>
+  </div>
+
+
+  <header class="hero">
+    <div class="hero-inner">
+
+      <img class="hero-logo" src="../RS-logo.png" alt="Region South">
+
+      <div class="kicker">
+        Region South Design System
+      </div>
+
+      <h1>
+        Approved Examples
+      </h1>
+
+      <p>
+        See how the Region South visual standards translate into
+        finished data graphics across Math, ELA, Science, and
+        different presentation modes.
+      </p>
+
+    </div>
+  </header>
+
+
+  <main class="wrap">
+
+    <div class="intro">
+      <strong>Use these as visual references.</strong>
+      Each example demonstrates a Region South template, subject identity,
+      data-story structure, and approved display treatment. Always verify
+      your own data, source, date, and preliminary/embargo status before publishing.
+    </div>
+
+
+    <div class="section-head">
+      <div>
+        <h2>Data Graphic Examples</h2>
+      </div>
+
+      <p>
+        Click any graphic to open the full-size image.
+      </p>
+    </div>
+
+
+    <div class="gallery">
+
+      <article class="example-card math">
+
+        <a
+          class="example-image-link"
+          href="examples/rs01-math-trend-reference.png"
+          target="_blank"
+          rel="noopener"
+        >
+          <img
+            src="examples/rs01-math-trend-reference.png"
+            alt="Region South Math DFP Hero Data example"
+          >
+        </a>
+
+        <div class="card-body">
+
+          <div class="badges">
+            <span class="badge approved">APPROVED EXAMPLE</span>
+            <span class="badge mode">RS-01 · DARK MODE</span>
+          </div>
+
+          <h3>Math — Hero Data Trend</h3>
+
+          <p>
+            A presentation-focused trend graphic combining student photography,
+            DFP performance, a clear benchmark, and a Key Takeaway.
+          </p>
+
+          <p class="why">
+            <strong>Use this pattern for:</strong>
+            SBA trends, single-subject dashboards, executive presentations,
+            and data stories where one trend is the primary message.
+          </p>
+
+          <a
+            class="open-image"
+            href="examples/rs01-math-trend-reference.png"
+            target="_blank"
+            rel="noopener"
+          >
+            View full image →
+          </a>
+
+        </div>
+      </article>
+
+
+      <article class="example-card math">
+
+        <a
+          class="example-image-link"
+          href="examples/rs02-grade8-math-reference.png"
+          target="_blank"
+          rel="noopener"
+        >
+          <img
+            src="examples/rs02-grade8-math-reference.png"
+            alt="Grade 8 Math Regional Comparison example"
+          >
+        </a>
+
+        <div class="card-body">
+
+          <div class="badges">
+            <span class="badge approved">APPROVED EXAMPLE</span>
+            <span class="badge mode">RS-02 · LIGHT MODE</span>
+          </div>
+
+          <h3>Math — Regional Comparison</h3>
+
+          <p>
+            A comparison layout for P+A and DFP across East, North,
+            South, and West with Region South emphasized fairly.
+          </p>
+
+          <p class="why">
+            <strong>Use this pattern for:</strong>
+            regional comparisons, executive summaries, and situations
+            where both proficiency rates and distance-to-proficiency matter.
+          </p>
+
+          <a
+            class="open-image"
+            href="examples/rs02-grade8-math-reference.png"
+            target="_blank"
+            rel="noopener"
+          >
+            View full image →
+          </a>
+
+        </div>
+      </article>
+
+
+      <article class="example-card ela">
+
+        <a
+          class="example-image-link"
+          href="examples/rs03-ela-cohort-reference.png"
+          target="_blank"
+          rel="noopener"
+        >
+          <img
+            src="examples/rs03-ela-cohort-reference.png"
+            alt="ELA Cohort Analysis example"
+          >
+        </a>
+
+        <div class="card-body">
+
+          <div class="badges">
+            <span class="badge approved">APPROVED EXAMPLE</span>
+            <span class="badge mode">RS-03 · LIGHT MODE</span>
+          </div>
+
+          <h3>ELA — Cohort Analysis</h3>
+
+          <p>
+            A small-multiple layout showing grade-level change while
+            preserving ELA's orange subject identity.
+          </p>
+
+          <p class="why">
+            <strong>Use this pattern for:</strong>
+            cohort movement, grade-level comparisons, achievement-level
+            analysis, and data that benefits from consistent small multiples.
+          </p>
+
+          <a
+            class="open-image"
+            href="examples/rs03-ela-cohort-reference.png"
+            target="_blank"
+            rel="noopener"
+          >
+            View full image →
+          </a>
+
+        </div>
+      </article>
+
+
+      <article class="example-card science">
+
+        <a
+          class="example-image-link"
+          href="examples/cast-science-reference.png"
+          target="_blank"
+          rel="noopener"
+        >
+          <img
+            src="examples/cast-science-reference.png"
+            alt="CAST Science Points example"
+          >
+        </a>
+
+        <div class="card-body">
+
+          <div class="badges">
+            <span class="badge approved">APPROVED EXAMPLE</span>
+            <span class="badge mode">SCIENCE · DARK MODE</span>
+          </div>
+
+          <h3>Science — CAST / Science Points</h3>
+
+          <p>
+            A Science-focused trend graphic using the green subject family,
+            student laboratory imagery, and the 65 Proficiency benchmark.
+          </p>
+
+          <p class="why">
+            <strong>Use this pattern for:</strong>
+            CAST trends, Science Points reporting, and presentation visuals
+            where the benchmark relationship is central to the story.
+          </p>
+
+          <a
+            class="open-image"
+            href="examples/cast-science-reference.png"
+            target="_blank"
+            rel="noopener"
+          >
+            View full image →
+          </a>
+
+        </div>
+      </article>
+
+    </div>
+
+
+    <section class="mode-section">
+
+      <h2>Light Mode + Dark Mode</h2>
+
+      <p>
+        Both modes are part of the same Region South design system.
+        The user chooses the display mode before a final visual is generated.
+      </p>
+
+      <img
+        class="mode-image"
+        src="examples/light-dark-reference.png"
+        alt="Region South Light Mode and Dark Mode comparison"
+      >
+
+      <div class="mode-note">
+        Light Mode is preferred for print, dense charts, and detailed comparisons.
+        Dark Mode is preferred for presentations, hero graphics, and student photography.
+      </div>
+
+    </section>
+
+
+    <div class="cta">
+
+      <div>
+        <h2>Ready to create your own?</h2>
+
+        <p>
+          Copy the Region South AI instructions, open your preferred AI,
+          upload your data, and describe the graphic you need.
+        </p>
+      </div>
+
+      <a href="create.html">
+        Create with AI
+      </a>
+
+    </div>
+
+  </main>
+
+
+  <footer>
+    Region South Design System
+    &nbsp;·&nbsp;
+    <a href="./">Visual Style Guide</a>
+    &nbsp;·&nbsp;
+    <a href="create.html">Create with AI</a>
+    &nbsp;·&nbsp;
+    <a href="../rs-prompt-library.html">AI Prompt Library</a>
+  </footer>
+
+</body>
+</html>
