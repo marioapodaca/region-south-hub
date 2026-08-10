@@ -1,7 +1,32 @@
-Upload:
-1. create.html -> style-guide/create.html
-2. AI-COPY-PASTE.md -> replace style-guide/AI-COPY-PASTE.md
-3. Use INDEX-CHANGES.md to add the Create with AI links to index.html.
+REGION SOUTH STYLE GUIDE — USABILITY UPDATE
 
-After committing to main, open:
-https://marioapodaca.github.io/region-south-hub/style-guide/create.html
+FILES INCLUDED
+1. index.html
+   Replace:
+   style-guide/index.html
+
+2. Region-South-Visual-Style-Guide-User-Edition.pdf
+   This file already belongs in:
+   style-guide/user-docs/
+
+3. Region-South-Visual-Style-Guide-User-Edition.docx
+   This file already belongs in:
+   style-guide/user-docs/
+
+IMPORTANT
+The new index.html includes working download buttons that expect the PDF and DOCX at:
+
+style-guide/user-docs/Region-South-Visual-Style-Guide-User-Edition.pdf
+style-guide/user-docs/Region-South-Visual-Style-Guide-User-Edition.docx
+
+If those files are already in your GitHub repository under user-docs, you only need to replace index.html.
+
+NEW USER-FACING STRUCTURE
+- Create with AI
+- How It Works
+- What Do You Want To Do?
+- Quick Start Checklist
+- Template Chooser
+- Style Standards
+- Download PDF / Word
+- AI & Developer Resources

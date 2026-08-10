@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <title>Region South Visual Style Guide</title>
 
   <style>
@@ -23,13 +22,9 @@
       --shadow: 0 10px 30px rgba(0, 24, 63, 0.10);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -39,14 +34,11 @@
       line-height: 1.55;
     }
 
-    a {
-      color: inherit;
-    }
+    a { color: inherit; }
 
     /* =========================================================
-       TOP REGION SOUTH NAVIGATION
+       TOP NAVIGATION
        ========================================================= */
-
     .ecosystem {
       background: var(--white);
       border-bottom: 1px solid var(--line);
@@ -96,7 +88,7 @@
       font-weight: 700;
       padding: 9px 12px;
       border-radius: 10px;
-      transition: 0.15s ease;
+      transition: .15s ease;
     }
 
     .ecosystem-links a:hover {
@@ -112,65 +104,41 @@
     /* =========================================================
        HERO
        ========================================================= */
-
     .hero {
       position: relative;
       overflow: hidden;
-
       background:
-        radial-gradient(
-          circle at 90% 20%,
-          rgba(0, 137, 255, 0.22),
-          transparent 28%
-        ),
-        linear-gradient(
-          135deg,
-          var(--navy-deep),
-          var(--navy)
-        );
-
+        radial-gradient(circle at 90% 20%, rgba(0,137,255,.22), transparent 28%),
+        linear-gradient(135deg, var(--navy-deep), var(--navy));
       color: var(--white);
-      padding: 68px 7vw 72px;
-      min-height: 520px;
-
-      display: flex;
-      align-items: center;
+      padding: 66px 7vw 70px;
     }
 
     .hero-inner {
-      width: min(1440px, 100%);
+      max-width: 1380px;
       margin: auto;
     }
 
     .hero-logo {
-      position: static;
       display: block;
-      width: 215px;
+      width: 210px;
       height: auto;
-      margin-bottom: 26px;
-      object-fit: contain;
-      filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.15));
-    }
-
-    .hero-copy {
-      max-width: 980px;
-      padding: 0;
+      margin-bottom: 24px;
     }
 
     .hero-kicker {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 800;
-      letter-spacing: 0.08em;
+      letter-spacing: .08em;
       text-transform: uppercase;
       color: #8EC8FF;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }
 
     .hero h1 {
       font-size: clamp(42px, 4vw, 64px);
       line-height: 1.04;
       margin: 0 0 18px;
-      font-weight: 800;
       max-width: 900px;
     }
 
@@ -192,7 +160,7 @@
       text-decoration: none;
       font-weight: 800;
       border-radius: 12px;
-      padding: 11px 16px;
+      padding: 12px 17px;
       font-size: 14px;
     }
 
@@ -201,91 +169,185 @@
       color: var(--navy);
     }
 
-    .btn-primary:hover {
-      background: #EEF6FF;
-    }
-
     .btn-secondary {
-      border: 1px solid rgba(255, 255, 255, 0.55);
+      border: 1px solid rgba(255,255,255,.55);
       color: var(--white);
-      background: rgba(255, 255, 255, 0.06);
+      background: rgba(255,255,255,.06);
     }
 
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.14);
-    }
+    .btn-primary:hover { background: #EEF6FF; }
+    .btn-secondary:hover { background: rgba(255,255,255,.14); }
 
     /* =========================================================
-       MAIN PAGE
+       PAGE
        ========================================================= */
-
     .wrap {
       max-width: 1380px;
       margin: auto;
       padding: 34px 28px 80px;
     }
 
-    .section-nav {
+    .quick-strip {
+      margin-top: -28px;
       background: var(--white);
       border: 1px solid var(--line);
       border-radius: 20px;
-      padding: 18px 22px;
-      margin-top: -28px;
       box-shadow: var(--shadow);
+      padding: 22px;
       position: relative;
       z-index: 10;
     }
 
-    .section-nav-label {
-      margin: 0 0 8px;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .section-nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px 6px;
-    }
-
-    .section-nav a {
-      display: inline-block;
-      padding: 7px 10px;
+    .quick-strip h2,
+    section h2 {
       color: var(--navy);
-      font-weight: 700;
-      text-decoration: none;
-      border-radius: 9px;
-      font-size: 14px;
+      line-height: 1.15;
     }
 
-    .section-nav a:hover {
-      background: #EEF6FF;
-      color: var(--blue);
+    .quick-strip h2 {
+      margin: 0 0 14px;
+      font-size: 28px;
+    }
+
+    .steps,
+    .action-grid,
+    .template-grid,
+    .download-grid,
+    .resource-grid,
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .steps {
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    }
+
+    .step {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 17px;
+      background: #FBFCFE;
+    }
+
+    .step-number {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .step strong {
+      display: block;
+      color: var(--navy);
+      margin-bottom: 5px;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
     }
 
     section {
       background: var(--white);
       border: 1px solid var(--line);
       border-radius: 22px;
-      padding: 34px;
+      padding: 32px;
       margin-top: 28px;
     }
 
-    h2 {
-      font-size: 34px;
-      color: var(--navy);
-      margin: 0 0 18px;
-      line-height: 1.15;
+    section h2 {
+      font-size: 32px;
+      margin: 0 0 16px;
     }
 
     h3 {
-      font-size: 23px;
+      font-size: 22px;
       color: var(--navy);
-      margin: 24px 0 10px;
+      margin: 22px 0 10px;
       line-height: 1.2;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      margin: -5px 0 20px;
+    }
+
+    .action-grid {
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    }
+
+    .action-card {
+      text-decoration: none;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      padding: 20px;
+      background: #FBFCFE;
+      transition: .15s ease;
+    }
+
+    .action-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+      border-color: #B8CEF2;
+    }
+
+    .action-card strong {
+      color: var(--navy);
+      display: block;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .action-card span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .preflight {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .chip {
+      background: #EEF6FF;
+      color: var(--navy);
+      border: 1px solid #C9DDF9;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .template-grid {
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+    }
+
+    .template-card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+      background: #FBFCFE;
+    }
+
+    .template-card strong {
+      color: var(--navy);
+      display: block;
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .template-card p {
+      margin: 0;
+      color: var(--muted);
     }
 
     .rule {
@@ -298,9 +360,7 @@
     }
 
     .grid {
-      display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 18px;
     }
 
     .card {
@@ -322,17 +382,14 @@
       margin: 14px 0;
     }
 
-    th,
-    td {
+    th, td {
       border-bottom: 1px solid var(--line);
       text-align: left;
       padding: 12px;
       vertical-align: top;
     }
 
-    th {
-      color: var(--navy);
-    }
+    th { color: var(--navy); }
 
     .figure {
       width: 100%;
@@ -361,44 +418,53 @@
       color: var(--muted);
     }
 
-    code {
-      background: #EEF2F7;
-      padding: 2px 6px;
-      border-radius: 5px;
-      overflow-wrap: anywhere;
+    .download-grid,
+    .resource-grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 
-    .resource-links {
-      margin-top: 18px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 14px;
-    }
-
-    .resource {
+    .download-card,
+    .resource-card {
       border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 16px;
-      text-decoration: none;
+      border-radius: 16px;
+      padding: 20px;
       background: #FBFCFE;
-      transition: 0.15s ease;
     }
 
-    .resource:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
-      border-color: #B8CEF2;
-    }
-
-    .resource strong {
+    .download-card strong,
+    .resource-card strong {
       display: block;
       color: var(--navy);
-      margin-bottom: 4px;
+      font-size: 18px;
+      margin-bottom: 6px;
     }
 
-    .resource span {
+    .download-card p,
+    .resource-card p {
+      margin: 0 0 14px;
       color: var(--muted);
+    }
+
+    .download-card a,
+    .resource-card a {
+      display: inline-block;
+      text-decoration: none;
+      font-weight: 800;
+      border-radius: 10px;
+      padding: 10px 14px;
+      background: var(--navy);
+      color: white;
+    }
+
+    .resource-card a {
+      background: #EEF6FF;
+      color: var(--navy);
+    }
+
+    .advanced-note {
+      margin-top: 16px;
       font-size: 14px;
+      color: var(--muted);
     }
 
     footer {
@@ -413,112 +479,47 @@
       text-decoration: none;
     }
 
-    footer a:hover {
-      color: var(--blue);
-    }
-
-    /* =========================================================
-       MOBILE
-       ========================================================= */
-
     @media (max-width: 900px) {
-
       .ecosystem-inner {
         align-items: flex-start;
         flex-direction: column;
         gap: 6px;
       }
 
-      .ecosystem-links {
-        justify-content: flex-start;
+      .hero-logo { width: 150px; }
+
+      .wrap {
+        padding-left: 18px;
+        padding-right: 18px;
       }
 
-      .hero {
-        min-height: auto;
-        padding-top: 48px;
-        padding-bottom: 62px;
-      }
-
-      .hero-logo {
-        width: 150px;
-        margin-bottom: 22px;
-      }
-
-      .hero-copy {
-        padding: 0;
-      }
-
-      section {
-        padding: 24px;
-      }
-
-      h2 {
-        font-size: 29px;
-      }
+      section { padding: 24px; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- ======================================================
-       REGION SOUTH ECOSYSTEM NAVIGATION
-       ====================================================== -->
-
   <div class="ecosystem">
-
     <div class="ecosystem-inner">
 
-      <a
-        class="ecosystem-brand"
-        href="../"
-      >
-
-        <img
-          src="../RS-logo.png"
-          alt="Region South"
-        >
-
-        <span>
-          Region South Hub
-        </span>
-
+      <a class="ecosystem-brand" href="../">
+        <img src="../RS-logo.png" alt="Region South">
+        <span>Region South Hub</span>
       </a>
 
       <div class="ecosystem-links">
-
-        <a
-          class="active"
-          href="./"
-        >
-          Visual Style Guide
-        </a>
-
-        <a href="create.html">
-          Create with AI
-        </a>
-
-        <a href="examples.html">
-          Examples
-        </a>
-
-        <a href="../rs-prompt-library.html">
-          AI Prompt Library
-        </a>
-
+        <a class="active" href="./">Visual Style Guide</a>
+        <a href="create.html">Create with AI</a>
+        <a href="examples.html">Examples</a>
+        <a href="../rs-prompt-library.html">AI Prompt Library</a>
       </div>
 
     </div>
-
   </div>
 
 
-  <!-- ======================================================
-       HERO
-       ====================================================== -->
-
   <header class="hero">
-
     <div class="hero-inner">
 
       <img
@@ -527,210 +528,110 @@
         class="hero-logo"
       >
 
-      <div class="hero-copy">
+      <div class="hero-kicker">
+        Region South Design System
+      </div>
 
-        <div class="hero-kicker">
-          Region South Design System
+      <h1>
+        Region South Visual Style Guide
+      </h1>
+
+      <p>
+        A consistent visual system for Region South presentations,
+        dashboards, data stories, and AI-generated graphics.
+      </p>
+
+      <div class="hero-actions">
+
+        <a class="btn-primary" href="create.html">
+          Create with AI
+        </a>
+
+        <a class="btn-secondary" href="#standards">
+          Explore Standards
+        </a>
+
+        <a class="btn-secondary" href="examples.html">
+          View Examples
+        </a>
+
+      </div>
+
+    </div>
+  </header>
+
+
+  <main class="wrap">
+
+    <!-- HOW IT WORKS -->
+    <div class="quick-strip">
+
+      <h2>
+        How it works
+      </h2>
+
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-number">1</div>
+          <strong>Choose what you want</strong>
+          <p>Create a graphic, review examples, or learn the standards.</p>
         </div>
 
-        <h1>
-          Region South Visual Style Guide
-        </h1>
+        <div class="step">
+          <div class="step-number">2</div>
+          <strong>Copy Region South instructions</strong>
+          <p>The Create with AI page gives you one cross-platform instruction block.</p>
+        </div>
 
-        <p>
-          A consistent visual system for Region South
-          presentations, dashboards, data stories,
-          and AI-generated graphics.
-        </p>
+        <div class="step">
+          <div class="step-number">3</div>
+          <strong>Open your AI</strong>
+          <p>Use ChatGPT, Claude, Gemini, Copilot, or another capable AI.</p>
+        </div>
 
-        <div class="hero-actions">
-
-          <a
-            class="btn-primary"
-            href="create.html"
-          >
-            Create with AI
-          </a>
-
-          <a
-            class="btn-secondary"
-            href="#foundation"
-          >
-            Explore the Guide
-          </a>
-
-          <a
-            class="btn-secondary"
-            href="examples.html"
-          >
-            View Examples
-          </a>
-
-          <a
-            class="btn-secondary"
-            href="../rs-prompt-library.html"
-          >
-            Open Prompt Library
-          </a>
-
+        <div class="step">
+          <div class="step-number">4</div>
+          <strong>Upload your data and ask</strong>
+          <p>The AI applies the Region South rules and asks for missing information.</p>
         </div>
 
       </div>
 
     </div>
 
-  </header>
 
-
-  <!-- ======================================================
-       MAIN CONTENT
-       ====================================================== -->
-
-  <div class="wrap">
-
-    <nav class="section-nav">
-
-      <p class="section-nav-label">
-        Guide sections
-      </p>
-
-      <div class="section-nav-links">
-
-        <a href="#foundation">
-          Brand Foundation
-        </a>
-
-        <a href="#modes">
-          Light &amp; Dark Modes
-        </a>
-
-        <a href="#colors">
-          Color System
-        </a>
-
-        <a href="#typography">
-          Typography
-        </a>
-
-        <a href="#photography">
-          Photography &amp; Student Representation
-        </a>
-
-        <a href="#templates">
-          Templates
-        </a>
-
-        <a href="#terms">
-          Terminology
-        </a>
-
-        <a href="#data">
-          Data Visualization
-        </a>
-
-        <a href="#metadata">
-          Metadata &amp; Embargo
-        </a>
-
-        <a href="#approved">
-          Approved Example Workflow
-        </a>
-
-      </div>
-
-    </nav>
-
-
-    <!-- ====================================================
-         BRAND FOUNDATION
-         ==================================================== -->
-
-    <section id="foundation">
+    <!-- WHAT DO YOU WANT TO DO -->
+    <section>
 
       <h2>
-        Brand Foundation
+        What do you want to do?
       </h2>
 
-      <p>
-        The Region South visual system is a presentation
-        and communication framework designed to make
-        instructional and data communications consistent,
-        recognizable, student-centered, and aligned with
-        LAUSD branding.
+      <p class="section-intro">
+        Start with the action that best matches your goal.
       </p>
 
-      <div class="rule">
-        Priority:
-        Data accuracy →
-        Brand compliance →
-        Readability →
-        Subject identity →
-        Student representation →
-        Aesthetic polish.
-      </div>
+      <div class="action-grid">
 
-      <p>
-        <b>Canonical Region South logo:</b><br>
-        <code>
-          https://github.com/marioapodaca/region-south-hub/blob/main/RS-logo.png
-        </code>
-      </p>
-
-      <p>
-        <b>Canonical LAUSD seal:</b><br>
-        <code>
-          https://github.com/marioapodaca/region-south-hub/blob/main/LAUSD_seal.png
-        </code>
-      </p>
-
-      <div class="resource-links">
-
-        <a
-          class="resource"
-          href="create.html"
-        >
-
-          <strong>
-            Create with AI
-          </strong>
-
-          <span>
-            Copy the Region South instructions and create
-            a graphic in ChatGPT, Claude, Gemini, or Copilot.
-          </span>
-
+        <a class="action-card" href="create.html">
+          <strong>Create a new graphic</strong>
+          <span>Copy the Region South AI instructions and create a visual using your own data.</span>
         </a>
 
-        <a
-          class="resource"
-          href="examples.html"
-        >
-
-          <strong>
-            Examples Gallery
-          </strong>
-
-          <span>
-            See how Region South standards are applied
-            to finished graphics.
-          </span>
-
+        <a class="action-card" href="examples.html">
+          <strong>See approved examples</strong>
+          <span>Review Math, ELA, Science, Light Mode, and Dark Mode examples.</span>
         </a>
 
-        <a
-          class="resource"
-          href="../rs-prompt-library.html"
-        >
+        <a class="action-card" href="#standards">
+          <strong>Learn the standards</strong>
+          <span>Review colors, typography, photography, terminology, data visualization, and templates.</span>
+        </a>
 
-          <strong>
-            AI Prompt Library
-          </strong>
-
-          <span>
-            Find Region South prompts for other
-            AI-supported work.
-          </span>
-
+        <a class="action-card" href="../rs-prompt-library.html">
+          <strong>Use the AI Prompt Library</strong>
+          <span>Find prompts for other Region South leadership, data, and communication work.</span>
         </a>
 
       </div>
@@ -738,9 +639,97 @@
     </section>
 
 
-    <!-- ====================================================
-         LIGHT / DARK MODES
-         ==================================================== -->
+    <!-- PREFLIGHT -->
+    <section>
+
+      <h2>
+        Quick Start Checklist
+      </h2>
+
+      <p class="section-intro">
+        These are the items the AI may ask you to resolve before it creates a final graphic.
+      </p>
+
+      <div class="preflight">
+        <span class="chip">Light or Dark Mode</span>
+        <span class="chip">Subject</span>
+        <span class="chip">Source</span>
+        <span class="chip">Date or omit date</span>
+        <span class="chip">Preliminary / Embargo status</span>
+        <span class="chip">Audience</span>
+      </div>
+
+      <div class="rule">
+        You do not need to know every answer before starting. If information is missing,
+        the Region South AI instructions require the AI to ask before finalizing the visual.
+      </div>
+
+    </section>
+
+
+    <!-- TEMPLATE CHOOSER -->
+    <section>
+
+      <h2>
+        Choose a Template
+      </h2>
+
+      <p class="section-intro">
+        The templates are designed around the type of data story you are telling.
+      </p>
+
+      <div class="template-grid">
+
+        <div class="template-card">
+          <strong>One main trend or metric → RS-01</strong>
+          <p>Best for SBA trends, CAST, attendance, and hero data stories.</p>
+        </div>
+
+        <div class="template-card">
+          <strong>Compare regions → RS-02</strong>
+          <p>Best for East, North, South, and West comparisons using P+A, DFP, or SP.</p>
+        </div>
+
+        <div class="template-card">
+          <strong>Compare grades or cohorts → RS-03</strong>
+          <p>Best for small multiples, grade-level patterns, and cohort movement.</p>
+        </div>
+
+        <div class="template-card">
+          <strong>Not sure? Let the AI recommend</strong>
+          <p>Upload your data and ask the AI to recommend a template and wait for your approval.</p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- STANDARDS -->
+    <section id="standards">
+
+      <h2>
+        Brand Foundation
+      </h2>
+
+      <p>
+        The Region South visual system is a presentation and communication
+        framework designed to make instructional and data communications
+        consistent, recognizable, student-centered, and aligned with LAUSD branding.
+      </p>
+
+      <div class="rule">
+        Priority: Data accuracy → Brand compliance → Readability →
+        Subject identity → Student representation → Aesthetic polish.
+      </div>
+
+      <p>
+        Use official Region South and LAUSD assets only.
+        Never redraw, recolor, distort, crop, or approximate official logos.
+      </p>
+
+    </section>
+
 
     <section id="modes">
 
@@ -757,53 +746,30 @@
       <div class="grid">
 
         <div class="lightdemo">
-
-          <h3>
-            Light Mode
-          </h3>
-
+          <h3>Light Mode</h3>
           <p>
-            Best for print, dense charts,
-            regional comparisons,
+            Best for print, dense charts, regional comparisons,
             and maximum color contrast.
           </p>
-
         </div>
 
         <div class="darkdemo">
-
-          <h3 style="color:white">
-            Dark Mode
-          </h3>
-
+          <h3 style="color:white">Dark Mode</h3>
           <p>
-            Best for presentations,
-            executive dashboards,
-            hero graphics,
-            and student photography.
+            Best for presentations, executive dashboards,
+            hero graphics, and student photography.
           </p>
-
         </div>
 
       </div>
 
       <div class="rule">
-
-        If the user has not specified a mode,
-        prompt them to choose Light or Dark.
-
-        If they ask for a recommendation,
-        recommend one and obtain confirmation
-        before generating.
-
+        If the user has not specified a mode, prompt them to choose Light or Dark.
+        If they ask for a recommendation, recommend one and obtain confirmation before generating.
       </div>
 
     </section>
 
-
-    <!-- ====================================================
-         COLOR SYSTEM
-         ==================================================== -->
 
     <section id="colors">
 
@@ -814,57 +780,33 @@
       <div class="grid">
 
         <div class="card">
-          <div
-            class="swatch"
-            style="background:#00237A"
-          ></div>
-          <b>LAUSD Navy</b><br>
-          #00237A
+          <div class="swatch" style="background:#00237A"></div>
+          <b>LAUSD Navy</b><br>#00237A
         </div>
 
         <div class="card">
-          <div
-            class="swatch"
-            style="background:#0089FF"
-          ></div>
-          <b>Bright Blue</b><br>
-          #0089FF
+          <div class="swatch" style="background:#0089FF"></div>
+          <b>Bright Blue</b><br>#0089FF
         </div>
 
         <div class="card">
-          <div
-            class="swatch"
-            style="background:#00602D"
-          ></div>
-          <b>Science Green</b><br>
-          #00602D
+          <div class="swatch" style="background:#00602D"></div>
+          <b>Science Green</b><br>#00602D
         </div>
 
         <div class="card">
-          <div
-            class="swatch"
-            style="background:#FF4D00"
-          ></div>
-          <b>ELA Orange</b><br>
-          #FF4D00
+          <div class="swatch" style="background:#FF4D00"></div>
+          <b>ELA Orange</b><br>#FF4D00
         </div>
 
         <div class="card">
-          <div
-            class="swatch"
-            style="background:#FF9C00"
-          ></div>
-          <b>Gold</b><br>
-          #FF9C00
+          <div class="swatch" style="background:#FF9C00"></div>
+          <b>Gold</b><br>#FF9C00
         </div>
 
         <div class="card">
-          <div
-            class="swatch"
-            style="background:#FF0000"
-          ></div>
-          <b>Red</b><br>
-          #FF0000
+          <div class="swatch" style="background:#FF0000"></div>
+          <b>Red</b><br>#FF0000
         </div>
 
       </div>
@@ -880,16 +822,11 @@
       >
 
       <div class="rule">
-        Subject determines the color family.
-        Region determines the shade.
+        Subject determines the color family. Region determines the shade.
       </div>
 
     </section>
 
-
-    <!-- ====================================================
-         TYPOGRAPHY
-         ==================================================== -->
 
     <section id="typography">
 
@@ -897,74 +834,26 @@
         Typography
       </h2>
 
-      <p>
-        <b>
-          Primary typeface: Poppins.
-        </b>
-      </p>
+      <p><b>Primary typeface: Poppins.</b></p>
 
       <table>
-
-        <tr>
-          <th>Use</th>
-          <th>Weight</th>
-        </tr>
-
-        <tr>
-          <td>Major title</td>
-          <td>Bold / ExtraBold</td>
-        </tr>
-
-        <tr>
-          <td>Section heading</td>
-          <td>Bold</td>
-        </tr>
-
-        <tr>
-          <td>Subtitle</td>
-          <td>Medium</td>
-        </tr>
-
-        <tr>
-          <td>Chart title</td>
-          <td>SemiBold</td>
-        </tr>
-
-        <tr>
-          <td>Large metric</td>
-          <td>Bold / ExtraBold</td>
-        </tr>
-
-        <tr>
-          <td>Body</td>
-          <td>Regular</td>
-        </tr>
-
-        <tr>
-          <td>Chart labels</td>
-          <td>Medium</td>
-        </tr>
-
-        <tr>
-          <td>Footer / source</td>
-          <td>Regular</td>
-        </tr>
-
+        <tr><th>Use</th><th>Weight</th></tr>
+        <tr><td>Major title</td><td>Bold / ExtraBold</td></tr>
+        <tr><td>Section heading</td><td>Bold</td></tr>
+        <tr><td>Subtitle</td><td>Medium</td></tr>
+        <tr><td>Chart title</td><td>SemiBold</td></tr>
+        <tr><td>Large metric</td><td>Bold / ExtraBold</td></tr>
+        <tr><td>Body</td><td>Regular</td></tr>
+        <tr><td>Chart labels</td><td>Medium</td></tr>
+        <tr><td>Footer / source</td><td>Regular</td></tr>
       </table>
 
       <p class="small">
-        Digital body alternative:
-        Open Sans.
-        Fallback:
-        Arial.
+        Digital body alternative: Open Sans. Fallback: Arial.
       </p>
 
     </section>
 
-
-    <!-- ====================================================
-         PHOTOGRAPHY
-         ==================================================== -->
 
     <section id="photography">
 
@@ -973,87 +862,34 @@
       </h2>
 
       <p>
-        Use authentic, age-appropriate,
-        diverse students actively engaged
-        in learning.
-
+        Use authentic, age-appropriate, diverse students actively engaged in learning.
         Students are not decorative props.
       </p>
 
       <div class="grid">
 
         <div class="card">
-
-          <h3>
-            ELA
-          </h3>
-
-          <p>
-            Reading, annotating,
-            discussing text,
-            writing in response to reading.
-          </p>
-
-          <p>
-            <b>Icon:</b>
-            open book,
-            LAUSD Orange.
-          </p>
-
+          <h3>ELA</h3>
+          <p>Reading, annotating, discussing text, writing in response to reading.</p>
+          <p><b>Icon:</b> open book, LAUSD Orange.</p>
         </div>
 
         <div class="card">
-
-          <h3>
-            Math
-          </h3>
-
-          <p>
-            Solving equations,
-            calculator use,
-            graphing,
-            collaborative problem-solving.
-          </p>
-
-          <p>
-            <b>Icon:</b>
-            calculator,
-            LAUSD Navy.
-          </p>
-
+          <h3>Math</h3>
+          <p>Solving equations, calculator use, graphing, collaborative problem-solving.</p>
+          <p><b>Icon:</b> calculator, LAUSD Navy.</p>
         </div>
 
         <div class="card">
-
-          <h3>
-            Science
-          </h3>
-
-          <p>
-            Experiments,
-            measuring liquids,
-            recording observations,
-            discussing results.
-          </p>
-
-          <p>
-            <b>Icon:</b>
-            beaker,
-            flask,
-            or microscope,
-            LAUSD Green.
-          </p>
-
+          <h3>Science</h3>
+          <p>Experiments, measuring liquids, recording observations, discussing results.</p>
+          <p><b>Icon:</b> beaker, flask, or microscope, LAUSD Green.</p>
         </div>
 
       </div>
 
     </section>
 
-
-    <!-- ====================================================
-         TEMPLATES
-         ==================================================== -->
 
     <section id="templates">
 
@@ -1064,66 +900,27 @@
       <div class="grid">
 
         <div class="card">
-
-          <h3>
-            RS-01 — Hero Data
-          </h3>
-
-          <p>
-            Photo | Main Data | Key Takeaway
-          </p>
-
-          <p>
-            Use for SBA trends,
-            CAST,
-            attendance,
-            and single-subject dashboards.
-          </p>
-
+          <h3>RS-01 — Hero Data</h3>
+          <p>Photo | Main Data | Key Takeaway</p>
+          <p>Use for SBA trends, CAST, attendance, and single-subject dashboards.</p>
         </div>
 
         <div class="card">
-
-          <h3>
-            RS-02 — Regional Comparison
-          </h3>
-
-          <p>
-            P+A | DFP or SP | Region South Story
-          </p>
-
-          <p>
-            Use light plotting areas by default.
-          </p>
-
+          <h3>RS-02 — Regional Comparison</h3>
+          <p>P+A | DFP or SP | Region South Story</p>
+          <p>Use light plotting areas by default.</p>
         </div>
 
         <div class="card">
-
-          <h3>
-            RS-03 — Cohort Analysis
-          </h3>
-
-          <p>
-            Multiple Grade Panels +
-            Student Image +
-            Key Takeaway
-          </p>
-
-          <p>
-            Keep cross-panel axes consistent.
-          </p>
-
+          <h3>RS-03 — Cohort Analysis</h3>
+          <p>Multiple Grade Panels + Student Image + Key Takeaway</p>
+          <p>Keep cross-panel axes consistent.</p>
         </div>
 
       </div>
 
     </section>
 
-
-    <!-- ====================================================
-         TERMINOLOGY
-         ==================================================== -->
 
     <section id="terms">
 
@@ -1132,59 +929,34 @@
       </h2>
 
       <table>
-
         <tr>
           <th>Preferred</th>
           <th>Short form</th>
           <th>Rule</th>
         </tr>
-
         <tr>
           <td>Proficient + Advanced</td>
           <td>P+A</td>
-          <td>
-            Do not display PoA
-            in Region South-facing graphics.
-          </td>
+          <td>Do not display PoA in Region South-facing graphics.</td>
         </tr>
-
         <tr>
           <td>Distance from Proficiency</td>
           <td>DFP</td>
-          <td>
-            Higher is better;
-            0 is proficiency.
-          </td>
+          <td>Higher is better; 0 is proficiency.</td>
         </tr>
-
         <tr>
           <td>Science Points</td>
           <td>SP</td>
-          <td>
-            Range 0–100;
-            65 is proficiency.
-          </td>
+          <td>Range 0–100; 65 is proficiency.</td>
         </tr>
-
       </table>
 
       <div class="rule">
-
-        If P+A,
-        DFP,
-        or SP appears,
-
-        define it somewhere
-        in the same visual.
-
+        If P+A, DFP, or SP appears, define it somewhere in the same visual.
       </div>
 
     </section>
 
-
-    <!-- ====================================================
-         DATA VISUALIZATION
-         ==================================================== -->
 
     <section id="data">
 
@@ -1192,62 +964,16 @@
         Data Visualization
       </h2>
 
-      <p>
-        Use accurate scales,
-        direct labels where useful,
-        minimal clutter,
-        and fair comparison.
-      </p>
-
       <ul>
-
-        <li>
-          <b>P+A:</b>
-          higher is better;
-          use percentage points
-          for differences.
-        </li>
-
-        <li>
-          <b>DFP:</b>
-          higher is better;
-          show 0 = Proficiency
-          when relevant;
-          never reverse the axis.
-        </li>
-
-        <li>
-          <b>SP:</b>
-          higher is better;
-          65 = Proficiency;
-          never say
-          “Proficiency Floor.”
-        </li>
-
-        <li>
-          <b>Regional comparisons:</b>
-          South receives strongest
-          visual emphasis,
-          but comparison regions
-          remain fully legible.
-        </li>
-
-        <li>
-          <b>Cohort bars:</b>
-          subject color is primary;
-          bar direction shows sign;
-          green/red are secondary
-          semantic cues only.
-        </li>
-
+        <li><b>P+A:</b> higher is better; use percentage points for differences.</li>
+        <li><b>DFP:</b> higher is better; show 0 = Proficiency when relevant; never reverse the axis.</li>
+        <li><b>SP:</b> higher is better; 65 = Proficiency; never say “Proficiency Floor.”</li>
+        <li><b>Regional comparisons:</b> South receives strongest visual emphasis, but comparison regions remain fully legible.</li>
+        <li><b>Cohort bars:</b> subject color is primary; bar direction shows sign; green/red are secondary semantic cues only.</li>
       </ul>
 
     </section>
 
-
-    <!-- ====================================================
-         METADATA
-         ==================================================== -->
 
     <section id="metadata">
 
@@ -1255,135 +981,125 @@
         Metadata &amp; Embargo
       </h2>
 
-      <h3>
-        Source and date
-      </h3>
-
+      <h3>Source and date</h3>
       <p>
-        If either is missing,
-        prompt the user.
-
-        Always offer the option
-        to omit the item
-        if it is not pertinent.
-
-        Never invent a source
-        or date.
+        If either is missing, prompt the user. Always offer the option to omit
+        the item if it is not pertinent. Never invent a source or date.
       </p>
 
-      <h3>
-        Preliminary / embargoed data
-      </h3>
-
+      <h3>Preliminary / embargoed data</h3>
       <p>
-        Do not show restricted values
-        or inferable endpoints.
-
-        Use a direction-only
-        or separate
-        Preliminary Trend treatment.
+        Do not show restricted values or inferable endpoints.
+        Use a direction-only or separate Preliminary Trend treatment.
       </p>
 
       <div class="rule">
-        Preferred wording:
-        “Preliminary results remain embargoed
-        and are shown only as a generalized trend.”
+        Preferred wording: “Preliminary results remain embargoed and are shown only as a generalized trend.”
       </div>
 
     </section>
 
 
-    <!-- ====================================================
-         APPROVED EXAMPLES
-         ==================================================== -->
-
-    <section id="approved">
+    <!-- DOWNLOADS -->
+    <section id="downloads">
 
       <h2>
-        Approved Example Workflow
+        Download the Guide
       </h2>
 
-      <img
-        class="figure"
-        src="assets/validation-board.png"
-        alt="Validation board"
-      >
-
-      <p>
-        A graphic becomes an
-        <b>
-          Approved Example
-        </b>
-        only after post-production review.
+      <p class="section-intro">
+        Use the PDF for general sharing and the Word file when you need an editable copy.
       </p>
 
-      <ul>
+      <div class="download-grid">
 
-        <li>
-          Authentic logos
-        </li>
+        <div class="download-card">
+          <strong>PDF — User Edition</strong>
+          <p>Best for principals, directors, staff, printing, email, and read-only distribution.</p>
+          <a href="user-docs/Region-South-Visual-Style-Guide-User-Edition.pdf" download>
+            Download PDF
+          </a>
+        </div>
 
-        <li>
-          Poppins typography
-        </li>
+        <div class="download-card">
+          <strong>Word — Editable User Edition</strong>
+          <p>Best for maintaining, revising, or creating future versions of the guide.</p>
+          <a href="user-docs/Region-South-Visual-Style-Guide-User-Edition.docx" download>
+            Download Word
+          </a>
+        </div>
 
-        <li>
-          Numeric accuracy
-        </li>
-
-        <li>
-          Correct subject / regional colors
-        </li>
-
-        <li>
-          Source / date resolved
-        </li>
-
-        <li>
-          Definitions present
-        </li>
-
-        <li>
-          Embargo rules followed
-        </li>
-
-        <li>
-          Accessibility and contrast checked
-        </li>
-
-      </ul>
+      </div>
 
     </section>
 
-  </div>
 
+    <!-- AI / DEVELOPER -->
+    <section id="advanced">
 
-  <!-- ======================================================
-       FOOTER
-       ====================================================== -->
+      <h2>
+        AI &amp; Developer Resources
+      </h2>
+
+      <p class="section-intro">
+        These files support AI systems, advanced users, and anyone maintaining the Region South design system.
+      </p>
+
+      <div class="resource-grid">
+
+        <div class="resource-card">
+          <strong>AI-readable specification</strong>
+          <p>Detailed Markdown version of the Region South standards.</p>
+          <a href="region-south-style-guide.md">
+            Open Markdown
+          </a>
+        </div>
+
+        <div class="resource-card">
+          <strong>Machine-readable specification</strong>
+          <p>Structured YAML version for tools and automation.</p>
+          <a href="region-south-style-guide.yaml">
+            Open YAML
+          </a>
+        </div>
+
+        <div class="resource-card">
+          <strong>AI Quick Start</strong>
+          <p>Condensed rules for AI systems and advanced users.</p>
+          <a href="AI-QUICKSTART.md">
+            Open Quick Start
+          </a>
+        </div>
+
+        <div class="resource-card">
+          <strong>Copy/Paste AI Instructions</strong>
+          <p>The cross-platform Region South instruction block used by Create with AI.</p>
+          <a href="AI-COPY-PASTE.md">
+            Open Instructions
+          </a>
+        </div>
+
+      </div>
+
+      <p class="advanced-note">
+        Canonical assets:
+        Region South logo and LAUSD seal are maintained in the repository root.
+        Official LAUSD branding guidance remains the governing brand reference.
+      </p>
+
+    </section>
+
+  </main>
+
 
   <footer>
-
     Region South Visual Style Guide
-
     &nbsp;·&nbsp;
-
-    <a href="create.html">
-      Create with AI
-    </a>
-
+    <a href="create.html">Create with AI</a>
     &nbsp;·&nbsp;
-
-    <a href="examples.html">
-      Examples
-    </a>
-
+    <a href="examples.html">Examples</a>
     &nbsp;·&nbsp;
-
-    <a href="../rs-prompt-library.html">
-      AI Prompt Library
-    </a>
-
+    <a href="../rs-prompt-library.html">AI Prompt Library</a>
   </footer>
 
 </body>
