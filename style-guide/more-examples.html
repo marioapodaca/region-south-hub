@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>More Examples | Region South Visual Style Guide</title>
+<meta name="description" content="Additional Region South visual examples, title slides, data stories, and presentation backgrounds.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+:root{--navy:#00237a;--bright:#0089ff;--ink:#12213d;--muted:#5e6f8f;--line:#dce5f4;--wash:#f3f7fd;--white:#fff;--shadow:0 16px 40px rgba(0,35,122,.13)}
+*{box-sizing:border-box} body{margin:0;font-family:Poppins,Arial,sans-serif;color:var(--ink);background:#f7f9fd} a{color:inherit} img{display:block;max-width:100%}
+.site-header{background:linear-gradient(135deg,#001737,#00237a 62%,#0648b9);color:#fff;position:relative;overflow:hidden}
+.site-header:after{content:"";position:absolute;inset:auto -12% -110px 32%;height:220px;border-radius:50%;border:32px solid rgba(0,137,255,.3);transform:rotate(-7deg)}
+.nav{max-width:1240px;margin:auto;padding:18px 24px;display:flex;align-items:center;gap:28px;position:relative;z-index:1}
+.brand{display:flex;align-items:center;gap:16px;text-decoration:none;font-weight:700} .brand img{width:230px;height:auto}
+.nav-links{margin-left:auto;display:flex;gap:20px;flex-wrap:wrap} .nav-links a{text-decoration:none;font-weight:600;opacity:.9} .nav-links a:hover{opacity:1}
+.hero{max-width:1240px;margin:auto;padding:66px 24px 78px;position:relative;z-index:1} .kicker{font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:#8dd0ff;font-weight:700}
+.hero h1{font-size:clamp(2.6rem,6vw,5.6rem);line-height:.96;margin:14px 0 20px;max-width:820px} .hero p{font-size:1.1rem;line-height:1.7;max-width:760px;color:#d6e7ff}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px} .button{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border-radius:999px;padding:13px 20px;font-weight:700;border:1px solid rgba(255,255,255,.4)}
+.button.primary{background:#fff;color:var(--navy)} .button.secondary{color:#fff;background:rgba(0,137,255,.14)}
+main{max-width:1240px;margin:auto;padding:50px 24px 80px} .intro{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;margin-bottom:28px} .intro h2{font-size:2rem;margin:0 0 8px} .intro p{margin:0;color:var(--muted);max-width:760px;line-height:1.7}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin:26px 0 32px} .filter{font:inherit;font-weight:600;border:1px solid #cbd8ed;background:#fff;color:var(--navy);padding:9px 14px;border-radius:999px;cursor:pointer} .filter.active,.filter:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px} .card{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow);transition:.2s transform,.2s box-shadow} .card:hover{transform:translateY(-3px);box-shadow:0 20px 48px rgba(0,35,122,.18)}
+.image-button{display:block;width:100%;padding:0;border:0;background:#eaf0fa;cursor:zoom-in} .image-button img{width:100%;aspect-ratio:16/9;object-fit:contain;background:#071a38}
+.card-body{padding:20px 22px 22px} .eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px} .eyebrow span{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--navy);background:#edf4ff;padding:5px 9px;border-radius:999px;font-weight:700}
+.card h3{font-size:1.18rem;line-height:1.35;margin:0 0 16px} .card-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap} .view-button,.download-link{font:inherit;font-size:.88rem;font-weight:700;text-decoration:none} .view-button{border:0;background:none;color:var(--bright);padding:0;cursor:pointer} .download-link{color:var(--navy)}
+.note{margin-top:48px;background:#eaf3ff;border-left:5px solid var(--bright);padding:20px 22px;border-radius:14px;line-height:1.65;color:#344766}
+footer{background:#001737;color:#cfe1ff;padding:34px 24px} .footer-inner{max-width:1240px;margin:auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center} footer img{width:220px}
+.modal{position:fixed;inset:0;background:rgba(0,10,30,.9);display:none;z-index:99;padding:28px;align-items:center;justify-content:center} .modal.open{display:flex} .modal-inner{max-width:1500px;width:100%;position:relative} .modal img{max-height:88vh;width:100%;object-fit:contain} .modal-title{color:#fff;margin:10px 48px 0 0;font-weight:600} .close{position:absolute;right:0;top:-48px;border:1px solid rgba(255,255,255,.4);background:#001737;color:#fff;width:42px;height:42px;border-radius:50%;font-size:24px;cursor:pointer}
+@media(max-width:800px){.nav-links{display:none}.brand img{width:185px}.grid{grid-template-columns:1fr}.intro{grid-template-columns:1fr}.hero{padding-top:46px}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="index.html"><img src="RS-logo.png" alt="Region South LAUSD"></a>
+    <div class="nav-links"><a href="index.html">Visual Style Guide</a><a href="create.html">Create with AI</a><a href="examples.html">Approved Examples</a><a href="more-examples.html">More Examples</a></div>
+  </nav>
+  <section class="hero">
+    <div class="kicker">Region South Design System</div>
+    <h1>More Examples</h1>
+    <p>Additional presentation covers, data stories, cohort graphics, attendance visuals, and template collections. The uploaded examples are preserved as provided; only non-canonical logo treatments were replaced with official Region South or LAUSD assets.</p>
+    <div class="hero-actions"><a class="button primary" href="Region-South-More-Examples.pptx" download>Download slide deck</a><a class="button secondary" href="Region-South-More-Examples.pdf" download>Download PDF</a></div>
+  </section>
+</header>
+<main>
+  <section class="intro"><div><h2>Additional visual references</h2><p>Click any image to view it at full size. Use the filters to focus on title slides, data-story formats, subject examples, or template collections.</p></div><div><strong>19 examples</strong></div></section>
+  <div class="filters" aria-label="Filter examples"><button class="filter active" data-filter="All">All</button><button class="filter" data-filter="Title Slides">Title Slides</button><button class="filter" data-filter="Math">Math</button><button class="filter" data-filter="ELA">ELA</button><button class="filter" data-filter="Attendance">Attendance</button><button class="filter" data-filter="Regional Comparison">Regional Comparison</button><button class="filter" data-filter="Cohort Analysis">Cohort Analysis</button><button class="filter" data-filter="Backgrounds">Backgrounds</button><button class="filter" data-filter="Template Sets">Template Sets</button></div>
+  <section class="grid">
+      <article class="card" data-category="Title Slides">
+        <button class="image-button" aria-label="Open Algebra 2 - Backwards Planning Professional Development" data-image="assets/more-examples/algebra-2-backwards-planning-pd.png" data-title="Algebra 2 - Backwards Planning Professional Development">
+          <img src="assets/more-examples/algebra-2-backwards-planning-pd.png" alt="Algebra 2 - Backwards Planning Professional Development" loading="lazy">
+        </button>
+        <div class="card-body">
+          <div class="eyebrow"><span>Title Slides</span><span>Light Mode</span></div>
+          <h3>Algebra 2 - Backwards Planning Professional Development</h3>
+          <div class="card-actions">
+            <button class="view-button image-button" data-image="assets/more-examples/algebra-2-backwards-planning-pd.png" data-title="Algebra 2 - Backwards Planning Professional Development">View full image</button>
+            <a class="download-link" href="assets/more-examples/algebra-2-backwards-planning-pd.png" download>Download PNG</a>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-category="Title Slides">
+        <button class="image-button" aria-label="Open Algebra 2 - Analyzing Patterns, Functions, and Change" data-image="assets/more-examples/algebra-2-patterns-functions-change.png" data-title="Algebra 2 - Analyzing Patterns, Functions, and Change">
+          <img src="assets/more-examples/algebra-2-patterns-functions-change.png" alt="Algebra 2 - Analyzing Patterns, Functions, and Change" loading="lazy">
+        </button>
+        <div class="card-body">
+          <div class="eyebrow"><span>Title Slides</span><span>Light Mode</span></div>
+          <h3>Algebra 2 - Analyzing Patterns, Functions, and Change</h3>
+          <div class="card-actions">
+            <button class="view-button image-button" data-image="assets/more-examples/algebra-2-patterns-functions-change.png" data-title="Algebra 2 - Analyzing Patterns, Functions, and Change">View full image</button>
+            <a class="download-link" href="assets/more-examples/algebra-2-patterns-functions-change.png" download>Download PNG</a>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-category="Title Slides">
+        <button class="image-button" aria-label="Open Algebra 2 - Functions, Modeling, and Problem Solving" data-image="assets/more-examples/algebra-2-functions-modeling-light.png" data-title="Algebra 2 - Functions, Modeling, and Problem Solving">
+          <img src="assets/more-examples/algebra-2-functions-modeling-light.png" alt="Algebra 2 - Functions, Modeling, and Problem Solving" loading="lazy">
+        </button>
+        <div class="card-body">
+          <div class="eyebrow"><span>Title Slides</span><span>Light Mode</span></div>
+          <h3>Algebra 2 - Functions, Modeling, and Problem Solving</h3>
+          <div class="card-actions">
+            <button class="view-button image-button" data-image="assets/more-examples/algebra-2-functions-modeling-light.png" data-title="Algebra 2 - Functions, Modeling, and Problem Solving">View full image</button>
+            <a class="download-link" href="assets/more-examples/algebra-2-functions-modeling-light.png" download>Download PNG</a>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-category="Title Slides">
+        <button class="image-button" aria-label="Open Algebra 2 - Equations, Graphs, and Real-World Connections" data-image="assets/more-examples/algebra-2-equations-graphs-dark.png" data-title="Algebra 2 - Equations, Graphs, and Real-World Connections">
+          <img src="assets/more-examples/algebra-2-equations-graphs-dark.png" alt="Algebra 2 - Equations, Graphs, and Real-World Connections" loading="lazy">
+        </button>
+        <div class="card-body">
+          <div class="eyebrow"><span>Title Slides</span><span>Dark Mode</span></div>
+          <h3>Algebra 2 - Equations, Graphs, and Real-World Connections</h3>
+          <div class="card-actions">
+            <button class="view-button image-button" data-image="assets/more-examples/algebra-2-equations-graphs-dark.png" data-title="Algebra 2 - Equations, Graphs, and Real-World Connections">View full image</button>
+            <a class="download-link" href="assets/more-examples/algebra-2-equations-graphs-dark.png" download>Download PNG</a>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-category="Title Slides">
+        <button class="image-button" aria-label="Open Algebra 2 - Functions, Modeling, and Problem Solving" data-image="assets/more-examples/algebra-2-functions-modeling-dark.png" data-title="Algebra 2 - Functions, Modeling, and Problem Solving">
+          <img src="assets/more-examples/algebra-2-functions-modeling-dark.png" alt="Algebra 2 - Functions, Modeling, and Problem Solving" loading="lazy">
+        </button>
+        <div class="card-body">
+          <div class="eyebrow"><span>Title Slides</span><span>Dark Mode</span></div>
+          <h3>Algebra 2 - Functions, Modeling, and Problem Solving</h3>
+          <div class="card-actions">
+            <button class="view-button image-button" data-image="assets/more-examples/algebra-2-functions-modeling-dark.png" data-title="Algebra 2 - Functions, Modeling, and Problem Solving">View full image</button>
+            <a class="download-link" href="assets/more-examples/algebra-2-functions-modeling-dark.png" download>Download PNG</a>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-category="Attendance">
+        <button class="image-button" aria-label="Open Region South Student Attendance" data-image="assets/more-examples/region-south-student-attendance.png" data-title="Region South Student Attendance">
+          <img src="assets/more-examples/region-south-student-attendance.png" alt="Region South Student Attendance" loading="lazy">
+        </button>
+        <div class="card-body">
+          <div class="eyebrow"><span>Attendance</span><span>Dark Mode</span></div>
+          <h3>Region South Student Attendance</h3>
+          <div class="card-actions">
+            <button class="view-button image-button" data-image="assets/more-examples/region-south-student-attendance.png" data-title="Region South Student Attendance">View full image</button>
+            <a class="download-link" href="assets/more-examples/region-south-student-attendance.png" download>Download PNG</a>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-category="Attendance">
+        <button class="image-button" aria-label="Open LAUSD Attendance Update" data-image="assets/more-examples/lausd-attendance-update.png" data-title="LAUSD Attendance Update">
+          <img src="assets/more-examples/lausd-attendance-update.png" alt="LAUSD Attendance Update" loading="lazy">
+        </button>
+        <div class="card-body">
+          <div class="eyebrow"><span>Attendance</span><span>Dark Mode</span></div>
+          <h3>LAUSD Attendance Update</h3>
+          <div class="card-actions">
+            <button class="view-button image-button" data-image="assets/more-examples/lausd-attendance-update.png" data-title="LAUSD Attendance Update">View full image</button>
+            <a class="download-link" href="assets/more-examples/lausd-attendance-update.png" download>Download PNG</a>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-category="Backgrounds">
+        <button class="image-button" aria-label="Open Student Reading Presentation Background" data-image="assets/more-examples/student-reading-background.png" data-title="Student Reading Presentation Background">
+          <img src="assets/more-examples/student-reading-background.png" alt="Student Reading Presentation Background" loading="lazy">
+        </button>
+        <div class="card-body">
+          <div class="eyebrow"><span>Backgrounds</span><span>Light Mode</span></div>
+          <h3>Student Reading Presentation Background</h3>
+          <div class="card-actions">
+            <button class="view-button image-button" data-image="assets/more-examples/student-reading-background.png" data-title="Student Reading Presentation Background">View full image</button>
+            <a class="download-link" href="assets/more-examples/student-reading-background.png" download>Download PNG</a>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-category="ELA">
+        <button class="image-button" aria-label="Open Region South CAASPP Literacy Update" data-image="assets/more-examples/region-south-literacy-update.png" data-title="Region South CAASPP Literacy Update">
+          <img src="assets/more-examples/region-south-literacy-update.png" alt="Region South CAASPP Literacy Update" loading="lazy">
+        </button>
+        <div class="card-body">
+          <div class="eyebrow"><span>ELA</span><span>Light Mode</span></div>
+          <h3>Region South CAASPP Literacy Update</h3>
+          <div class="card-actions">
+            <button class="view-button image-button" data-image="assets/more-examples/region-south-literacy-update.png" data-title="Region South CAASPP Literacy Update">View full image</button>
+            <a class="download-link" href="assets/more-examples/region-south-literacy-update.png" download>Download PNG</a>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-category="Math">
+        <button class="image-button" aria-label="Open Region South Math - Distance from Proficiency" data-image="assets/more-examples/region-south-math-dfp-primary.png" data-title="Region South Math - Distance from Proficiency">
+          <img src="assets/more-examples/region-south-math-dfp-primary.png" alt="Region South Math - Distance from Proficiency" loading="lazy">
+        </button>
+        <div class="card-body">
+          <div class="eyebrow"><span>Math</span><span>Dark Mode</span></div>
+          <h3>Region South Math - Distance from Proficiency</h3>
+          <div class="card-actions">
+            <button class="view-button image-button" data-image="assets/more-examples/region-south-math-dfp-primary.png" data-title="Region South Math - Distance from Proficiency">View full image</button>
+            <a class="download-link" href="assets/more-examples/region-south-math-dfp-primary.png" download>Download PNG</a>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-category="Title Slides">
+        <button class="image-button" aria-label="Open Secondary Instructional Team - Follow-Up Support" data-image="assets/more-examples/secondary-instructional-team.png" data-title="Secondary Instructional Team - Follow-Up Support">
+          <img src="assets/more-examples/secondary-instructional-team.png" alt="Secondary Instructional Team - Follow-Up Support" loading="lazy">
+        </button>
+        <div class="card-body">
+          <div class="eyebrow"><span>Title Slides</span><span>Dark Mode</span></div>
+          <h3>Secondary Instructional Team - Follow-Up Support</h3>
+          <div class="card-actions">
+            <button class="view-button image-button" data-image="assets/more-examples/secondary-instructional-team.png" data-title="Secondary Instructional Team - Follow-Up Support">View full image</button>
+            <a class="download-link" href="assets/more-examples/secondary-instructional-team.png" download>Download PNG</a>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-category="Regional Comparison">
+        <button class="image-button" aria-label="Open Grade 11 Math Across LAUSD Regions" data-image="assets/more-examples/grade-11-math-regional-comparison.png" data-title="Grade 11 Math Across LAUSD Regions">
+          <img src="assets/more-examples/grade-11-math-regional-comparison.png" alt="Grade 11 Math Across LAUSD Regions" loading="lazy">
+        </button>
+        <div class="card-body">
+          <div class="eyebrow"><span>Regional Comparison</span><span>Light Mode</span></div>
+          <h3>Grade 11 Math Across LAUSD Regions</h3>
+          <div class="card-actions">
+            <button class="view-button image-button" data-image="assets/more-examples/grade-11-math-regional-comparison.png" data-title="Grade 11 Math Across LAUSD Regions">View full image</button>
+            <a class="download-link" href="assets/more-examples/grade-11-math-regional-comparison.png" download>Download PNG</a>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-category="Cohort Analysis">
+        <button class="image-button" aria-label="Open Preliminary SBA ELA Cohort Change - Layout A" data-image="assets/more-examples/ela-cohort-change-layout-a.png" data-title="Preliminary SBA ELA Cohort Change - Layout A">
+          <img src="assets/more-examples/ela-cohort-change-layout-a.png" alt="Preliminary SBA ELA Cohort Change - Layout A" loading="lazy">
+        </button>
+        <div class="card-body">
+          <div class="eyebrow"><span>Cohort Analysis</span><span>Dark Mode</span></div>
+          <h3>Preliminary SBA ELA Cohort Change - Layout A</h3>
+          <div class="card-actions">
+            <button class="view-button image-button" data-image="assets/more-examples/ela-cohort-change-layout-a.png" data-title="Preliminary SBA ELA Cohort Change - Layout A">View full image</button>
+            <a class="download-link" href="assets/more-examples/ela-cohort-change-layout-a.png" download>Download PNG</a>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-category="Cohort Analysis">
+        <button class="image-button" aria-label="Open Preliminary SBA ELA Cohort Change - Layout B" data-image="assets/more-examples/ela-cohort-change-layout-b.png" data-title="Preliminary SBA ELA Cohort Change - Layout B">
+          <img src="assets/more-examples/ela-cohort-change-layout-b.png" alt="Preliminary SBA ELA Cohort Change - Layout B" loading="lazy">
+        </button>
+        <div class="card-body">
+          <div class="eyebrow"><span>Cohort Analysis</span><span>Dark Mode</span></div>
+          <h3>Preliminary SBA ELA Cohort Change - Layout B</h3>
+          <div class="card-actions">
+            <button class="view-button image-button" data-image="assets/more-examples/ela-cohort-change-layout-b.png" data-title="Preliminary SBA ELA Cohort Change - Layout B">View full image</button>
+            <a class="download-link" href="assets/more-examples/ela-cohort-change-layout-b.png" download>Download PNG</a>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-category="Cohort Analysis">
+        <button class="image-button" aria-label="Open Preliminary SBA ELA Cohort Change - Layout C" data-image="assets/more-examples/ela-cohort-change-layout-c.png" data-title="Preliminary SBA ELA Cohort Change - Layout C">
+          <img src="assets/more-examples/ela-cohort-change-layout-c.png" alt="Preliminary SBA ELA Cohort Change - Layout C" loading="lazy">
+        </button>
+        <div class="card-body">
+          <div class="eyebrow"><span>Cohort Analysis</span><span>Dark Mode</span></div>
+          <h3>Preliminary SBA ELA Cohort Change - Layout C</h3>
+          <div class="card-actions">
+            <button class="view-button image-button" data-image="assets/more-examples/ela-cohort-change-layout-c.png" data-title="Preliminary SBA ELA Cohort Change - Layout C">View full image</button>
+            <a class="download-link" href="assets/more-examples/ela-cohort-change-layout-c.png" download>Download PNG</a>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-category="Cohort Analysis">
+        <button class="image-button" aria-label="Open Preliminary SBA Math Cohort Change" data-image="assets/more-examples/math-cohort-change.png" data-title="Preliminary SBA Math Cohort Change">
+          <img src="assets/more-examples/math-cohort-change.png" alt="Preliminary SBA Math Cohort Change" loading="lazy">
+        </button>
+        <div class="card-body">
+          <div class="eyebrow"><span>Cohort Analysis</span><span>Dark Mode</span></div>
+          <h3>Preliminary SBA Math Cohort Change</h3>
+          <div class="card-actions">
+            <button class="view-button image-button" data-image="assets/more-examples/math-cohort-change.png" data-title="Preliminary SBA Math Cohort Change">View full image</button>
+            <a class="download-link" href="assets/more-examples/math-cohort-change.png" download>Download PNG</a>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-category="Template Sets">
+        <button class="image-button" aria-label="Open Region South Template Examples - Light Mode" data-image="assets/more-examples/template-examples-light.png" data-title="Region South Template Examples - Light Mode">
+          <img src="assets/more-examples/template-examples-light.png" alt="Region South Template Examples - Light Mode" loading="lazy">
+        </button>
+        <div class="card-body">
+          <div class="eyebrow"><span>Template Sets</span><span>Light Mode</span></div>
+          <h3>Region South Template Examples - Light Mode</h3>
+          <div class="card-actions">
+            <button class="view-button image-button" data-image="assets/more-examples/template-examples-light.png" data-title="Region South Template Examples - Light Mode">View full image</button>
+            <a class="download-link" href="assets/more-examples/template-examples-light.png" download>Download PNG</a>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-category="Template Sets">
+        <button class="image-button" aria-label="Open Region South Template Examples - Light and Dark Modes" data-image="assets/more-examples/template-examples-mixed.png" data-title="Region South Template Examples - Light and Dark Modes">
+          <img src="assets/more-examples/template-examples-mixed.png" alt="Region South Template Examples - Light and Dark Modes" loading="lazy">
+        </button>
+        <div class="card-body">
+          <div class="eyebrow"><span>Template Sets</span><span>Light + Dark</span></div>
+          <h3>Region South Template Examples - Light and Dark Modes</h3>
+          <div class="card-actions">
+            <button class="view-button image-button" data-image="assets/more-examples/template-examples-mixed.png" data-title="Region South Template Examples - Light and Dark Modes">View full image</button>
+            <a class="download-link" href="assets/more-examples/template-examples-mixed.png" download>Download PNG</a>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-category="Math">
+        <button class="image-button" aria-label="Open Region South Math - Distance from Proficiency (Alternate)" data-image="assets/more-examples/region-south-math-dfp-alternate.png" data-title="Region South Math - Distance from Proficiency (Alternate)">
+          <img src="assets/more-examples/region-south-math-dfp-alternate.png" alt="Region South Math - Distance from Proficiency (Alternate)" loading="lazy">
+        </button>
+        <div class="card-body">
+          <div class="eyebrow"><span>Math</span><span>Dark Mode</span></div>
+          <h3>Region South Math - Distance from Proficiency (Alternate)</h3>
+          <div class="card-actions">
+            <button class="view-button image-button" data-image="assets/more-examples/region-south-math-dfp-alternate.png" data-title="Region South Math - Distance from Proficiency (Alternate)">View full image</button>
+            <a class="download-link" href="assets/more-examples/region-south-math-dfp-alternate.png" download>Download PNG</a>
+          </div>
+        </div>
+      </article></section>
+  <aside class="note"><strong>Logo review applied:</strong> the examples were reviewed only for logo use. No other aspect of the uploaded images was intentionally changed.</aside>
+</main>
+<footer><div class="footer-inner"><img src="RS-logo.png" alt="Region South LAUSD"><div>Region South Visual Style Guide · More Examples</div></div></footer>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Full-size example"><div class="modal-inner"><button class="close" aria-label="Close">×</button><img id="modalImage" alt=""><div class="modal-title" id="modalTitle"></div></div></div>
+<script>
+const cards=[...document.querySelectorAll('.card')];
+document.querySelectorAll('.filter').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));button.classList.add('active');const filter=button.dataset.filter;cards.forEach(card=>card.hidden=filter!=='All'&&card.dataset.category!==filter);}));
+const modal=document.getElementById('modal'),modalImage=document.getElementById('modalImage'),modalTitle=document.getElementById('modalTitle');
+document.querySelectorAll('.image-button').forEach(button=>button.addEventListener('click',()=>{modalImage.src=button.dataset.image;modalImage.alt=button.dataset.title;modalTitle.textContent=button.dataset.title;modal.classList.add('open');document.body.style.overflow='hidden';}));
+function closeModal(){modal.classList.remove('open');document.body.style.overflow='';modalImage.src='';}
+document.querySelector('.close').addEventListener('click',closeModal);modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+</script>
+</body>
+</html>
