@@ -1,4 +1,4 @@
-# Region South Visual Style Guide — AI-Ready Specification v1.3
+# Region South Visual Style Guide — AI-Ready Specification v1.4
 
 ## Purpose
 Create visuals that are consistent with the Region South visual system, aligned to LAUSD brand standards, student-centered, data-accurate, and optimized for clear communication.
@@ -21,20 +21,57 @@ If visual styling conflicts with data accuracy, data accuracy wins.
 https://github.com/marioapodaca/region-south-hub/blob/main/RS-logo.png
 
 Rules:
-- Use the authentic asset when possible.
-- Do not redraw, recolor, distort, rotate, crop, or approximate.
-- Preferred placement on data graphics: bottom left.
-- If the logo cannot be inserted reliably, reserve clean space and omit it rather than fabricate it.
+- Use only the authentic approved asset supplied by the user or explicitly identified in this guide.
+- Do not redraw, recolor, distort, rotate, crop, approximate, stylize, reinterpret, reconstruct, or invent it.
+- Do not assume a default placement. Place the logo only where the design, an approved template, or the user specifically requires it.
+- Do not duplicate the logo in a footer, corner, decorative area, or secondary location unless specifically requested or defined by an approved template.
+- If the logo cannot be inserted reliably and exactly, omit it rather than fabricate or approximate it.
 
 ### LAUSD seal
 https://github.com/marioapodaca/region-south-hub/blob/main/LAUSD_seal.png
 
 Rules:
-- Use the authentic asset when possible.
-- Do not redraw, recolor, distort, rotate, crop, or approximate.
+- Use only the authentic approved asset supplied by the user or explicitly identified in this guide.
+- Do not redraw, recolor, distort, rotate, crop, approximate, stylize, reinterpret, reconstruct, or invent it.
+- Place it only where specifically requested or defined by an approved template.
+- Do not add or duplicate it merely to fill unused space.
+- If it cannot be inserted reliably and exactly, omit it rather than fabricate or approximate it.
 
 ### LAUSD Brand Guide
 https://communications.lausd.org/apps/pages/index.jsp?uREC_ID=4433467&type=d&pREC_ID=2674581
+
+
+## Logo control and brand placement
+
+### LOGO CONTROL
+Use only authentic, approved Region South and LAUSD logo assets supplied by the user or explicitly identified in the Region South Visual Style Guide.
+
+Never create, redraw, approximate, stylize, reinterpret, reconstruct, or invent any Region South, LAUSD, school district, school, program, or organizational logo, seal, badge, crest, emblem, wordmark, or similar brand mark.
+
+Do not add decorative logos, seals, badges, crests, or emblems simply because a layout contains unused space or a footer area.
+
+If an authentic logo asset is not available or cannot be reproduced accurately, omit the logo rather than approximating it.
+
+### BRAND PLACEMENT
+Use approved Region South and LAUSD branding only in locations defined by the design or specifically requested by the user.
+
+Do not duplicate branding unnecessarily.
+
+Do not place logos, seals, badges, or emblems in a footer, corner, decorative area, or secondary location unless that placement is specifically requested or defined by an approved template.
+
+### IMAGE-GENERATION RESTRICTION
+Treat all logos, seals, badges, crests, emblems, wordmarks, and official marks as protected brand assets, not as decorative graphic elements.
+
+When generating or regenerating a Region South visual, explicitly instruct the image model:
+
+> “Do not invent, approximate, redraw, stylize, or add any logo, seal, badge, crest, emblem, district mark, or organizational mark. Use only authentic approved assets provided for the design. If an approved asset cannot be reproduced exactly, omit it.”
+
+For image-generation workflows, the safest production sequence is:
+1. Generate the composition without allowing the image model to invent official marks.
+2. Add authentic approved logo assets in a post-production/compositing step when branding is required.
+3. Validate every visible official-looking mark before finalizing.
+
+**Core brand rule:** An invented or approximated logo is a brand-compliance failure, even if it looks visually appropriate or resembles an official Region South or LAUSD asset.
 
 ---
 
@@ -344,14 +381,28 @@ Do not use an open-book icon on a Math graphic or a calculator icon on an ELA gr
 
 ## Logo validation
 
-Generated or approximate logos are non-compliant.
+Generated, approximate, invented, reconstructed, stylized, or substitute logos are non-compliant.
 
-If the authentic Region South or LAUSD asset cannot be placed:
-- reserve clean logo space
-- omit the logo from the generated image
-- add the authentic logo in a post-production step
+If an authentic Region South, LAUSD, school, district, program, or organizational asset cannot be placed exactly:
+- omit the logo/mark from the generated image;
+- reserve clean space only when the design requires later placement;
+- add the authentic approved asset in a post-production step when needed.
 
-Never generate substitute text logos such as approximate "LAUSD", "RSSAS", or altered Region South marks.
+Never generate substitute text logos or marks such as approximate “LAUSD,” “RSSAS,” altered Region South marks, circular seals, badges, crests, emblems, or other official-looking decorative marks.
+
+Do not add a logo simply because a corner, footer, or empty area appears available.
+
+Do not duplicate branding unless the user specifically requests it or an approved template defines multiple placements.
+
+### Final validation — brand assets
+Before finalizing any Region South visual, verify:
+- Every visible logo or official mark is an authentic approved asset.
+- No logo, seal, badge, crest, emblem, or wordmark was invented by the image generator.
+- No unrequested duplicate branding was added.
+- No decorative mark could reasonably be mistaken for an official Region South, LAUSD, school, district, or program logo.
+- If an authentic asset could not be reproduced accurately, it was omitted rather than approximated.
+
+**An invented or approximated logo is a brand-compliance failure, even if it looks visually appropriate or resembles an official asset.**
 
 ---
 
@@ -540,8 +591,8 @@ Users may explicitly omit either or both items.
 
 Preferred three-zone footer:
 
-LEFT:
-Region South / LAUSD branding
+LEFT (only when branding is specifically requested or defined by an approved template):
+Authentic Region South / LAUSD branding. Do not create or add a decorative substitute mark. If branding is not required, leave this zone unbranded or use approved non-logo content.
 
 CENTER:
 Definitions, methodology, preliminary/internal-use note
@@ -561,7 +612,11 @@ Data as of August 8, 2026
 ### Brand
 - Correct subject family?
 - Correct region colors?
-- Authentic logo or reserved logo space?
+- Is every visible official mark an authentic approved asset?
+- Did the image generator invent, redraw, stylize, reconstruct, or approximate any logo, seal, badge, crest, emblem, or wordmark? If yes, reject the image.
+- Was any unrequested duplicate branding added in a footer, corner, or decorative area?
+- Could any decorative mark reasonably be mistaken for an official organization mark?
+- If an authentic asset could not be reproduced exactly, was it omitted rather than approximated?
 
 ### Typography
 - Poppins?
@@ -654,7 +709,9 @@ An "Approved Example" should be finalized in two stages:
 
 1. **Generate/design the composition** using the Region South style rules.
 2. **Post-produce brand-critical elements**:
-   - insert authentic Region South and/or LAUSD logos;
+   - insert authentic Region South and/or LAUSD logos only when required by the design or requested by the user;
+   - verify that no AI-invented logo, seal, badge, crest, emblem, wordmark, or official-looking substitute mark remains anywhere in the visual;
+   - verify that no unrequested duplicate branding was added;
    - verify typography;
    - verify all numeric labels against source data;
    - verify source/date metadata;
@@ -666,3 +723,5 @@ Do not designate an AI-generated image as an Approved Example until this post-pr
 ## Core AI rule
 
 **Do not improvise brand rules when a Region South standard already exists.**
+
+**An invented or approximated logo is a brand-compliance failure, even if it looks visually appropriate or resembles an official Region South or LAUSD asset.**
