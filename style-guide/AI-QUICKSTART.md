@@ -15,6 +15,14 @@ Before generating a visual:
 10. For image generation, explicitly instruct the model: “Do not invent, approximate, redraw, stylize, or add any logo, seal, badge, crest, emblem, district mark, or organizational mark. Use only authentic approved assets provided for the design. If an approved asset cannot be reproduced exactly, omit it.”
 11. Validate all data labels and claims before finalizing.
 12. Before finalizing, reject any image containing an invented/approximate official mark, unrequested duplicate branding, or a decorative mark that could reasonably be mistaken for an official logo.
+13. For polished presentation graphics, instructional visuals, frameworks, overviews, process graphics, priorities graphics, strategy summaries, or similar **non-data infographics**, use the **Region South Presentation Infographic Style** unless another approved template is specified.
+14. By default for that style: use a 16:9 landscape layout; in Dark Mode use a deep LAUSD Navy-based background with subtle gradients and low-contrast subject-related patterns; use a strong title hierarchy; place one large subject-relevant hero icon near the title; and organize the content into 2–4 balanced dark panels/cards with thin accent outlines.
+15. Within panels, use a clear icon, bold white heading, optional short subject-color subtitle, and concise bullet text. Use subject color selectively for titles, borders, rules, bullets, and key phrases.
+16. Keep decorative elements low-contrast and secondary. Use clean, modern, mature visual language; avoid cartoonish, elementary, clip-art, scrapbook, or poster-board aesthetics unless specifically requested.
+17. Do not automatically add a footer, motto, slogan, secondary logo, seal, badge, or decorative brand mark to non-data infographics. Include those only when explicitly requested or defined by an approved template.
+18. When a Region South visual is supplied as a style reference, transfer its design language only — layout rhythm, hierarchy, panel treatment, typography, depth, icon treatment, and decorative restraint — not its unrelated text, slogan, footer, logos, icons, or other content-specific elements.
+19. If the visual contains data, Region South data-visualization rules override decorative infographic styling.
+20. If the visual contains no data, prioritize **Brand compliance > Readability > Correct subject identity > Content hierarchy > Aesthetic polish**.
 
 Subject colors:
 - Math: blue

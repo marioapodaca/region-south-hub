@@ -1,4 +1,4 @@
-version: '1.4'
+version: '1.5'
 priority_order:
 - data_accuracy
 - brand_compliance
@@ -125,6 +125,136 @@ templates:
   RS-01: Hero Data
   RS-02: Regional Comparison
   RS-03: Cohort Analysis
+  RS-PI: Presentation Infographic Style
+presentation_infographic_style:
+  applies_to:
+  - polished_presentation_graphic
+  - instructional_visual
+  - framework
+  - overview
+  - process_graphic
+  - priorities_graphic
+  - strategy_summary
+  - non_data_infographic
+  default_aspect_ratio: '16:9'
+  dark_mode:
+    background: lausd_navy_based
+    subtle_gradients: true
+    depth: true
+    low_contrast_subject_patterns: true
+  hierarchy:
+    context_line: white
+    primary_title: subject_color
+    optional_subtitle: white_or_light_neutral
+  hero_icon:
+    required: true
+    subject_identity_rules: true
+  panels:
+    preferred_count_min: 2
+    preferred_count_max: 4
+    dark_cards: true
+    thin_accent_outlines: true
+    consistent_spacing: true
+    generous_margins: true
+    panel_contents:
+    - icon_or_visual_identifier
+    - bold_white_heading
+    - optional_subject_color_subtitle
+    - optional_divider_rule
+    - concise_supporting_text_or_bullets
+  color_use:
+    subject_color_for:
+    - titles
+    - icons
+    - borders
+    - rules
+    - bullet_markers
+    - key_phrases
+    navy_primary_structural_color_in_dark_mode: true
+  emphasis_text_style:
+    bold_subject_colored_lead_phrase: true
+    explanatory_text_white_or_light_neutral: true
+  decorative_elements:
+    low_contrast: true
+    secondary_only: true
+    nonessential_to_understanding: true
+    math:
+    - equations
+    - graphs
+    - coordinate_planes
+    - geometric_forms
+    ela:
+    - books
+    - annotation_marks
+    - quotation_marks
+    - speech_bubbles
+    - writing_tools
+    science:
+    - molecules
+    - atomic_forms
+    - lab_glassware
+    - scientific_instruments
+  visual_tone:
+    clean: true
+    modern: true
+    mature: true
+    avoid:
+    - cartoonish
+    - elementary
+    - clip_art
+    - scrapbook
+    - poster_board
+  depth_effects:
+    subtle_gradients: true
+    glow: allowed
+    shadow: allowed
+    layered_shapes: allowed
+    readability_over_effects: true
+  alignment:
+    strong_alignment: true
+    consistent_panel_dimensions: true
+    even_spacing: true
+    clear_reading_order: true
+  footer_and_branding:
+    auto_add_footer: false
+    auto_add_motto: false
+    auto_add_slogan: false
+    auto_add_secondary_logo: false
+    auto_add_seal: false
+    auto_add_badge: false
+    auto_add_decorative_brand_mark: false
+    include_only_when_requested_or_template_defined: true
+  wording:
+    preserve_exact_user_wording: true
+    rewrite_only_if_requested: true
+  override_rules:
+    if_visual_contains_data: region_south_data_visualization_rules_override_decorative_infographic_styling
+    if_visual_contains_no_data_priority_order:
+    - brand_compliance
+    - readability
+    - correct_subject_identity
+    - content_hierarchy
+    - aesthetic_polish
+  final_validation:
+    same_design_family: true
+    appropriate_to_specific_content: true
+style_transfer_rule:
+  when_region_south_visual_supplied_as_reference: true
+  reproduce:
+  - layout_rhythm
+  - hierarchy
+  - panel_treatment
+  - typography
+  - depth
+  - icon_treatment
+  - decorative_restraint
+  do_not_automatically_reproduce:
+  - text
+  - slogan
+  - footer
+  - logos
+  - icons
+  - content_specific_elements
 components:
   RS-C01: Key Takeaway
   RS-C02: Metric Callout
@@ -143,7 +273,6 @@ preliminary_data:
   use_generalized_direction: true
   use_dashed_or_dotted_trend: true
   label: Preliminary Trend
-
 brand_asset_validation:
   every_visible_mark_authentic_approved_asset: true
   invented_marks_allowed: false
