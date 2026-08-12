@@ -44,8 +44,8 @@ footer{background:#001737;color:#cfe1ff;padding:34px 24px} .footer-inner{max-wid
   </section>
 </header>
 <main>
-  <section class="intro"><div><h2>Additional visual references</h2><p>Click any image to view it at full size. Use the filters to focus on title slides, data-story formats, subject examples, or template collections.</p></div><div><strong>19 examples</strong></div></section>
-  <div class="filters" aria-label="Filter examples"><button class="filter active" data-filter="All">All</button><button class="filter" data-filter="Title Slides">Title Slides</button><button class="filter" data-filter="Math">Math</button><button class="filter" data-filter="ELA">ELA</button><button class="filter" data-filter="Attendance">Attendance</button><button class="filter" data-filter="Regional Comparison">Regional Comparison</button><button class="filter" data-filter="Cohort Analysis">Cohort Analysis</button><button class="filter" data-filter="Backgrounds">Backgrounds</button><button class="filter" data-filter="Template Sets">Template Sets</button></div>
+  <section class="intro"><div><h2>Additional visual references</h2><p>Click any image to view it at full size. Use the filters to focus on title slides, data-story formats, subject examples, presentation infographics, or template collections.</p></div><div><strong>22 examples</strong></div></section>
+  <div class="filters" aria-label="Filter examples"><button class="filter active" data-filter="All">All</button><button class="filter" data-filter="Title Slides">Title Slides</button><button class="filter" data-filter="Presentation Infographics">Presentation Infographics</button><button class="filter" data-filter="Math">Math</button><button class="filter" data-filter="ELA">ELA</button><button class="filter" data-filter="Science">Science</button><button class="filter" data-filter="Attendance">Attendance</button><button class="filter" data-filter="Regional Comparison">Regional Comparison</button><button class="filter" data-filter="Cohort Analysis">Cohort Analysis</button><button class="filter" data-filter="Backgrounds">Backgrounds</button><button class="filter" data-filter="Template Sets">Template Sets</button></div>
   <section class="grid">
       <article class="card" data-category="Title Slides">
         <button class="image-button" aria-label="Open Algebra 2 - Backwards Planning Professional Development" data-image="assets/more-examples/algebra-2-backwards-planning-pd.png" data-title="Algebra 2 - Backwards Planning Professional Development">
@@ -293,14 +293,32 @@ footer{background:#001737;color:#cfe1ff;padding:34px 24px} .footer-inner{max-wid
             <a class="download-link" href="assets/more-examples/region-south-math-dfp-alternate.png" download>Download PNG</a>
           </div>
         </div>
+      </article>
+      <article class="card" data-category="Presentation Infographics|Math">
+        <button class="image-button" aria-label="Open Region South Secondary Math Guideposts" data-image="assets/more-examples/presentation-infographic-math-guideposts.png" data-title="Region South Secondary Math Guideposts">
+          <img src="assets/more-examples/presentation-infographic-math-guideposts.png" alt="Region South Secondary Math Guideposts" loading="lazy">
+        </button>
+        <div class="card-body"><div class="eyebrow"><span>Presentation Infographics</span><span>Math</span><span>Dark Mode</span></div><h3>Region South Secondary Math Guideposts</h3><div class="card-actions"><button class="view-button image-button" data-image="assets/more-examples/presentation-infographic-math-guideposts.png" data-title="Region South Secondary Math Guideposts">View full image</button><a class="download-link" href="assets/more-examples/presentation-infographic-math-guideposts.png" download>Download PNG</a></div></div>
+      </article>
+      <article class="card" data-category="Presentation Infographics|Science">
+        <button class="image-button" aria-label="Open Region South Science Guideposts" data-image="assets/more-examples/presentation-infographic-science-guideposts.png" data-title="Region South Science Guideposts">
+          <img src="assets/more-examples/presentation-infographic-science-guideposts.png" alt="Region South Science Guideposts" loading="lazy">
+        </button>
+        <div class="card-body"><div class="eyebrow"><span>Presentation Infographics</span><span>Science</span><span>Dark Mode</span></div><h3>Region South Science Guideposts</h3><div class="card-actions"><button class="view-button image-button" data-image="assets/more-examples/presentation-infographic-science-guideposts.png" data-title="Region South Science Guideposts">View full image</button><a class="download-link" href="assets/more-examples/presentation-infographic-science-guideposts.png" download>Download PNG</a></div></div>
+      </article>
+      <article class="card" data-category="Presentation Infographics|ELA">
+        <button class="image-button" aria-label="Open Region South Secondary ELA Guideposts" data-image="assets/more-examples/presentation-infographic-ela-guideposts.png" data-title="Region South Secondary ELA Guideposts">
+          <img src="assets/more-examples/presentation-infographic-ela-guideposts.png" alt="Region South Secondary ELA Guideposts" loading="lazy">
+        </button>
+        <div class="card-body"><div class="eyebrow"><span>Presentation Infographics</span><span>ELA</span><span>Dark Mode</span></div><h3>Region South Secondary ELA Guideposts</h3><div class="card-actions"><button class="view-button image-button" data-image="assets/more-examples/presentation-infographic-ela-guideposts.png" data-title="Region South Secondary ELA Guideposts">View full image</button><a class="download-link" href="assets/more-examples/presentation-infographic-ela-guideposts.png" download>Download PNG</a></div></div>
       </article></section>
-  <aside class="note"><strong>Logo review applied:</strong> the examples were reviewed only for logo use. No other aspect of the uploaded images was intentionally changed.</aside>
+  <aside class="note"><strong>PDF note:</strong> the downloadable PDF remains the original 19-example edition. The three Presentation Infographic examples are available on this page and as individual PNG downloads.</aside>
 </main>
 <footer><div class="footer-inner"><img src="RS-logo.png" alt="Region South LAUSD"><div>Region South Visual Style Guide · <a href="examples.html">Approved Examples</a> · <strong>More Examples</strong></div></div></footer>
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Full-size example"><div class="modal-inner"><button class="close" aria-label="Close">×</button><img id="modalImage" alt=""><div class="modal-title" id="modalTitle"></div></div></div>
 <script>
 const cards=[...document.querySelectorAll('.card')];
-document.querySelectorAll('.filter').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));button.classList.add('active');const filter=button.dataset.filter;cards.forEach(card=>card.hidden=filter!=='All'&&card.dataset.category!==filter);}));
+document.querySelectorAll('.filter').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));button.classList.add('active');const filter=button.dataset.filter;cards.forEach(card=>card.hidden=filter!=='All'&&!card.dataset.category.split('|').includes(filter));}));
 const modal=document.getElementById('modal'),modalImage=document.getElementById('modalImage'),modalTitle=document.getElementById('modalTitle');
 document.querySelectorAll('.image-button').forEach(button=>button.addEventListener('click',()=>{modalImage.src=button.dataset.image;modalImage.alt=button.dataset.title;modalTitle.textContent=button.dataset.title;modal.classList.add('open');document.body.style.overflow='hidden';}));
 function closeModal(){modal.classList.remove('open');document.body.style.overflow='';modalImage.src='';}
