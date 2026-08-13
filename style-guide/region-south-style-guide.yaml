@@ -281,3 +281,4 @@ brand_asset_validation:
   decorative_official_looking_marks_allowed: false
   if_asset_cannot_be_reproduced_exactly: omit
 core_brand_rule: "An invented or approximated logo is a brand-compliance failure, even if it looks visually appropriate or resembles an official Region South or LAUSD asset."
+\nretired_content:\n  motto: "Engage. Empower. Elevate. Every Student. Every Day."\n  status: "prohibited_for_new_work"\n  applies_to:\n    - html_pages\n    - ai_generated_images\n    - presentation_graphics\n    - templates\n    - footers\n    - other_region_south_materials\n  rule: "Do not use, copy from older references, or add as filler text."\n
