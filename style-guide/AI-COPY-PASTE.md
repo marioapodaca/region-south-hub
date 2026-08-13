@@ -64,3 +64,4 @@ Priority order:
 Data accuracy > Brand compliance > Readability > Correct subject identity > Student representation > Aesthetic polish.
 
 If you can access the linked Region South guide/specification, use it as the authoritative source. If you cannot access the URLs, use the instructions above as the authoritative fallback.
+\n\nRetired content rule: Do not use “Engage. Empower. Elevate. Every Student. Every Day.” in any new HTML page, image, presentation graphic, template, footer, or other Region South material. Do not copy it from older references or add it as filler text.\n
