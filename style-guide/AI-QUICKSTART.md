@@ -37,3 +37,4 @@ Locked regional palette:
 
 ## Logo-control core rule
 An invented or approximated logo is a brand-compliance failure, even if it looks visually appropriate or resembles an official Region South or LAUSD asset.
+\n\n## Retired Motto\n\nDo not use “Engage. Empower. Elevate. Every Student. Every Day.” in any new HTML page, image, presentation graphic, template, footer, or other Region South material. Omit it even when it appears in an older reference image.\n

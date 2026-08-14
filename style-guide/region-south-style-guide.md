@@ -771,3 +771,4 @@ Do not designate an AI-generated image as an Approved Example until this post-pr
 **Do not improvise brand rules when a Region South standard already exists.**
 
 **An invented or approximated logo is a brand-compliance failure, even if it looks visually appropriate or resembles an official Region South or LAUSD asset.**
+\n\n## Retired Motto\n\nDo not use **“Engage. Empower. Elevate. Every Student. Every Day.”** in Region South HTML pages, AI-generated images, presentation graphics, templates, footers, or other new materials. Do not add it automatically, copy it from an older reference, or use it as filler text. If it appears in an older visual reference, treat it as retired content and omit it from new work.\n
