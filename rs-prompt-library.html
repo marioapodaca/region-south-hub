@@ -3,10 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Region South AI Prompt Library</title>
+<title>Leadership AI Prompt Library | Region South Instructional Resource Hub</title>
+<meta name="description" content="Ready-to-customize AI prompts for Region South school and instructional leaders.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <style>
 :root {
   --bg: #F2F4F8;
@@ -192,6 +194,70 @@ textarea.custom-input { resize: vertical; min-height: 60px; }
 .grounding-source::before { content: "↗"; font-size: 11px; color: #002379; flex-shrink: 0; }
 .grounding-note { font-size: 11px; color: #4a5568; margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(0,35,121,0.1); line-height: 1.5; }
 
+/* SHARED LIBRARY EXPERIENCE */
+.site-header{background:#00237A;padding:16px 36px;display:flex;align-items:center;justify-content:space-between;gap:20px;position:sticky;top:0;z-index:110;}
+.site-header-left{display:flex;align-items:center;gap:18px;}
+.site-header img{height:42px;width:auto;}
+.site-header h1{font-family:'Poppins',sans-serif;font-size:17px;color:#fff;line-height:1.2;}
+.site-header p{font-size:11px;color:rgba(255,255,255,.68);margin-top:3px;}
+.edition-badge{font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;color:#fff;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.12);border-radius:20px;padding:5px 13px;white-space:nowrap;}
+.use-banner,.privacy-banner{padding:12px 36px;display:flex;align-items:flex-start;gap:10px;font-size:12px;line-height:1.6;}
+.use-banner{background:#E0F4FB;border-left:4px solid #009DDB;}
+.use-banner strong{color:#006A90;}
+.privacy-banner{background:#FFF0EB;border-left:4px solid #FF4D00;}
+.privacy-banner strong{color:#C13A00;}
+.breadcrumb{background:#fff;border-bottom:1px solid var(--border);padding:9px 36px;font-size:12px;color:var(--text3);}
+.breadcrumb a{color:#00237A;text-decoration:none;font-weight:700;}
+.hero{background:linear-gradient(135deg,#00237A,#001560);padding:34px 30px;text-align:center;color:#fff;}
+.hero h2{font-family:'Poppins',sans-serif;font-size:27px;margin-bottom:8px;}
+.hero p{max-width:760px;margin:0 auto 18px;color:rgba(255,255,255,.78);}
+.hero-stats,.hero-tags{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;}
+.hero-stats{margin-bottom:17px;}
+.hero-stat strong{font-family:'Poppins',sans-serif;font-size:23px;display:block;}
+.hero-stat span{font-size:10px;color:rgba(255,255,255,.62);}
+.hero-tag{font-family:'Poppins',sans-serif;font-size:10px;font-weight:600;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);border-radius:20px;padding:4px 10px;}
+.how-to{max-width:1180px;margin:24px auto;padding:0 24px;}
+.how-to-inner{background:#00237A;border-radius:12px;padding:22px 24px;}
+.how-to h3{font-family:'Poppins',sans-serif;color:#fff;font-size:14px;margin-bottom:13px;}
+.how-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
+.how-step{background:rgba(255,255,255,.08);border-radius:8px;padding:11px 12px;}
+.how-step b{display:block;color:#FF4D00;font-family:'Poppins',sans-serif;font-size:17px;margin-bottom:3px;}
+.how-step strong{display:block;color:#fff;font-family:'Poppins',sans-serif;font-size:11px;margin-bottom:3px;}
+.how-step span{font-size:10px;color:rgba(255,255,255,.7);line-height:1.45;}
+.layout{min-height:auto;}
+.sidebar{top:74px;height:calc(100vh - 74px);}
+.workflow-help{font-size:11px;color:var(--text3);padding:0 20px 12px;line-height:1.5;}
+.library-bar{background:#00237A;border-radius:10px;padding:12px 16px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#fff;}
+.library-bar-left,.library-bar-right{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.library-count{background:#FF4D00;border-radius:20px;padding:2px 8px;font-family:'Poppins',sans-serif;font-size:10px;font-weight:700;}
+.library-btn{font-family:'Poppins',sans-serif;font-size:10px;font-weight:700;border-radius:5px;padding:6px 10px;cursor:pointer;border:1px solid rgba(255,255,255,.25);}
+.library-btn.primary{background:#FF4D00;color:#fff;border-color:#FF4D00;}
+.library-btn.light{background:#fff;color:#00237A;}
+.library-btn.quiet{background:rgba(255,255,255,.1);color:#fff;}
+.library-panel{display:none;background:#fff;border:1px solid var(--border);border-radius:10px;margin-bottom:16px;overflow:hidden;}
+.library-panel.open{display:block;}
+.library-panel-head{background:#00237A;color:#fff;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;}
+.library-panel-head h3{font-family:'Poppins',sans-serif;font-size:13px;}
+.library-items{max-height:360px;overflow:auto;}
+.library-empty{padding:24px;text-align:center;font-size:12px;color:var(--text3);}
+.library-item{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;gap:12px;align-items:flex-start;}
+.library-item-meta{flex:1;min-width:0;}
+.library-item-title{font-family:'Poppins',sans-serif;font-size:12px;font-weight:700;color:#00237A;}
+.library-item-detail{font-size:10px;color:var(--text3);margin:2px 0;}
+.library-item-preview{font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.library-item-actions{display:flex;gap:5px;}
+.library-item-actions button{font-size:10px;padding:4px 8px;border-radius:4px;border:1px solid var(--border2);cursor:pointer;}
+.results-count{font-size:11px;color:var(--text3);margin:0 0 12px;}
+.workflow-empty{background:#fff;border:2px dashed rgba(0,35,122,.18);border-radius:12px;padding:38px 22px;text-align:center;}
+.workflow-empty div{font-size:28px;margin-bottom:7px;}
+.workflow-empty h3{font-family:'Poppins',sans-serif;color:#00237A;font-size:16px;margin-bottom:5px;}
+.workflow-empty p{font-size:12px;color:var(--text3);max-width:600px;margin:0 auto;}
+.card-category{font-family:'Poppins',sans-serif;font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;background:#E8EBF5;color:#00237A;}
+.site-footer{padding:20px 28px;text-align:center;background:#001560;color:rgba(255,255,255,.72);font-size:11px;}
+.site-footer a{color:#fff;font-weight:700;text-decoration:none;}
+@media(max-width:900px){.how-steps{grid-template-columns:1fr 1fr;}}
+@media(max-width:768px){.site-header{padding:12px 16px}.site-header img{height:34px}.site-header h1{font-size:14px}.use-banner,.privacy-banner,.breadcrumb{padding:10px 16px}.hero{padding:28px 16px}.hero h2{font-size:21px}.how-to{padding:0 12px}.how-to-inner{padding:17px 15px}.sidebar{top:0;height:auto}.main{padding:18px 12px}.library-bar{align-items:stretch}.library-bar-right{width:100%}.library-btn{flex:1}.library-item{flex-direction:column}.how-steps{grid-template-columns:1fr}.site-footer{padding:18px 12px}}
+
 /* EMPTY STATE */
 .empty-state { text-align: center; padding: 60px 20px; color: var(--text3); }
 .empty-state h3 { font-size: 16px; font-weight: 600; color: var(--text2); margin-bottom: 8px; }
@@ -211,117 +277,67 @@ textarea.custom-input { resize: vertical; min-height: 60px; }
 </head>
 <body>
 
-<div class="header">
-  <div class="header-left">
-    <div>
-      <img src="https://marioapodaca.github.io/region-south-hub/RS-logo.png" alt="Region South LAUSD" style="height:36px;width:auto;display:block;">
-    </div>
+<header class="site-header">
+  <div class="site-header-left">
+    <img src="RS-logo.png" alt="Region South LAUSD">
+    <div><h1>Region South Instructional Resource Hub</h1><p>Los Angeles Unified School District</p></div>
   </div>
-</div>
+  <div class="edition-badge">Leadership Edition</div>
+</header>
+
+<div class="use-banner"><span>&#x1F916;</span><div><strong>How to use this library:</strong> Choose the leadership workflow area that matches your current need, select a prompt, customize it, and copy the filled version into your preferred AI tool. Save prompts you use often to My Library.</div></div>
+<div class="privacy-banner"><span>&#x1F512;</span><div><strong>Privacy and professional judgment:</strong> Do not enter student or employee names, district IDs, confidential evaluation records, medical information, or other personally identifiable information. Use de-identified summaries, verify consequential recommendations, and apply professional judgment before acting.</div></div>
+<div class="breadcrumb"><a href="rs_hub_index.html">Region South Hub</a> &nbsp;&rsaquo;&nbsp; Leadership AI Prompt Library</div>
+
+<section class="hero">
+  <h2>Leadership AI Prompt Library</h2>
+  <p>Ready-to-customize prompts for instructional leadership, improvement planning, coaching, communication, professional learning, strategy, and operations.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><strong>42</strong><span>Leadership Prompts</span></div>
+    <div class="hero-stat"><strong>6</strong><span>Workflow Areas</span></div>
+    <div class="hero-stat"><strong>4</strong><span>Grounding Frameworks</span></div>
+  </div>
+  <div class="hero-tags"><span class="hero-tag">Instruction &amp; Observation</span><span class="hero-tag">Data &amp; Improvement</span><span class="hero-tag">Coaching &amp; Supervision</span><span class="hero-tag">Communication &amp; Facilitation</span><span class="hero-tag">Professional Learning</span><span class="hero-tag">Strategy &amp; Operations</span></div>
+</section>
+
+<section class="how-to"><div class="how-to-inner">
+  <h3>How to Use These Prompts</h3>
+  <div class="how-steps">
+    <div class="how-step"><b>1</b><strong>Choose a workflow area</strong><span>Start with the leadership task you need to complete.</span></div>
+    <div class="how-step"><b>2</b><strong>Select a prompt</strong><span>Only prompts from the selected area will appear.</span></div>
+    <div class="how-step"><b>3</b><strong>Customize details</strong><span>Add de-identified context, goals, data, or notes.</span></div>
+    <div class="how-step"><b>4</b><strong>Copy the filled prompt</strong><span>Paste it into ChatGPT, Claude, Copilot, or Gemini.</span></div>
+    <div class="how-step"><b>5</b><strong>Save useful prompts</strong><span>Build your library and export it to Excel.</span></div>
+  </div>
+</div></section>
 
 <div class="layout">
-  <div class="sidebar">
+  <aside class="sidebar">
     <div class="sidebar-section">
-      <div class="sidebar-heading">Categories</div>
-      <div class="cat-item active" onclick="filterByCategory('all', this)" data-cat="all">
-        <span class="cat-dot" style="background:#333F49"></span>
-        All categories
-        <span class="cat-count" id="count-all">0</span>
-      </div>
-      <div class="cat-item" onclick="filterByCategory('instructional-leadership', this)" data-cat="instructional-leadership">
-        <span class="cat-dot" style="background:#00237A"></span>
-        Instructional Leadership
-        <span class="cat-count" id="count-instructional-leadership">0</span>
-      </div>
-      <div class="cat-item" onclick="filterByCategory('data-driven', this)" data-cat="data-driven">
-        <span class="cat-dot" style="background:#00602D"></span>
-        Data Driven Instruction
-        <span class="cat-count" id="count-data-driven">0</span>
-      </div>
-      <div class="cat-item" onclick="filterByCategory('improvement', this)" data-cat="improvement">
-        <span class="cat-dot" style="background:#FF4D00"></span>
-        Improvement Planning
-        <span class="cat-count" id="count-improvement">0</span>
-      </div>
-      <div class="cat-item" onclick="filterByCategory('coaching', this)" data-cat="coaching">
-        <span class="cat-dot" style="background:#00237A"></span>
-        Leadership Coaching
-        <span class="cat-count" id="count-coaching">0</span>
-      </div>
-      <div class="cat-item" onclick="filterByCategory('communication', this)" data-cat="communication">
-        <span class="cat-dot" style="background:#FF0000"></span>
-        Staff Communication
-        <span class="cat-count" id="count-communication">0</span>
-      </div>
-      <div class="cat-item" onclick="filterByCategory('meetings', this)" data-cat="meetings">
-        <span class="cat-dot" style="background:#009DDB"></span>
-        Meeting Facilitation
-        <span class="cat-count" id="count-meetings">0</span>
-      </div>
-      <div class="cat-item" onclick="filterByCategory('student-work', this)" data-cat="student-work">
-        <span class="cat-dot" style="background:#00602D"></span>
-        Student Work Analysis
-        <span class="cat-count" id="count-student-work">0</span>
-      </div>
-      <div class="cat-item" onclick="filterByCategory('pd', this)" data-cat="pd">
-        <span class="cat-dot" style="background:#185FA5"></span>
-        Professional Development
-        <span class="cat-count" id="count-pd">0</span>
-      </div>
-      <div class="cat-item" onclick="filterByCategory('operations', this)" data-cat="operations">
-        <span class="cat-dot" style="background:#333F49"></span>
-        School Operations
-        <span class="cat-count" id="count-operations">0</span>
-      </div>
-      <div class="sidebar-divider"></div>
-      <div class="sidebar-heading">Leadership &amp; Supervision</div>
-      <div class="cat-item" onclick="filterByCategory('strategic', this)" data-cat="strategic">
-        <span class="cat-dot" style="background:#3C3489"></span>
-        Strategic Leadership
-        <span class="cat-count" id="count-strategic">0</span>
-      </div>
-      <div class="cat-item" onclick="filterByCategory('supervision', this)" data-cat="supervision">
-        <span class="cat-dot" style="background:#993C1D"></span>
-        Supervision & Evaluation
-        <span class="cat-count" id="count-supervision">0</span>
-      </div>
-      <div class="cat-item" onclick="filterByCategory('content', this)" data-cat="content">
-        <span class="cat-dot" style="background:#854F0B"></span>
-        Content Instruction
-        <span class="cat-count" id="count-content">0</span>
-      </div>
-      <div class="sidebar-divider"></div>
-      <div class="sidebar-heading">Classroom Observation</div>
-      <div class="cat-item" onclick="filterByCategory('observation', this)" data-cat="observation">
-        <span class="cat-dot" style="background:#00237A"></span>
-        Classroom Observation Tools
-        <span class="cat-count" id="count-observation">0</span>
-      </div>
+      <div class="sidebar-heading">Leadership Workflow Areas</div>
+      <div class="workflow-help">Choose one area to display its prompts. The areas are intentionally unnumbered because leadership work is iterative.</div>
+      <div class="cat-item" onclick="filterByWorkflow('instruction-observation',this)" data-workflow="instruction-observation"><span class="cat-dot" style="background:#00237A"></span>Instruction &amp; Observation<span class="cat-count" id="count-instruction-observation">0</span></div>
+      <div class="cat-item" onclick="filterByWorkflow('data-improvement',this)" data-workflow="data-improvement"><span class="cat-dot" style="background:#00602D"></span>Data &amp; Improvement<span class="cat-count" id="count-data-improvement">0</span></div>
+      <div class="cat-item" onclick="filterByWorkflow('coaching-supervision',this)" data-workflow="coaching-supervision"><span class="cat-dot" style="background:#6B21A8"></span>Coaching &amp; Supervision<span class="cat-count" id="count-coaching-supervision">0</span></div>
+      <div class="cat-item" onclick="filterByWorkflow('communication-facilitation',this)" data-workflow="communication-facilitation"><span class="cat-dot" style="background:#FF4D00"></span>Communication &amp; Facilitation<span class="cat-count" id="count-communication-facilitation">0</span></div>
+      <div class="cat-item" onclick="filterByWorkflow('professional-learning',this)" data-workflow="professional-learning"><span class="cat-dot" style="background:#009DDB"></span>Professional Learning<span class="cat-count" id="count-professional-learning">0</span></div>
+      <div class="cat-item" onclick="filterByWorkflow('strategy-operations',this)" data-workflow="strategy-operations"><span class="cat-dot" style="background:#333F49"></span>Strategy &amp; Operations<span class="cat-count" id="count-strategy-operations">0</span></div>
     </div>
-  </div>
+  </aside>
 
-  <div class="main">
-    <div class="page-header">
-      <div class="page-title">Region South AI Prompt Library</div>
-      <div class="page-subtitle">Select a role above to filter prompts relevant to you, or browse all categories.</div>
+  <main class="main">
+    <div class="library-bar">
+      <div class="library-bar-left"><strong>&#x1F4DA; My Library</strong><span class="library-count" id="lib-count">0</span><span style="font-size:10px;color:rgba(255,255,255,.65)">saved prompts</span></div>
+      <div class="library-bar-right"><button class="library-btn primary" onclick="toggleLibrary()">View My Library</button><button class="library-btn light" onclick="exportLibrary()">&#x2B07; Export to Excel</button><button class="library-btn quiet" onclick="clearLibrary()">Clear All</button></div>
     </div>
-    <div class="filter-bar">
-      <div class="search-wrap">
-        <span class="search-icon">&#x2315;</span>
-        <input type="text" id="search-input" placeholder="Search prompts..." oninput="applyFilters()">
-      </div>
-      <div class="filter-chips">
-        <div class="chip active" onclick="filterByAI('all',this)" data-ai="all">All tools</div>
-        <div class="chip" onclick="filterByAI('chatgpt',this)" data-ai="chatgpt">ChatGPT</div>
-        <div class="chip" onclick="filterByAI('claude',this)" data-ai="claude">Claude</div>
-        <div class="chip" onclick="filterByAI('copilot',this)" data-ai="copilot">Copilot</div>
-        <div class="chip" onclick="filterByAI('gemini',this)" data-ai="gemini">Gemini</div>
-      </div>
-    </div>
+    <div class="library-panel" id="library-panel"><div class="library-panel-head"><h3>&#x1F4DA; My Saved Leadership Prompts</h3><button class="library-btn quiet" onclick="toggleLibrary()">&#x2715;</button></div><div class="library-items" id="library-items"><div class="library-empty">No saved prompts yet.</div></div></div>
+    <div class="filter-bar"><div class="search-wrap"><span class="search-icon">&#x2315;</span><input type="text" id="search-input" placeholder="Search within the selected workflow area..." oninput="applyFilters()"></div></div>
+    <div class="results-count"><strong id="visible-count">0</strong> prompts shown</div>
     <div class="cards-grid" id="cards-container"></div>
-  </div>
+  </main>
 </div>
 
+<footer class="site-footer"><strong>Region South Instructional Resource Hub &mdash; Leadership Edition</strong> &middot; Los Angeles Unified School District &middot; <a href="rs_hub_index.html">Region South Hub</a> &middot; <a href="rs-prompt-library-teacher.html">Teacher Prompt Library</a></footer>
 <div class="toast" id="toast"></div>
 
 <script>
@@ -1452,59 +1468,53 @@ Raw observation notes:
 ];
 
 // STATE
-let activeCategory = 'all';
-let activeAI = 'all';
-let searchText = '';
-let openCards = new Set();
-
-const AI_URLS = {
-  claude: 'https://claude.ai/new',
-  chatgpt: 'https://chatgpt.com/',
-  gemini: 'https://gemini.google.com/',
-  copilot: 'https://copilot.microsoft.com/'
+const WORKFLOW_CATEGORIES={
+  'instruction-observation':['instructional-leadership','student-work','content','observation'],
+  'data-improvement':['data-driven','improvement'],
+  'coaching-supervision':['coaching','supervision'],
+  'communication-facilitation':['communication','meetings'],
+  'professional-learning':['pd'],
+  'strategy-operations':['operations','strategic']
 };
+const WORKFLOW_LABELS={
+  'instruction-observation':'Instruction & Observation',
+  'data-improvement':'Data & Improvement',
+  'coaching-supervision':'Coaching & Supervision',
+  'communication-facilitation':'Communication & Facilitation',
+  'professional-learning':'Professional Learning',
+  'strategy-operations':'Strategy & Operations'
+};
+const CATEGORY_LABELS={
+  'instructional-leadership':'Instructional Leadership','data-driven':'Data Driven Instruction','improvement':'Improvement Planning','coaching':'Leadership Coaching','communication':'Staff Communication','meetings':'Meeting Facilitation','student-work':'Student Work Analysis','pd':'Professional Development','operations':'School Operations','strategic':'Strategic Leadership','supervision':'Supervision & Evaluation','content':'Content Instruction','observation':'Classroom Observation Tools'
+};
+let activeWorkflow='';
+let searchText='';
+let openCards=new Set();
 
-function getFilteredPrompts() {
-  return PROMPTS.filter(p => {
-    const catMatch = activeCategory === 'all' || p.category === activeCategory;
-    const aiMatch = activeAI === 'all' || p.aiTools.includes(activeAI);
-    const search = searchText.toLowerCase();
-    const textMatch = !search || p.title.toLowerCase().includes(search) || p.purpose.toLowerCase().includes(search) || p.promptTemplate.toLowerCase().includes(search);
-    return catMatch && aiMatch && textMatch;
-  });
+function workflowForCategory(category){
+  return Object.keys(WORKFLOW_CATEGORIES).find(key=>WORKFLOW_CATEGORIES[key].includes(category))||'';
 }
-
-function filterByCategory(cat, el) {
-  activeCategory = cat;
-  document.querySelectorAll('.cat-item').forEach(c => c.classList.remove('active'));
+function getFilteredPrompts(){
+  if(!activeWorkflow)return[];
+  const search=searchText.toLowerCase();
+  return PROMPTS.filter(p=>WORKFLOW_CATEGORIES[activeWorkflow].includes(p.category)&&(!search||p.title.toLowerCase().includes(search)||p.purpose.toLowerCase().includes(search)||p.promptTemplate.toLowerCase().includes(search)));
+}
+function filterByWorkflow(workflow,el){
+  activeWorkflow=workflow;
+  document.querySelectorAll('.cat-item').forEach(x=>x.classList.remove('active'));
   el.classList.add('active');
   openCards.clear();
   renderCards();
+  document.querySelector('.main').scrollIntoView({behavior:'smooth',block:'start'});
 }
-
-function filterByAI(ai, el) {
-  activeAI = ai;
-  document.querySelectorAll('.chip[data-ai]').forEach(c => c.classList.remove('active'));
-  el.classList.add('active');
+function applyFilters(){
+  searchText=document.getElementById('search-input').value;
   renderCards();
 }
-
-
-function applyFilters() {
-  searchText = document.getElementById('search-input').value;
-  renderCards();
-}
-
-function updateCounts() {
-  const allCats = ['all','instructional-leadership','data-driven','improvement','coaching','communication','meetings','student-work','pd','operations','strategic','supervision','content','observation'];
-  allCats.forEach(cat => {
-    const el = document.getElementById('count-' + cat);
-    if (!el) return;
-    const count = PROMPTS.filter(p => {
-      const catMatch = cat === 'all' || p.category === cat;
-      return catMatch;
-    }).length;
-    el.textContent = count;
+function updateCounts(){
+  Object.keys(WORKFLOW_CATEGORIES).forEach(workflow=>{
+    const el=document.getElementById('count-'+workflow);
+    if(el)el.textContent=PROMPTS.filter(p=>WORKFLOW_CATEGORIES[workflow].includes(p.category)).length;
   });
 }
 
@@ -1583,26 +1593,6 @@ function copyBuiltPrompt(id) {
   navigator.clipboard.writeText(text).then(() => showToast('Customized prompt copied'));
 }
 
-function launchAI(id, ai, mode) {
-  const text = openCards.has(id) ? buildFilledPrompt(id) : PROMPTS.find(x=>x.id===id)?.promptTemplate || '';
-  if (!text) return;
-  const note = document.getElementById('launch-note-' + id);
-
-  if (mode === 'copy') {
-    navigator.clipboard.writeText(text).then(() => {
-      window.open(AI_URLS[ai], '_blank');
-      if (note) { note.textContent = 'Prompt copied! ' + ai.charAt(0).toUpperCase()+ai.slice(1) + ' is opening — press Ctrl+V (or Cmd+V) to paste.'; note.classList.add('visible'); }
-      showToast('Copied + opening ' + ai.charAt(0).toUpperCase()+ai.slice(1));
-    });
-  }
-  if (mode === 'deeplink') {
-    const url = 'https://claude.ai/new?q=' + encodeURIComponent(text);
-    window.open(url, '_blank');
-    if (note) { note.textContent = 'Opened Claude with deep link. If the prompt did not auto-populate, use "Copy + open" instead.'; note.classList.add('visible'); }
-    showToast('Opening Claude with deep link...');
-  }
-}
-
 function highlightPlaceholders(text) {
   return text.replace(/\[([^\]]+)\]/g, '<span class="fill-hint">[$1]</span>');
 }
@@ -1667,101 +1657,68 @@ function renderGroundingPanel(id) {
     '</div>';
 }
 
-function renderCards() {
+function renderCards(){
   updateCounts();
-  const filtered = getFilteredPrompts();
-  const container = document.getElementById('cards-container');
-
-  if (!filtered.length) {
-    container.innerHTML = '<div class="empty-state"><h3>No prompts match your filters</h3><p>Try changing your role, category, or search terms.</p></div>';
+  const container=document.getElementById('cards-container');
+  const visible=document.getElementById('visible-count');
+  if(!activeWorkflow){
+    if(visible)visible.textContent='0';
+    container.innerHTML='<div class="workflow-empty"><div>&#x1F9ED;</div><h3>Choose a leadership workflow area to begin</h3><p>Select an area from the left. Only the prompts connected to that leadership task will appear here.</p></div>';
     return;
   }
-
-  container.innerHTML = filtered.map(p => {
-    const color = CAT_COLORS[p.category] || '#333F49';
-    const bg = CAT_BG[p.category] || '#EEF0F2';
-    const icon = CAT_ICONS[p.category] || '&#128218;';
-    const isOpen = openCards.has(p.id);
-    const openClass = isOpen ? 'open' : '';
-    const aiIcons = p.aiTools.map(a => `<span style="font-size:10px;padding:2px 7px;border-radius:20px;background:var(--surface2);color:var(--text2);font-weight:600;">${a.charAt(0).toUpperCase()+a.slice(1)}</span>`).join('');
-
-    const fieldsHtml = p.fields ? p.fields.map(f => `
-      <div class="custom-field">
-        <div class="custom-label">${f.label}</div>
-        ${f.type === 'textarea'
-          ? `<textarea class="custom-input" id="cf-${p.id}-${f.key}" placeholder="${f.ph}" rows="3" oninput="updateBuiltPrompt(${p.id})"></textarea>`
-          : `<input type="text" class="custom-input" id="cf-${p.id}-${f.key}" placeholder="${f.ph}" oninput="updateBuiltPrompt(${p.id})">`
-        }
-      </div>`).join('') : '';
-
-    return `
-    <div class="prompt-card" id="card-${p.id}">
-      <div class="card-top" onclick="toggleCard(${p.id})">
-        <div class="card-icon" style="background:${bg};color:${color};font-size:18px">${icon}</div>
-        <div class="card-meta">
-          <div class="card-title">${p.title}</div>
-          <div class="card-purpose">${p.purpose}</div>
-          <div class="card-tags" style="margin-top:8px;gap:4px;flex-wrap:wrap;"><span style="margin-left:4px">${aiIcons}</span>
-          </div>
-        </div>
-        <div class="card-chevron ${openClass}" id="chev-${p.id}">›</div>
-      </div>
-      <div class="card-body ${openClass}" id="body-${p.id}">
-        <div class="card-body-inner">
-          ${renderGroundingPanel(p.id)}
-          <div class="prompt-label">Prompt template</div>
-          <div class="prompt-text-box">${highlightPlaceholders(p.promptTemplate)}</div>
-
-          <div class="card-actions" style="margin-top:12px">
-            <button class="btn btn-sm" onclick="copyRawPrompt(${p.id})">Copy template</button>
-            <button class="btn btn-sm btn-primary" onclick="toggleCustomize(${p.id})">Customize &amp; fill in ▾</button>
-          </div>
-
-          <div class="customize-panel" id="customize-${p.id}">
-            <div class="customize-title">Fill in your details</div>
-            <div class="custom-fields">${fieldsHtml}</div>
-            <div class="built-prompt" id="built-${p.id}"></div>
-            <div class="card-actions" style="margin-top:12px">
-              <button class="btn btn-sm" onclick="copyBuiltPrompt(${p.id})">Copy filled prompt</button>
-            </div>
-
-            <div class="ai-launcher" style="margin-top:16px">
-              <div class="ai-launcher-label">Launch with AI — copy + open</div>
-              <div class="ai-grid">
-                <button class="ai-btn" onclick="launchAI(${p.id},'claude','copy')">
-                  <div class="ai-icon icon-claude">C</div>
-                  <span>Claude</span>
-                </button>
-                <button class="ai-btn" onclick="launchAI(${p.id},'chatgpt','copy')">
-                  <div class="ai-icon icon-chatgpt">G</div>
-                  <span>ChatGPT</span>
-                </button>
-                <button class="ai-btn" onclick="launchAI(${p.id},'gemini','copy')">
-                  <div class="ai-icon icon-gemini">G</div>
-                  <span>Gemini</span>
-                </button>
-                <button class="ai-btn" onclick="launchAI(${p.id},'copilot','copy')">
-                  <div class="ai-icon icon-copilot">M</div>
-                  <span>Copilot</span>
-                </button>
-              </div>
-              <div class="ai-launcher-label" style="margin-top:14px">Claude deep link (experimental)</div>
-              <div class="ai-grid-deep">
-                <button class="ai-btn ai-btn-wide" onclick="launchAI(${p.id},'claude','deeplink')">
-                  <div class="ai-icon icon-claude">C</div>
-                  <div class="ai-text">
-                    <div class="ai-name">Open Claude with prompt pre-filled</div>
-                    <div class="ai-sub">May not work in all accounts · experimental</div>
-                  </div>
-                </button>
-              </div>
-              <div class="launch-note" id="launch-note-${p.id}"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>`;
+  const filtered=getFilteredPrompts();
+  if(visible)visible.textContent=filtered.length;
+  if(!filtered.length){
+    container.innerHTML='<div class="empty-state"><h3>No prompts match your search</h3><p>Try a different keyword within '+WORKFLOW_LABELS[activeWorkflow]+'.</p></div>';
+    return;
+  }
+  container.innerHTML=filtered.map(p=>{
+    const color=CAT_COLORS[p.category]||'#333F49';
+    const bg=CAT_BG[p.category]||'#EEF0F2';
+    const icon=CAT_ICONS[p.category]||'&#128218;';
+    const isOpen=openCards.has(p.id);
+    const openClass=isOpen?'open':'';
+    const fieldsHtml=p.fields?p.fields.map(f=>'<div class="custom-field"><div class="custom-label">'+f.label+'</div>'+(f.type==='textarea'?'<textarea class="custom-input" id="cf-'+p.id+'-'+f.key+'" placeholder="'+f.ph+'" rows="3" oninput="updateBuiltPrompt('+p.id+')"></textarea>':'<input type="text" class="custom-input" id="cf-'+p.id+'-'+f.key+'" placeholder="'+f.ph+'" oninput="updateBuiltPrompt('+p.id+')">')+'</div>').join(''):'';
+    return '<div class="prompt-card" id="card-'+p.id+'">'+
+      '<div class="card-top" onclick="toggleCard('+p.id+')"><div class="card-icon" style="background:'+bg+';color:'+color+';font-size:18px">'+icon+'</div><div class="card-meta"><div class="card-title">'+p.title+'</div><div class="card-purpose">'+p.purpose+'</div><div class="card-tags"><span class="card-category">'+CATEGORY_LABELS[p.category]+'</span></div></div><div class="card-chevron '+openClass+'" id="chev-'+p.id+'">&rsaquo;</div></div>'+
+      '<div class="card-body '+openClass+'" id="body-'+p.id+'"><div class="card-body-inner">'+renderGroundingPanel(p.id)+'<div class="prompt-label">Prompt template</div><div class="prompt-text-box">'+highlightPlaceholders(p.promptTemplate)+'</div>'+
+      '<div class="card-actions"><button class="btn btn-sm" onclick="copyRawPrompt('+p.id+')">Copy template</button><button class="btn btn-sm btn-primary" onclick="toggleCustomize('+p.id+')">Customize &amp; fill in &#9662;</button><button class="btn btn-sm" onclick="savePrompt('+p.id+')">&#x2B50; Save to My Library</button></div>'+
+      '<div class="customize-panel" id="customize-'+p.id+'"><div class="customize-title">Fill in your details</div><div class="custom-fields">'+fieldsHtml+'</div><div class="built-prompt" id="built-'+p.id+'"></div><div class="card-actions"><button class="btn btn-sm btn-primary" onclick="copyBuiltPrompt('+p.id+')">Copy filled prompt</button><button class="btn btn-sm" onclick="savePrompt('+p.id+')">&#x2B50; Save filled prompt</button></div></div>'+
+      '</div></div></div>';
   }).join('');
+}
+
+const LIBRARY_KEY='rs_leadership_prompt_library_v1';
+function getLibrary(){try{return JSON.parse(localStorage.getItem(LIBRARY_KEY)||'[]');}catch(e){return[];}}
+function setLibrary(items){localStorage.setItem(LIBRARY_KEY,JSON.stringify(items));}
+function updateLibraryCount(){const el=document.getElementById('lib-count');if(el)el.textContent=getLibrary().length;}
+function savePrompt(id){
+  const p=PROMPTS.find(x=>x.id===id);if(!p)return;
+  const text=buildFilledPrompt(id);
+  const items=getLibrary();
+  if(items.some(x=>x.promptId===id&&x.text===text)){showToast('This prompt is already saved');return;}
+  items.unshift({id:Date.now(),promptId:id,title:p.title,workflow:WORKFLOW_LABELS[workflowForCategory(p.category)],category:CATEGORY_LABELS[p.category],saved:new Date().toLocaleString(),text:text});
+  if(items.length>50)items.pop();
+  setLibrary(items);updateLibraryCount();renderLibrary();showToast('Saved to My Library');
+}
+function toggleLibrary(){document.getElementById('library-panel').classList.toggle('open');renderLibrary();}
+function renderLibrary(){
+  const items=getLibrary(),el=document.getElementById('library-items');if(!el)return;
+  if(!items.length){el.innerHTML='<div class="library-empty">No saved prompts yet. Open a prompt and select <strong>Save to My Library</strong>.</div>';return;}
+  el.innerHTML=items.map(item=>'<div class="library-item"><div class="library-item-meta"><div class="library-item-title">'+item.title+'</div><div class="library-item-detail">'+item.workflow+' &middot; '+item.category+' &middot; '+item.saved+'</div><div class="library-item-preview">'+item.text.replace(/\n/g,' ').slice(0,130)+'&hellip;</div></div><div class="library-item-actions"><button onclick="copyLibraryItem('+item.id+')">Copy</button><button onclick="deleteLibraryItem('+item.id+')">Remove</button></div></div>').join('');
+}
+function copyLibraryItem(id){const item=getLibrary().find(x=>x.id===id);if(item)navigator.clipboard.writeText(item.text).then(()=>showToast('Saved prompt copied'));}
+function deleteLibraryItem(id){setLibrary(getLibrary().filter(x=>x.id!==id));updateLibraryCount();renderLibrary();showToast('Prompt removed');}
+function clearLibrary(){if(!getLibrary().length){showToast('Your library is already empty');return;}if(!confirm('Clear all saved leadership prompts?'))return;setLibrary([]);updateLibraryCount();renderLibrary();showToast('Library cleared');}
+function exportLibrary(){
+  const items=getLibrary();if(!items.length){showToast('Save at least one prompt before exporting');return;}
+  const rows=[['Date Saved','Prompt Title','Workflow Area','Category','Full Prompt Text']];
+  items.forEach(x=>rows.push([x.saved,x.title,x.workflow,x.category,x.text]));
+  const wb=XLSX.utils.book_new(),ws=XLSX.utils.aoa_to_sheet(rows);
+  ws['!cols']=[{wch:20},{wch:38},{wch:28},{wch:28},{wch:90}];
+  XLSX.utils.book_append_sheet(wb,ws,'Leadership Prompts');
+  XLSX.writeFile(wb,'RS-Leadership-Prompt-Library-'+new Date().toISOString().slice(0,10)+'.xlsx');
+  showToast('Excel file downloaded');
 }
 
 function updateBuiltPrompt(id) {
@@ -1778,6 +1735,8 @@ function showToast(msg) {
 }
 
 renderCards();
+updateLibraryCount();
+renderLibrary();
 </script>
 </body>
 </html>
