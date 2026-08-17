@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Leadership AI Prompt Library | Region South Instructional Resource Hub</title>
-<meta name="description" content="Ready-to-customize AI prompts for Region South school and instructional leaders.">
+<title>Administrator AI Prompt Library | Region South Instructional Resource Hub</title>
+<meta name="description" content="Ready-to-customize AI prompts for Region South school and instructional administrators.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -282,18 +282,18 @@ textarea.custom-input { resize: vertical; min-height: 60px; }
     <img src="RS-logo.png" alt="Region South LAUSD">
     <div><h1>Region South Instructional Resource Hub</h1><p>Los Angeles Unified School District</p></div>
   </div>
-  <div class="edition-badge">Leadership Edition</div>
+  <div class="edition-badge">Administrator Edition</div>
 </header>
 
-<div class="use-banner"><span>&#x1F916;</span><div><strong>How to use this library:</strong> Choose the leadership workflow area that matches your current need, select a prompt, customize it, and copy the filled version into your preferred AI tool. Save prompts you use often to My Library.</div></div>
+<div class="use-banner"><span>&#x1F916;</span><div><strong>How to use this library:</strong> Choose the administrator workflow area that matches your current need, select a prompt, customize it, and copy the filled version into your preferred AI tool. Save prompts you use often to My Library.</div></div>
 <div class="privacy-banner"><span>&#x1F512;</span><div><strong>Privacy and professional judgment:</strong> Do not enter student or employee names, district IDs, confidential evaluation records, medical information, or other personally identifiable information. Use de-identified summaries, verify consequential recommendations, and apply professional judgment before acting.</div></div>
-<div class="breadcrumb"><a href="rs_hub_index.html">Region South Hub</a> &nbsp;&rsaquo;&nbsp; Leadership AI Prompt Library</div>
+<div class="breadcrumb"><a href="rs_hub_index.html">Region South Hub</a> &nbsp;&rsaquo;&nbsp; Administrator AI Prompt Library</div>
 
 <section class="hero">
-  <h2>Leadership AI Prompt Library</h2>
+  <h2>Administrator AI Prompt Library</h2>
   <p>Ready-to-customize prompts for instructional leadership, improvement planning, coaching, communication, professional learning, strategy, and operations.</p>
   <div class="hero-stats">
-    <div class="hero-stat"><strong>42</strong><span>Leadership Prompts</span></div>
+    <div class="hero-stat"><strong>42</strong><span>Administrator Prompts</span></div>
     <div class="hero-stat"><strong>6</strong><span>Workflow Areas</span></div>
     <div class="hero-stat"><strong>4</strong><span>Grounding Frameworks</span></div>
   </div>
@@ -303,7 +303,7 @@ textarea.custom-input { resize: vertical; min-height: 60px; }
 <section class="how-to"><div class="how-to-inner">
   <h3>How to Use These Prompts</h3>
   <div class="how-steps">
-    <div class="how-step"><b>1</b><strong>Choose a workflow area</strong><span>Start with the leadership task you need to complete.</span></div>
+    <div class="how-step"><b>1</b><strong>Choose a workflow area</strong><span>Start with the administrative task you need to complete.</span></div>
     <div class="how-step"><b>2</b><strong>Select a prompt</strong><span>Only prompts from the selected area will appear.</span></div>
     <div class="how-step"><b>3</b><strong>Customize details</strong><span>Add de-identified context, goals, data, or notes.</span></div>
     <div class="how-step"><b>4</b><strong>Copy the filled prompt</strong><span>Paste it into ChatGPT, Claude, Copilot, or Gemini.</span></div>
@@ -314,7 +314,7 @@ textarea.custom-input { resize: vertical; min-height: 60px; }
 <div class="layout">
   <aside class="sidebar">
     <div class="sidebar-section">
-      <div class="sidebar-heading">Leadership Workflow Areas</div>
+      <div class="sidebar-heading">Administrator Workflow Areas</div>
       <div class="workflow-help">Choose one area to display its prompts. The areas are intentionally unnumbered because leadership work is iterative.</div>
       <div class="cat-item" onclick="filterByWorkflow('instruction-observation',this)" data-workflow="instruction-observation"><span class="cat-dot" style="background:#00237A"></span>Instruction &amp; Observation<span class="cat-count" id="count-instruction-observation">0</span></div>
       <div class="cat-item" onclick="filterByWorkflow('data-improvement',this)" data-workflow="data-improvement"><span class="cat-dot" style="background:#00602D"></span>Data &amp; Improvement<span class="cat-count" id="count-data-improvement">0</span></div>
@@ -330,14 +330,14 @@ textarea.custom-input { resize: vertical; min-height: 60px; }
       <div class="library-bar-left"><strong>&#x1F4DA; My Library</strong><span class="library-count" id="lib-count">0</span><span style="font-size:10px;color:rgba(255,255,255,.65)">saved prompts</span></div>
       <div class="library-bar-right"><button class="library-btn primary" onclick="toggleLibrary()">View My Library</button><button class="library-btn light" onclick="exportLibrary()">&#x2B07; Export to Excel</button><button class="library-btn quiet" onclick="clearLibrary()">Clear All</button></div>
     </div>
-    <div class="library-panel" id="library-panel"><div class="library-panel-head"><h3>&#x1F4DA; My Saved Leadership Prompts</h3><button class="library-btn quiet" onclick="toggleLibrary()">&#x2715;</button></div><div class="library-items" id="library-items"><div class="library-empty">No saved prompts yet.</div></div></div>
+    <div class="library-panel" id="library-panel"><div class="library-panel-head"><h3>&#x1F4DA; My Saved Administrator Prompts</h3><button class="library-btn quiet" onclick="toggleLibrary()">&#x2715;</button></div><div class="library-items" id="library-items"><div class="library-empty">No saved prompts yet.</div></div></div>
     <div class="filter-bar"><div class="search-wrap"><span class="search-icon">&#x2315;</span><input type="text" id="search-input" placeholder="Search within the selected workflow area..." oninput="applyFilters()"></div></div>
     <div class="results-count"><strong id="visible-count">0</strong> prompts shown</div>
     <div class="cards-grid" id="cards-container"></div>
   </main>
 </div>
 
-<footer class="site-footer"><strong>Region South Instructional Resource Hub &mdash; Leadership Edition</strong> &middot; Los Angeles Unified School District &middot; <a href="rs_hub_index.html">Region South Hub</a> &middot; <a href="rs-prompt-library-teacher.html">Teacher Prompt Library</a></footer>
+<footer class="site-footer"><strong>Region South Instructional Resource Hub &mdash; Administrator Edition</strong> &middot; Los Angeles Unified School District &middot; <a href="rs_hub_index.html">Region South Hub</a> &middot; <a href="rs-prompt-library-teacher.html">Teacher Prompt Library</a></footer>
 <div class="toast" id="toast"></div>
 
 <script>
@@ -1663,7 +1663,7 @@ function renderCards(){
   const visible=document.getElementById('visible-count');
   if(!activeWorkflow){
     if(visible)visible.textContent='0';
-    container.innerHTML='<div class="workflow-empty"><div>&#x1F9ED;</div><h3>Choose a leadership workflow area to begin</h3><p>Select an area from the left. Only the prompts connected to that leadership task will appear here.</p></div>';
+    container.innerHTML='<div class="workflow-empty"><div>&#x1F9ED;</div><h3>Choose an administrator workflow area to begin</h3><p>Select an area from the left. Only the prompts connected to that administrative task will appear here.</p></div>';
     return;
   }
   const filtered=getFilteredPrompts();
@@ -1709,15 +1709,15 @@ function renderLibrary(){
 }
 function copyLibraryItem(id){const item=getLibrary().find(x=>x.id===id);if(item)navigator.clipboard.writeText(item.text).then(()=>showToast('Saved prompt copied'));}
 function deleteLibraryItem(id){setLibrary(getLibrary().filter(x=>x.id!==id));updateLibraryCount();renderLibrary();showToast('Prompt removed');}
-function clearLibrary(){if(!getLibrary().length){showToast('Your library is already empty');return;}if(!confirm('Clear all saved leadership prompts?'))return;setLibrary([]);updateLibraryCount();renderLibrary();showToast('Library cleared');}
+function clearLibrary(){if(!getLibrary().length){showToast('Your library is already empty');return;}if(!confirm('Clear all saved administrator prompts?'))return;setLibrary([]);updateLibraryCount();renderLibrary();showToast('Library cleared');}
 function exportLibrary(){
   const items=getLibrary();if(!items.length){showToast('Save at least one prompt before exporting');return;}
   const rows=[['Date Saved','Prompt Title','Workflow Area','Category','Full Prompt Text']];
   items.forEach(x=>rows.push([x.saved,x.title,x.workflow,x.category,x.text]));
   const wb=XLSX.utils.book_new(),ws=XLSX.utils.aoa_to_sheet(rows);
   ws['!cols']=[{wch:20},{wch:38},{wch:28},{wch:28},{wch:90}];
-  XLSX.utils.book_append_sheet(wb,ws,'Leadership Prompts');
-  XLSX.writeFile(wb,'RS-Leadership-Prompt-Library-'+new Date().toISOString().slice(0,10)+'.xlsx');
+  XLSX.utils.book_append_sheet(wb,ws,'Administrator Prompts');
+  XLSX.writeFile(wb,'RS-Administrator-Prompt-Library-'+new Date().toISOString().slice(0,10)+'.xlsx');
   showToast('Excel file downloaded');
 }
 
