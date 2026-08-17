@@ -149,6 +149,10 @@ body{font-family:'Open Sans',sans-serif;font-size:15px;line-height:1.65;color:#1
 .search-wrap input{width:100%;padding:8px 12px 8px 34px;border:1.5px solid rgba(0,35,122,0.15);border-radius:8px;font-size:13px;font-family:'Open Sans',sans-serif;color:#1a1a2e;outline:none;background:#f2f4f8;}
 .search-wrap input:focus{border-color:#009DDB;background:#fff;}
 .search-wrap::before{content:'🔍';position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:12px;}
+.workflow-empty{background:#fff;border:2px dashed rgba(0,35,122,0.18);border-radius:12px;padding:38px 24px;text-align:center;margin-bottom:32px;}
+.workflow-empty-icon{font-size:30px;margin-bottom:8px;}
+.workflow-empty h3{font-family:'Poppins',sans-serif;font-size:16px;color:#00237A;margin-bottom:6px;}
+.workflow-empty p{font-size:13px;color:#4e6267;max-width:620px;margin:0 auto;}
 .results-count{font-size:12px;color:#4e6267;margin-bottom:16px;}
 .results-count strong{color:#00237A;}
 .stage-section{margin-bottom:8px;}
@@ -332,7 +336,7 @@ textarea.custom-input{resize:vertical;min-height:72px;}
 
 <div class="ai-banner">
   <span class="ai-banner-icon">&#x1F916;</span>
-  <div><strong>How to use this library:</strong> Select your grade band, find a prompt, then click <strong>Customize &amp; Fill In</strong> to enter your specific details. The prompt updates live &mdash; copy the filled version directly into any AI chat tool. Save prompts you use often to <strong>My Library</strong> and export to Excel anytime.</div>
+  <div><strong>How to use this library:</strong> Select your grade band, choose the <strong>workflow area</strong> that matches your current need, then select a prompt. Click <strong>Customize &amp; Fill In</strong> to enter your details. Copy the filled version into any AI chat tool, or save prompts you use often to <strong>My Library</strong>.</div>
 </div>
 
 <div class="equity-banner">
@@ -348,10 +352,10 @@ textarea.custom-input{resize:vertical;min-height:72px;}
 
 <div class="hero">
   <h2>Teacher AI Prompt Library</h2>
-  <p>Ready-to-customize AI prompts for every stage of your instructional work &mdash; grounded in the LAUSD Teaching and Learning Framework, Webb&rsquo;s DOK, and California content standards.</p>
+  <p>Ready-to-customize AI prompts for the full instructional workflow &mdash; grounded in the LAUSD Teaching and Learning Framework, Webb&rsquo;s DOK, and California content standards.</p>
   <div class="hero-stats">
     <div><div class="hero-stat-num">52</div><div class="hero-stat-label">Prompts</div></div>
-    <div><div class="hero-stat-num">6</div><div class="hero-stat-label">Workflow Stages</div></div>
+    <div><div class="hero-stat-num">6</div><div class="hero-stat-label">Workflow Areas</div></div>
     <div><div class="hero-stat-num">3</div><div class="hero-stat-label">Content Frameworks</div></div>
     <div><div class="hero-stat-num">5</div><div class="hero-stat-label">TLF Standards</div></div>
   </div>
@@ -370,9 +374,9 @@ textarea.custom-input{resize:vertical;min-height:72px;}
   <div class="how-to-use">
     <h3>How to Use These Prompts</h3>
     <div class="how-steps">
-      <div class="how-step"><div class="how-step-num">1</div><div class="how-step-title">Know your students first</div><div class="how-step-desc">Use <strong>My Students</strong> prompts to surface data, assets, and equity needs before planning.</div></div>
-      <div class="how-step"><div class="how-step-num">2</div><div class="how-step-title">Select grade band</div><div class="how-step-desc">Pre-fills [grade level] across all prompts automatically.</div></div>
-      <div class="how-step"><div class="how-step-num">3</div><div class="how-step-title">Find your stage</div><div class="how-step-desc">Filter by My Students, Plan, Prepare, Teach, Assess, or Reflect.</div></div>
+      <div class="how-step"><div class="how-step-num">1</div><div class="how-step-title">Select grade band</div><div class="how-step-desc">Pre-fills [grade level] across all prompts automatically.</div></div>
+      <div class="how-step"><div class="how-step-num">2</div><div class="how-step-title">Choose a workflow area</div><div class="how-step-desc">Select My Students, Plan, Prepare, Teach, Assess, or Reflect &amp; Adjust.</div></div>
+      <div class="how-step"><div class="how-step-num">3</div><div class="how-step-title">Choose a prompt</div><div class="how-step-desc">Only prompts for your selected workflow area will appear.</div></div>
       <div class="how-step"><div class="how-step-num">4</div><div class="how-step-title">Customize &amp; fill in</div><div class="how-step-desc">Enter your standard, topic, and details. Prompt updates live.</div></div>
       <div class="how-step"><div class="how-step-num">5</div><div class="how-step-title">Copy filled prompt</div><div class="how-step-desc">One click copies your customized prompt + grounding sources.</div></div>
       <div class="how-step"><div class="how-step-num">6</div><div class="how-step-title">Save to My Library</div><div class="how-step-desc">Save prompts you use often. Export to Excel anytime.</div></div>
@@ -420,15 +424,14 @@ textarea.custom-input{resize:vertical;min-height:72px;}
 
   <div class="controls-block">
     <div class="controls-row">
-      <span class="controls-label">Stage:</span>
-      <div class="filter-chips" id="stage-chips">
-        <div class="chip active" data-stage="all" onclick="filterStage('all',this)">All Stages</div>
+      <span class="controls-label">Workflow:</span>
+      <div class="filter-chips" id="stage-chips" aria-label="Choose a workflow area">
         <div class="chip" data-stage="mystudents" onclick="filterStage('mystudents',this)">&#x1F9D1;&#x200D;&#x1F393; My Students</div>
-        <div class="chip" data-stage="plan"    onclick="filterStage('plan',this)">&#x1F4CB; Plan</div>
+        <div class="chip" data-stage="plan" onclick="filterStage('plan',this)">&#x1F4CB; Plan</div>
         <div class="chip" data-stage="prepare" onclick="filterStage('prepare',this)">&#x2705; Prepare</div>
-        <div class="chip" data-stage="teach"   onclick="filterStage('teach',this)">&#x1F4AC; Teach</div>
-        <div class="chip" data-stage="assess"  onclick="filterStage('assess',this)">&#x1F4CA; Assess</div>
-        <div class="chip" data-stage="reflect" onclick="filterStage('reflect',this)">&#x1F4A1; Reflect</div>
+        <div class="chip" data-stage="teach" onclick="filterStage('teach',this)">&#x1F4AC; Teach</div>
+        <div class="chip" data-stage="assess" onclick="filterStage('assess',this)">&#x1F4CA; Assess</div>
+        <div class="chip" data-stage="reflect" onclick="filterStage('reflect',this)">&#x1F4A1; Reflect &amp; Adjust</div>
       </div>
     </div>
     <div class="controls-divider"></div>
@@ -448,7 +451,7 @@ textarea.custom-input{resize:vertical;min-height:72px;}
     </div>
   </div>
 
-  <div class="results-count"><strong id="visible-count">52</strong> prompts shown</div>
+  <div class="results-count"><strong id="visible-count">0</strong> prompts shown</div>
   <div id="cards-container"></div>
 
 </div>
@@ -736,35 +739,40 @@ template:'I am a [grade level] teacher.\n\nPlease read TLF Standard 5 at https:/
 ];
 
 const SC={
-  mystudents:{icon:'&#x1F9D1;&#x200D;&#x1F393;',label:'Stage 0 &mdash; My Students',desc:'Know before you plan &middot; Data &middot; Assets &middot; Equity Lens'},
-  plan:{icon:'&#x1F4CB;',label:'Stage 1 &mdash; Plan',desc:'Before the lesson &middot; Standards &middot; Tasks &middot; Lesson Design'},
-  prepare:{icon:'&#x2705;',label:'Stage 2 &mdash; Prepare',desc:'Setting up for success &middot; Scaffolds &middot; Discourse &middot; Differentiation'},
-  teach:{icon:'&#x1F4AC;',label:'Stage 3 &mdash; Teach',desc:'During instruction &middot; Questions &middot; Explanations &middot; Discourse Moves'},
-  assess:{icon:'&#x1F4CA;',label:'Stage 4 &mdash; Assess',desc:'After the lesson &middot; Exit Tickets &middot; Student Work &middot; Data'},
-  reflect:{icon:'&#x1F4A1;',label:'Stage 5 &mdash; Reflect &amp; Adjust',desc:'The improvement cycle &middot; Reteach &middot; Coaching &middot; Growth'}
+  mystudents:{icon:'&#x1F9D1;&#x200D;&#x1F393;',label:'My Students',desc:'Know before you plan &middot; Data &middot; Assets &middot; Equity Lens'},
+  plan:{icon:'&#x1F4CB;',label:'Plan',desc:'Before the lesson &middot; Standards &middot; Tasks &middot; Lesson Design'},
+  prepare:{icon:'&#x2705;',label:'Prepare',desc:'Setting up for success &middot; Scaffolds &middot; Discourse &middot; Differentiation'},
+  teach:{icon:'&#x1F4AC;',label:'Teach',desc:'During instruction &middot; Questions &middot; Explanations &middot; Discourse Moves'},
+  assess:{icon:'&#x1F4CA;',label:'Assess',desc:'After the lesson &middot; Exit Tickets &middot; Student Work &middot; Data'},
+  reflect:{icon:'&#x1F4A1;',label:'Reflect &amp; Adjust',desc:'The improvement cycle &middot; Reteach &middot; Coaching &middot; Growth'}
 };
 const TC={mystudents:'tag-mystudents',plan:'tag-plan',prepare:'tag-prepare',teach:'tag-teach',assess:'tag-assess',reflect:'tag-reflect',ela:'tag-ela',math:'tag-math',science:'tag-science',universal:'tag-universal'};
 
-let cStage='all',cContent='all',cBand='[grade level]';
+let cStage='',cContent='all',cBand='[grade level]';
 const openSet=new Set();
 
 function renderAll(){
   const cont=document.getElementById('cards-container');
   const stages=['mystudents','plan','prepare','teach','assess','reflect'];
+  if(!cStage){
+    cont.innerHTML='<div class="workflow-empty"><div class="workflow-empty-icon">&#x1F9ED;</div><h3>Choose a workflow area to begin</h3><p>Select My Students, Plan, Prepare, Teach, Assess, or Reflect &amp; Adjust above. The matching prompts will appear here.</p></div>';
+    const vc=document.getElementById('visible-count');if(vc)vc.textContent='0';
+    return;
+  }
   let html='',tot=0;
   const srch=(document.getElementById('search-input')||{value:''}).value.toLowerCase().trim();
   stages.forEach(s=>{
     const sp=PROMPTS.filter(p=>{
-      if(cStage!=='all'&&p.stage!==cStage)return false;
+      if(p.stage!==cStage)return false;
       if(cContent!=='all'&&!p.content.includes(cContent))return false;
       if(srch&&(p.title+' '+p.purpose+' '+p.template).toLowerCase().indexOf(srch)===-1)return false;
       return p.stage===s;
     });
-    const hide=cStage!=='all'&&cStage!==s?'display:none;':'';
+    const hide=cStage!==s?'display:none;':'';
     const cfg=SC[s];
     html+=`<div class="stage-section stage-${s}" id="sec-${s}" style="${hide}"><div class="stage-header"><div class="stage-icon">${cfg.icon}</div><h3>${cfg.label}</h3><span class="stage-desc">${cfg.desc}</span></div><div class="cards-grid">`;
     sp.forEach(p=>{html+=mkCard(p);tot++;});
-    if(!sp.length&&(cStage==='all'||cStage===s))html+='<div style="padding:20px;font-size:13px;color:#4e6267;background:#fff;border-radius:12px;border:1px solid rgba(0,35,122,0.08);">No prompts match your current filters in this stage.</div>';
+    if(!sp.length&&cStage===s)html+='<div style="padding:20px;font-size:13px;color:#4e6267;background:#fff;border-radius:12px;border:1px solid rgba(0,35,122,0.08);">No prompts match your current filters in this workflow area.</div>';
     html+='</div></div>';
   });
   cont.innerHTML=html;
@@ -934,7 +942,7 @@ function clearLibrary(){
 function exportToExcel(){
   const lib=getLib();
   if(!lib.length){showT('No saved prompts to export yet.');return;}
-  const rows=[['Date Saved','Prompt Title','Stage','TLF Anchor','Grade Band','Full Prompt Text']];
+  const rows=[['Date Saved','Prompt Title','Workflow Area','TLF Anchor','Grade Band','Full Prompt Text']];
   lib.forEach(it=>rows.push([it.at,it.title,it.stage.charAt(0).toUpperCase()+it.stage.slice(1),it.tlf,it.band,it.text]));
   const wb=XLSX.utils.book_new();
   const ws=XLSX.utils.aoa_to_sheet(rows);
